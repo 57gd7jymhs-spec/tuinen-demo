@@ -23,6 +23,13 @@ Instructies:
 - Bij doorvragen: geef meer detail, herhaal niet gewoon hetzelfde antwoord`;
 
 module.exports = async function handler(req, res) {
+  // Diagnostic: list available models
+  if (req.method === 'GET') {
+    const apiKey = process.env.GEMINI_API_KEY;
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1/models?key=${apiKey}`);
+    const d = await r.json();
+    return res.json(d);
+  }
   if (req.method !== 'POST') return res.status(405).end();
 
   const { messages } = req.body || {};
