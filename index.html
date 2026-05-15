@@ -1338,21 +1338,46 @@ if (shell && divider && handle && captionTitle) {
 (function(){
   var FAQ_DATA=[
     {id:'emergency',chip:'🚨 Noodgeval',
-     keywords:['nood','spoed','lek','lekkage','burst','dringend','vloed','water','overstroming','gesprongen'],
-     answer:'Bij een noodgeval: sluit eerst de <strong>hoofdkraan</strong> af (meestal bij de meterkast). Bel ons daarna direct — wij zijn 24/7 bereikbaar en gemiddeld binnen 45 minuten ter plaatse.'},
+     keywords:['nood','spoed','dringend','lek','lekkage','lekt','burst','vloed','overstroming',
+               'gesprongen','spuit','waterlek','pijp','druk','urgent','crisis','schade',
+               'ondergelopen','overloopt','kapot','water op','wateroverlast',
+               'emergency','flood','pipe','broken','leaking','leak','help'],
+     answer:'Bij een noodgeval: sluit eerst de <strong>hoofdkraan</strong> af (meestal bij de meterkast). Bel ons daarna direct — wij zijn 24/7 bereikbaar en gemiddeld binnen <strong>45 minuten</strong> ter plaatse.'},
     {id:'services',chip:'🔧 Diensten & prijzen',
-     keywords:['dienst','service','prijs','kost','tarief','ketel','afvoer','lekdetectie','verstopt','onderhoud','reparatie','installatie','offerte'],
-     answer:'Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie & reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie & onderhoud<br><br>Prijzen variëren per klus. Bel ons voor een <strong>gratis offerte</strong> zonder verplichtingen.'},
+     keywords:['dienst','service','prijs','kost','tarief','ketel','afvoer','lekdetectie','verstopt',
+               'onderhoud','reparatie','installatie','offerte','kosten','hoeveel','euro','betalen',
+               'aanbod','welke','bieden','repareer','maken','verhelpen','probleem','fix',
+               'price','cost','how much','services','what do you','can you fix'],
+     answer:'Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie &amp; reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie &amp; onderhoud<br><br>Prijzen variëren per klus. Bel ons voor een <strong>gratis offerte</strong> zonder verplichtingen.'},
     {id:'availability',chip:'📍 Bereikbaarheid & regio',
-     keywords:['wanneer','bereikbaar','regio','gebied','stad','beschikbaar','open','uur','tijdstip','brugge','omgeving'],
-     answer:'Wij zijn <strong>7 dagen per week, 24 uur per dag</strong> bereikbaar — ook in het weekend en op feestdagen. Aankomsttijd: gemiddeld 45 minuten.'},
+     keywords:['wanneer','bereikbaar','regio','gebied','stad','beschikbaar','open','uur','tijdstip',
+               'brugge','omgeving','openingsuur','openingsuren','openingstijden','uren','tijden',
+               'vandaag','morgen','weekend','zondag','zaterdag','nacht','avond','middag',
+               'hoe laat','werktijden','feestdag','vakantie',
+               'today','tomorrow','hours','when','time','schedule','available','open tomorrow'],
+     answer:'Wij zijn <strong>7 dagen per week, 24 uur per dag</strong> bereikbaar — ook in het weekend en op feestdagen. Aankomsttijd: gemiddeld <strong>45 minuten</strong>.'},
     {id:'booking',chip:'📅 Afspraak maken',
-     keywords:['afspraak','boek','reserveer','plan','komen','langskomen','inplannen','datum','bezoek'],
+     keywords:['afspraak','boek','reserveer','plan','komen','langskomen','inplannen','datum','bezoek',
+               'afspreken','langs','iemand sturen','loodgieter sturen','kom langs','contact',
+               'appointment','book','visit','schedule','send someone'],
      answer:'Een afspraak maken gaat het snelst telefonisch. Bel ons zodat we direct beschikbaarheid en locatie kunnen afstemmen — doorgaans kunnen we <strong>dezelfde dag</strong> nog langskomen.'},
     {id:'about',chip:'🏢 Over Dropwork',
-     keywords:['wie','dropwork','ervaring','jaar','team','betrouwbaar','gecertificeerd','over','garantie','klanten'],
+     keywords:['wie','dropwork','ervaring','jaar','team','betrouwbaar','gecertificeerd','over',
+               'garantie','klanten','info','vertrouw','verzekerd','reviews','beoordelingen',
+               'rating','erkend','gediplomeerd','about','who are you','history','credentials'],
      answer:'Dropwork Loodgieters staat voor snelle, eerlijke en vakkundige service. Met meer dan <strong>15 jaar ervaring</strong> en <strong>4.800+ tevreden klanten</strong> bent u in goede handen. Al onze loodgieters zijn gecertificeerd en werken met garantie.'}
   ];
+
+  // Phrase-level intent patterns — checked before keyword matching
+  // These catch natural language that keywords would miss
+  var INTENT_PATTERNS=[
+    {re:/openings ?uur|openings ?uren|openingstijd|werktijden|hoe laat.*(open|beschikbaar|kom|langs)|wanneer.*(open|beschikbaar|bereikbaar|jullie)|are you open|what.*hour|when.*open|jullie.*open|open.*vandaag|vandaag.*open|morgen.*open|open.*morgen|open.*weekend|zijn jullie.*open/i, id:'availability'},
+    {re:/nood|spoed|dringend|water op de vloer|ondergelopen|overstroming|vloed|gesprongen pijp|pijp gesprongen|toilet overloopt|kraan.*kapot|emergency|urgent|snel.*help|help.*snel/i, id:'emergency'},
+    {re:/hoeveel kost|wat kost|wat is de prijs|prijs.*van|tarief.*voor|offerte.*aanvragen|how much.*cost|price.*for|cost.*of|wat.*prijs|kost.*het/i, id:'services'},
+    {re:/afspraak.*maken|een afspraak|afspreken|wanneer.*langskomen|iemand.*sturen|loodgieter.*sturen|kan.*langskomen|kom.*langs|appointment|book.*visit|schedule.*visit|langs.*komen/i, id:'booking'},
+    {re:/wie zijn jullie|over dropwork|wat is dropwork|jullie.*ervaring|hoeveel jaar|gecertificeerd.*zijn|about you|who are you|betrouwbaar.*zijn/i, id:'about'}
+  ];
+
   var PRICE_DATA={
     lekdetectie:{label:'Lekdetectie',range:'€ 95 – € 175',note:'afhankelijk van omvang en toegankelijkheid'},
     afvoer:{label:'Afvoer ontstopping',range:'€ 75 – € 150',note:'standaard tot complexe verstopping'},
@@ -1374,7 +1399,12 @@ if (shell && divider && handle && captionTitle) {
   ];
   var PHONE='+3250000000';
   var PHONE_DISPLAY='+32 500 00 00';
-  var FALLBACK='Daar heb ik geen specifiek antwoord op. Bel ons gerust — we helpen u direct verder.';
+
+  // Social interaction patterns
+  var RE_GREET=/^(hallo|dag|goedemorgen|goedemiddag|goedenavond|goede avond|goede morgen|goede middag|hi|hello|hey|hoi|salut|goeie|bonjour)\b[\s!.?]*$/i;
+  var RE_THANKS=/(dankje|dank je wel|dank je|bedankt|dank u wel|dank u|merci|thanks|thank you|super bedankt|heel erg bedankt|fijn zo|top bedankt)/i;
+  var RE_YES=/^(ja|yes|ok|okay|graag|zeker|alstublieft|klopt|juist|correct|akkoord|goed|prima|doen|yep)\b[\s!.?]*$/i;
+  var RE_NO=/^(nee|neen|no|niet|negatief|liever niet|hoeft niet|nopes)\b[\s!.?]*$/i;
 
   var btn=document.getElementById('faq-btn');
   var panel=document.getElementById('faq-panel');
@@ -1427,15 +1457,27 @@ if (shell && divider && handle && captionTitle) {
 
   function matchFAQ(text){
     var norm=text.toLowerCase().replace(/[^a-z0-9àáâãäåæçèéêëìíîïðñòóôõöùúûüýþÿ\s]/g,'').replace(/\s+/g,' ').trim();
+
+    // Pass 0: phrase-level intent patterns (catches natural language & English)
+    for(var p=0;p<INTENT_PATTERNS.length;p++){
+      if(INTENT_PATTERNS[p].re.test(norm)){
+        var intentMatch=FAQ_DATA.filter(function(f){ return f.id===INTENT_PATTERNS[p].id; })[0];
+        if(intentMatch) return intentMatch;
+      }
+    }
+
     var noSpace=norm.replace(/\s/g,'');
-    // Pass 1: exact substring (also checks space-joined variant)
+    // Pass 1: keyword substring match
     var best=null,bestScore=0;
     FAQ_DATA.forEach(function(faq){
       var score=0;
-      faq.keywords.forEach(function(kw){ if(norm.indexOf(kw)!==-1||noSpace.indexOf(kw)!==-1) score++; });
+      faq.keywords.forEach(function(kw){
+        if(norm.indexOf(kw)!==-1||noSpace.indexOf(kw)!==-1) score+=2;
+      });
       if(score>bestScore){bestScore=score;best=faq;}
     });
-    if(bestScore>0) return best;
+    if(bestScore>=2) return best;
+
     // Pass 2: fuzzy word-level Levenshtein
     var words=norm.split(' ').filter(function(w){ return w.length>=3; });
     if(!words.length) return null;
@@ -1444,13 +1486,13 @@ if (shell && divider && handle && captionTitle) {
       var score=0;
       faq.keywords.forEach(function(kw){
         words.forEach(function(word){
-          var maxDist=word.length>=5?2:1;
-          if(levenshtein(word,kw)<=maxDist) score++;
+          var maxDist=word.length>=7?2:word.length>=4?1:0;
+          if(maxDist>0&&levenshtein(word,kw)<=maxDist) score++;
         });
       });
       if(score>bestScore){bestScore=score;best=faq;}
     });
-    return bestScore>0?best:null;
+    return bestScore>=1?best:null;
   }
 
   function buildCTA(){
@@ -1469,10 +1511,21 @@ if (shell && divider && handle && captionTitle) {
   function buildPriceChips(){
     var wrap=document.createElement('div');wrap.className='faq-inline-chips';
     PRICE_CHIPS.forEach(function(pc){
-      var btn=document.createElement('button');
-      btn.type='button';btn.className='faq-inline-chip';btn.textContent=pc.label;
-      btn.addEventListener('click',function(){ handlePriceChip(pc.id,pc.label); });
-      wrap.appendChild(btn);
+      var b=document.createElement('button');
+      b.type='button';b.className='faq-inline-chip';b.textContent=pc.label;
+      b.addEventListener('click',function(){ handlePriceChip(pc.id,pc.label); });
+      wrap.appendChild(b);
+    });
+    return wrap;
+  }
+
+  function buildClarifyChips(){
+    var wrap=document.createElement('div');wrap.className='faq-inline-chips';
+    FAQ_DATA.forEach(function(faq){
+      var b=document.createElement('button');
+      b.type='button';b.className='faq-inline-chip';b.textContent=faq.chip;
+      b.addEventListener('click',function(){ sendMsg(faq.chip,faq); });
+      wrap.appendChild(b);
     });
     return wrap;
   }
@@ -1530,11 +1583,31 @@ if (shell && divider && handle && captionTitle) {
     var trimmed=text.trim();if(!trimmed) return;
     addUserMsg(trimmed);inp.value='';
 
+    // Social intents — handle before any FAQ matching
+    if(RE_GREET.test(trimmed)){
+      addBotMsg('Hallo! Waarmee kan ik u helpen? Stel gerust uw vraag of kies een onderwerp hieronder.',false);
+      return;
+    }
+    if(RE_THANKS.test(trimmed)){
+      addBotMsg('Graag gedaan! Heeft u nog andere vragen?',false);
+      lastContext=null;
+      return;
+    }
+    if(RE_NO.test(trimmed)&&lastContext){
+      addBotMsg('Geen probleem. Heeft u een andere vraag?',false);
+      lastContext=null;
+      return;
+    }
+    if(RE_YES.test(trimmed)&&lastContext==='availability'){
+      addBotMsg('Bel ons gerust — we zijn er altijd voor u.',true);
+      return;
+    }
+
     // Context: after availability question, route the follow-up
     if(lastContext==='availability'){
       var low=trimmed.toLowerCase();
-      var isEmergency=low.indexOf('nood')!==-1||low.indexOf('spoed')!==-1||low.indexOf('dringend')!==-1||low.indexOf('nu ')!==-1;
-      var isBooking=low.indexOf('afspraak')!==-1||low.indexOf('plan')!==-1||low.indexOf('later')!==-1||low.indexOf('inplan')!==-1;
+      var isEmergency=/nood|spoed|dringend|lek|nu |snel|urgent|emergency/.test(low);
+      var isBooking=/afspraak|plan|later|inplan|boek|appointment/.test(low);
       if(isEmergency){
         lastContext='emergency';
         addBotMsg(FAQ_DATA.filter(function(f){ return f.id==='emergency'; })[0].answer,true);
@@ -1547,7 +1620,7 @@ if (shell && divider && handle && captionTitle) {
       }
     }
 
-    // Context: after booking question, ask which service before CTA
+    // Context: after booking, ask which service
     if(lastContext==='booking'&&!matchedFaq){
       var faqCheck=matchFAQ(trimmed);
       if(!faqCheck){
@@ -1559,21 +1632,21 @@ if (shell && divider && handle && captionTitle) {
     var faq=matchedFaq||matchFAQ(trimmed);
 
     if(!faq){
-      // Try price data match for unknown service queries
+      // Try price data match
       var priceMatch=matchPriceData(trimmed);
       if(priceMatch){
         lastContext='prices';
         addBotMsg('Voor <strong>'+priceMatch.label+'</strong> rekenen wij indicatief <strong>'+priceMatch.range+'</strong> incl. BTW<br><small style="color:var(--muted);">('+priceMatch.note+')</small><br><br>Voor een exacte prijs op maat, bel ons voor een gratis offerte.',true);
         return;
       }
-      lastContext=null;
-      addBotMsg(FALLBACK,true);
+      // Smart fallback — clarify first, don't immediately redirect to call
+      lastContext='clarify';
+      addBotMsg('Ik begrijp uw vraag niet helemaal. Gaat het over één van deze onderwerpen?',false,buildClarifyChips());
       return;
     }
 
     lastContext=faq.id;
 
-    // Services: conversational price flow with sub-chips
     if(faq.id==='services'){
       addBotMsg(
         'Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie &amp; reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie &amp; onderhoud<br><br>Over welke dienst wilt u een prijsindicatie?',
@@ -1583,7 +1656,6 @@ if (shell && divider && handle && captionTitle) {
       return;
     }
 
-    // Availability: conversational follow-up, no CTA yet
     if(faq.id==='availability'){
       addBotMsg(
         faq.answer+'<br><br>Heeft u een <strong>noodgeval</strong> of wilt u een <strong>afspraak plannen</strong>?',
@@ -1592,7 +1664,6 @@ if (shell && divider && handle && captionTitle) {
       return;
     }
 
-    // Booking: ask which service first, no CTA yet
     if(faq.id==='booking'){
       addBotMsg('Een afspraak maken gaat het snelst telefonisch. Voor welke klus heeft u iemand nodig? (bijv. lek, ketel, afvoer…)',false);
       return;
