@@ -239,17 +239,17 @@ h1.hero-h1 { font-size:clamp(3rem,7.5vw,5rem)!important;font-weight:900!importan
 /* Stats strip — hidden from hero fold on all viewports; proof lives in trust section */
 .stats { display:none; }
 @media(max-width:640px){
-  /* Full-screen hero on mobile — keeps marquee + trust cards below fold */
-  .hero { min-height:100svh; min-height:100dvh; padding-top:5.5rem; padding-bottom:2rem; justify-content:flex-start; }
-  .hero-inner { flex-direction:column; align-items:flex-start; }
+  /* Full-screen hero on mobile */
+  .hero { min-height:100svh; min-height:100dvh; padding:6rem 1.75rem 3rem; justify-content:center; }
+  .hero-inner { flex-direction:column; align-items:center; text-align:center; gap:0; }
   .info-card { display:none; }
-  .trust-badge { margin-bottom:1.25rem; }
-  .hero-sub { display:none; }
-  .cta-row { margin-bottom:0; }
+  .trust-badge { margin-bottom:1.5rem; }
+  .hero-sub { display:block; font-size:1rem; margin:0 0 2rem; max-width:32rem; color:rgba(255,255,255,.75); }
+  .cta-row { justify-content:center; margin-bottom:0; }
   .trust-row { display:none; }
   .btn-phone { display:none; }
-  .rotating-wrap { min-width:auto; max-width:100%; overflow:hidden; }
-  h1.hero-h1 { font-size:clamp(1.875rem,9vw,3.5rem)!important; }
+  .rotating-wrap { min-width:auto; max-width:100%; }
+  h1.hero-h1 { font-size:clamp(2rem,8vw,3rem)!important; margin-bottom:.875rem!important; }
 }
 @media(max-width:480px){ .cta-row{flex-direction:column} .btn-primary,.btn-secondary{justify-content:center} .info-card{display:none} }
 
