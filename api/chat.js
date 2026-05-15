@@ -59,6 +59,6 @@ module.exports = async function handler(req, res) {
 
     res.json({ reply: text });
   } catch (e) {
-    res.status(500).json({ error: 'ai_unavailable' });
+    res.status(500).json({ error: 'ai_unavailable', detail: e.message });
   }
 };
