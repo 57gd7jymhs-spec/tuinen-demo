@@ -1416,6 +1416,8 @@ if (shell && divider && handle && captionTitle) {
   var opened=false;
   var shortcutsBuilt=false;
   var lastContext=null;
+  var conversationHistory=[];
+  var aiPending=false;
 
   function togglePanel(){
     opened=!opened;
@@ -1579,97 +1581,95 @@ if (shell && divider && handle && captionTitle) {
     return found?PRICE_DATA[found]:null;
   }
 
+  function showTyping(){
+    var row=document.createElement('div');row.className='faq-bubble-row bot';row.id='faq-ai-typing';
+    var t=document.createElement('div');t.className='faq-typing';t.innerHTML='<span></span><span></span><span></span>';
+    row.appendChild(avatarEl());row.appendChild(t);
+    msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  function hideTypingAndShow(html,withCTA){
+    var old=document.getElementById('faq-ai-typing');if(old) old.remove();
+    var row=document.createElement('div');row.className='faq-bubble-row bot';
+    var b=document.createElement('div');b.className='faq-bubble';b.innerHTML=html;
+    if(withCTA) b.appendChild(buildCTA());
+    row.appendChild(avatarEl());row.appendChild(b);
+    msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  async function callAI(userText){
+    if(aiPending) return;
+    aiPending=true;
+    inp.disabled=true;sendBtn.disabled=true;
+    conversationHistory.push({role:'user',content:userText});
+    showTyping();
+    try{
+      var res=await fetch('/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({messages:conversationHistory.slice(-8)})
+      });
+      var data=await res.json();
+      if(data.reply){
+        conversationHistory.push({role:'assistant',content:data.reply});
+        hideTypingAndShow(data.reply,false);
+      } else {
+        throw new Error('no reply');
+      }
+    } catch(e){
+      var faq=matchFAQ(userText)||null;
+      var priceMatch=matchPriceData(userText);
+      if(priceMatch){
+        hideTypingAndShow('Voor <strong>'+priceMatch.label+'</strong> rekenen wij indicatief <strong>'+priceMatch.range+'</strong> incl. BTW<br><small style="color:var(--muted);">('+priceMatch.note+')</small>',true);
+      } else if(faq){
+        hideTypingAndShow(faq.answer,true);
+      } else {
+        hideTypingAndShow('Excuses, er is even een storing. Probeer het opnieuw of bel ons direct.',true);
+      }
+    } finally {
+      aiPending=false;inp.disabled=false;sendBtn.disabled=false;inp.focus();
+    }
+  }
+
   function sendMsg(text,matchedFaq){
-    var trimmed=text.trim();if(!trimmed) return;
+    var trimmed=text.trim();if(!trimmed||aiPending) return;
     addUserMsg(trimmed);inp.value='';
 
-    // Social intents — handle before any FAQ matching
+    // Social intents — instant local response, no AI needed
     if(RE_GREET.test(trimmed)){
-      addBotMsg('Hallo! Waarmee kan ik u helpen? Stel gerust uw vraag of kies een onderwerp hieronder.',false);
+      addBotMsg('Hallo! Waarmee kan ik u helpen? Stel gerust uw vraag.',false);
       return;
     }
     if(RE_THANKS.test(trimmed)){
-      addBotMsg('Graag gedaan! Heeft u nog andere vragen?',false);
-      lastContext=null;
-      return;
+      addBotMsg('Graag gedaan! Nog andere vragen?',false);
+      lastContext=null;return;
     }
     if(RE_NO.test(trimmed)&&lastContext){
       addBotMsg('Geen probleem. Heeft u een andere vraag?',false);
-      lastContext=null;
-      return;
-    }
-    if(RE_YES.test(trimmed)&&lastContext==='availability'){
-      addBotMsg('Bel ons gerust — we zijn er altijd voor u.',true);
-      return;
+      lastContext=null;return;
     }
 
-    // Context: after availability question, route the follow-up
-    if(lastContext==='availability'){
-      var low=trimmed.toLowerCase();
-      var isEmergency=/nood|spoed|dringend|lek|nu |snel|urgent|emergency/.test(low);
-      var isBooking=/afspraak|plan|later|inplan|boek|appointment/.test(low);
-      if(isEmergency){
-        lastContext='emergency';
-        addBotMsg(FAQ_DATA.filter(function(f){ return f.id==='emergency'; })[0].answer,true);
+    // Chip clicks: matchedFaq is always provided — use instant local FAQ
+    if(matchedFaq){
+      lastContext=matchedFaq.id;
+      if(matchedFaq.id==='services'){
+        addBotMsg('Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie &amp; reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie &amp; onderhoud<br><br>Over welke dienst wilt u een prijsindicatie?',false,buildPriceChips());
         return;
       }
-      if(isBooking){
-        lastContext='booking';
-        addBotMsg('Een afspraak maken gaat het snelst telefonisch. Zo kunnen we direct beschikbaarheid en locatie afstemmen — doorgaans kunnen we <strong>dezelfde dag</strong> nog langskomen.',true);
+      if(matchedFaq.id==='availability'){
+        addBotMsg(matchedFaq.answer+'<br><br>Heeft u een <strong>noodgeval</strong> of wilt u een <strong>afspraak plannen</strong>?',false);
         return;
       }
-    }
-
-    // Context: after booking, ask which service
-    if(lastContext==='booking'&&!matchedFaq){
-      var faqCheck=matchFAQ(trimmed);
-      if(!faqCheck){
-        addBotMsg('Voor welke klus heeft u iemand nodig? (bijv. lek, ketel, afvoer…) Zo kunnen wij de juiste loodgieter sturen.',false);
+      if(matchedFaq.id==='booking'){
+        addBotMsg('Een afspraak maken gaat het snelst telefonisch. Voor welke klus heeft u iemand nodig?',false);
         return;
       }
-    }
-
-    var faq=matchedFaq||matchFAQ(trimmed);
-
-    if(!faq){
-      // Try price data match
-      var priceMatch=matchPriceData(trimmed);
-      if(priceMatch){
-        lastContext='prices';
-        addBotMsg('Voor <strong>'+priceMatch.label+'</strong> rekenen wij indicatief <strong>'+priceMatch.range+'</strong> incl. BTW<br><small style="color:var(--muted);">('+priceMatch.note+')</small><br><br>Voor een exacte prijs op maat, bel ons voor een gratis offerte.',true);
-        return;
-      }
-      // Smart fallback — clarify first, don't immediately redirect to call
-      lastContext='clarify';
-      addBotMsg('Ik begrijp uw vraag niet helemaal. Gaat het over één van deze onderwerpen?',false,buildClarifyChips());
+      addBotMsg(matchedFaq.answer,true);
       return;
     }
 
-    lastContext=faq.id;
-
-    if(faq.id==='services'){
-      addBotMsg(
-        'Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie &amp; reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie &amp; onderhoud<br><br>Over welke dienst wilt u een prijsindicatie?',
-        false,
-        buildPriceChips()
-      );
-      return;
-    }
-
-    if(faq.id==='availability'){
-      addBotMsg(
-        faq.answer+'<br><br>Heeft u een <strong>noodgeval</strong> of wilt u een <strong>afspraak plannen</strong>?',
-        false
-      );
-      return;
-    }
-
-    if(faq.id==='booking'){
-      addBotMsg('Een afspraak maken gaat het snelst telefonisch. Voor welke klus heeft u iemand nodig? (bijv. lek, ketel, afvoer…)',false);
-      return;
-    }
-
-    addBotMsg(faq.answer,true);
+    // Free typed message → AI
+    callAI(trimmed);
   }
 
   btn.addEventListener('click',togglePanel);
