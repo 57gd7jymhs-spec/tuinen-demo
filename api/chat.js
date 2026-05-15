@@ -23,13 +23,6 @@ Instructies:
 - Bij doorvragen: geef meer detail, herhaal niet gewoon hetzelfde antwoord`;
 
 module.exports = async function handler(req, res) {
-  // Diagnostic: list available models
-  if (req.method === 'GET') {
-    const apiKey = process.env.GEMINI_API_KEY;
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1/models?key=${apiKey}`);
-    const d = await r.json();
-    return res.json(d);
-  }
   if (req.method !== 'POST') return res.status(405).end();
 
   const { messages } = req.body || {};
@@ -41,22 +34,17 @@ module.exports = async function handler(req, res) {
   if (!apiKey) return res.status(500).json({ error: 'not_configured' });
 
   try {
-    const contents = [
-      { role: 'user', parts: [{ text: 'Systeem instructies:\n' + SYSTEM_PROMPT }] },
-      { role: 'model', parts: [{ text: 'Begrepen. Ik ben de Dropwork assistent en volg deze instructies.' }] },
-      ...messages.map(m => ({
-        role: m.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: m.content }]
-      }))
-    ];
-
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents,
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: messages.map(m => ({
+            role: m.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: m.content }]
+          })),
           generationConfig: {
             maxOutputTokens: 250,
             temperature: 0.65
