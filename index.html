@@ -1380,10 +1380,10 @@ if (shell && divider && handle && captionTitle) {
 <div id="faq-panel" role="dialog" aria-label="FAQ chatbot" aria-modal="true">
   <div class="faq-header">
     <div class="faq-header-logo">
-      <img src="images/LOGO/LOGO negative.png" alt="Dropwork">
+      <img src="images/LOGO/LOGO negative.png" alt="AD Groenservice">
     </div>
     <div class="faq-header-title">
-      <strong>Dropwork Assistent</strong>
+      <strong>AD Groenservice Assistent</strong>
       <span><span class="faq-online-dot" aria-hidden="true"></span>Online — Stel ons een vraag</span>
     </div>
     <button class="faq-close" aria-label="Sluiten">
@@ -1407,68 +1407,69 @@ if (shell && divider && handle && captionTitle) {
 <script>
 (function(){
   var FAQ_DATA=[
-    {id:'emergency',chip:'🚨 Noodgeval',
-     keywords:['nood','spoed','dringend','lek','lekkage','lekt','burst','vloed','overstroming',
-               'gesprongen','spuit','waterlek','pijp','druk','urgent','crisis','schade',
-               'ondergelopen','overloopt','kapot','water op','wateroverlast',
-               'emergency','flood','pipe','broken','leaking','leak','help'],
-     answer:'Bij een noodgeval: sluit eerst de <strong>hoofdkraan</strong> af (meestal bij de meterkast). Bel ons daarna direct — wij zijn 24/7 bereikbaar en gemiddeld binnen <strong>45 minuten</strong> ter plaatse.'},
-    {id:'services',chip:'🔧 Diensten & prijzen',
-     keywords:['dienst','service','prijs','kost','tarief','ketel','afvoer','lekdetectie','verstopt',
-               'onderhoud','reparatie','installatie','offerte','kosten','hoeveel','euro','betalen',
-               'aanbod','welke','bieden','repareer','maken','verhelpen','probleem','fix',
-               'price','cost','how much','services','what do you','can you fix'],
-     answer:'Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie &amp; reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie &amp; onderhoud<br><br>Prijzen variëren per klus. Bel ons voor een <strong>gratis offerte</strong> zonder verplichtingen.'},
-    {id:'availability',chip:'📍 Bereikbaarheid & regio',
+    {id:'stormschade',chip:'⛈️ Stormschade',
+     keywords:['storm','wind','schade','boom','tak','gevallen','omgewaaid','nood','spoed','dringend',
+               'urgent','gevaarlijk','crisis','help','emergency','damage','fallen','tree','omgevallen',
+               'instort','kapot','verwoest','gebroken tak','dreigt te vallen'],
+     answer:'Bij <strong>acute stormschade</strong> met direct gevaar (boom op huis, elektriciteitsdraden): bel eerst <strong>112</strong>. Daarna komen wij zo snel mogelijk langs voor de opruiming en herstelwerken.'},
+    {id:'diensten',chip:'🌿 Diensten & prijzen',
+     keywords:['dienst','service','prijs','kost','tarief','gazon','heg','haag','boom','snoeien',
+               'maaien','tuin','aanleg','onderhoud','offerte','kosten','hoeveel','euro','betalen',
+               'aanbod','welke','bieden','opkuis','bladruimen','onkruid','grasinzaai',
+               'price','cost','how much','services','what do you','garden','lawn','hedge'],
+     answer:'Wij bieden:<br>• Gazononderhoud &amp; maaien<br>• Heg- &amp; struiksnoei<br>• Boomverzorging &amp; snoeien<br>• Tuinaanleg op maat<br>• Tuinopkuis &amp; bladruimen<br>• Onkruidbestrijding<br><br>Vraag een <strong>gratis offerte</strong> aan — wij komen vrijblijvend langs.'},
+    {id:'bereikbaarheid',chip:'📍 Bereikbaarheid & regio',
      keywords:['wanneer','bereikbaar','regio','gebied','stad','beschikbaar','open','uur','tijdstip',
-               'brugge','omgeving','openingsuur','openingsuren','openingstijden','uren','tijden',
-               'vandaag','morgen','weekend','zondag','zaterdag','nacht','avond','middag',
-               'hoe laat','werktijden','feestdag','vakantie',
+               'omgeving','openingsuur','openingsuren','openingstijden','uren','tijden',
+               'vandaag','morgen','weekend','zondag','zaterdag','avond','middag',
+               'hoe laat','werktijden','feestdag','vakantie','servicegebied','werkgebied',
                'today','tomorrow','hours','when','time','schedule','available','open tomorrow'],
-     answer:'Wij zijn <strong>7 dagen per week, 24 uur per dag</strong> bereikbaar — ook in het weekend en op feestdagen. Aankomsttijd: gemiddeld <strong>45 minuten</strong>.'},
-    {id:'booking',chip:'📅 Afspraak maken',
+     answer:'Wij zijn bereikbaar van <strong>ma–vr 07:30–18:00</strong> en <strong>za 08:00–13:00</strong>. Voor een vrijblijvend plaatsbezoek kunt u ons bellen of een offerte aanvragen.'},
+    {id:'afspraak',chip:'📅 Afspraak & offerte',
      keywords:['afspraak','boek','reserveer','plan','komen','langskomen','inplannen','datum','bezoek',
-               'afspreken','langs','iemand sturen','loodgieter sturen','kom langs','contact',
-               'appointment','book','visit','schedule','send someone'],
-     answer:'Een afspraak maken gaat het snelst telefonisch. Bel ons zodat we direct beschikbaarheid en locatie kunnen afstemmen — doorgaans kunnen we <strong>dezelfde dag</strong> nog langskomen.'},
-    {id:'about',chip:'🏢 Over Dropwork',
-     keywords:['wie','dropwork','ervaring','jaar','team','betrouwbaar','gecertificeerd','over',
-               'garantie','klanten','info','vertrouw','verzekerd','reviews','beoordelingen',
-               'rating','erkend','gediplomeerd','about','who are you','history','credentials'],
-     answer:'Dropwork Loodgieters staat voor snelle, eerlijke en vakkundige service. Met meer dan <strong>15 jaar ervaring</strong> en <strong>4.800+ tevreden klanten</strong> bent u in goede handen. Al onze loodgieters zijn gecertificeerd en werken met garantie.'}
+               'afspreken','langs','iemand sturen','tuinman sturen','kom langs','contact',
+               'offerte','plaatsbezoek','vrijblijvend','gratis bezoek',
+               'appointment','book','visit','schedule','send someone','quote'],
+     answer:'Een afspraak maken gaat het snelst telefonisch. Wij komen graag <strong>gratis en vrijblijvend</strong> bij u langs voor een offerte op maat — doorgaans al <strong>binnen de week</strong>.'},
+    {id:'over',chip:'🏡 Over ons',
+     keywords:['wie','groenservice','ad groenservice','ervaring','jaar','team','betrouwbaar',
+               'gecertificeerd','over','garantie','klanten','info','vertrouw','verzekerd',
+               'reviews','beoordelingen','erkend','gediplomeerd','vakman','vakmensen',
+               'about','who are you','history','credentials','reliable'],
+     answer:'AD Groenservice staat voor professioneel en betrouwbaar tuinonderhoud. Met meer dan <strong>15 jaar ervaring</strong> en <strong>450+ tevreden klanten</strong> brengen wij uw tuin tot leven — met propere afwerking en eerlijke, vaste prijzen.'}
   ];
 
   // Phrase-level intent patterns — checked before keyword matching
   // These catch natural language that keywords would miss
   var INTENT_PATTERNS=[
-    {re:/openings ?uur|openings ?uren|openingstijd|werktijden|hoe laat.*(open|beschikbaar|kom|langs)|wanneer.*(open|beschikbaar|bereikbaar|jullie)|are you open|what.*hour|when.*open|jullie.*open|open.*vandaag|vandaag.*open|morgen.*open|open.*morgen|open.*weekend|zijn jullie.*open/i, id:'availability'},
-    {re:/nood|spoed|dringend|water op de vloer|ondergelopen|overstroming|vloed|gesprongen pijp|pijp gesprongen|toilet overloopt|kraan.*kapot|emergency|urgent|snel.*help|help.*snel/i, id:'emergency'},
-    {re:/hoeveel kost|wat kost|wat is de prijs|prijs.*van|tarief.*voor|offerte.*aanvragen|how much.*cost|price.*for|cost.*of|wat.*prijs|kost.*het/i, id:'services'},
-    {re:/afspraak.*maken|een afspraak|afspreken|wanneer.*langskomen|iemand.*sturen|loodgieter.*sturen|kan.*langskomen|kom.*langs|appointment|book.*visit|schedule.*visit|langs.*komen/i, id:'booking'},
-    {re:/wie zijn jullie|over dropwork|wat is dropwork|jullie.*ervaring|hoeveel jaar|gecertificeerd.*zijn|about you|who are you|betrouwbaar.*zijn/i, id:'about'}
+    {re:/openings ?uur|openings ?uren|openingstijd|werktijden|hoe laat.*(open|beschikbaar|kom|langs)|wanneer.*(open|beschikbaar|bereikbaar|jullie)|are you open|what.*hour|when.*open|jullie.*open|open.*vandaag|vandaag.*open|morgen.*open|open.*morgen|open.*weekend|zijn jullie.*open/i, id:'bereikbaarheid'},
+    {re:/storm|wind.*schade|schade.*storm|boom.*gevallen|tak.*gevallen|omgewaaid|gevaarlijk.*boom|boom.*gevaarlijk|emergency|urgent.*tuin|snel.*help|help.*snel/i, id:'stormschade'},
+    {re:/hoeveel kost|wat kost|wat is de prijs|prijs.*van|tarief.*voor|offerte.*aanvragen|how much.*cost|price.*for|cost.*of|wat.*prijs|kost.*het/i, id:'diensten'},
+    {re:/afspraak.*maken|een afspraak|afspreken|wanneer.*langskomen|iemand.*sturen|tuinman.*sturen|kan.*langskomen|kom.*langs|plaatsbezoek.*aanvragen|vrijblijvend.*langs|appointment|book.*visit|schedule.*visit|langs.*komen/i, id:'afspraak'},
+    {re:/wie zijn jullie|over.*groenservice|over.*ad groenservice|jullie.*ervaring|hoeveel jaar|gecertificeerd.*zijn|about you|who are you|betrouwbaar.*zijn/i, id:'over'}
   ];
 
   var PRICE_DATA={
-    lekdetectie:{label:'Lekdetectie',range:'€ 95 – € 175',note:'afhankelijk van omvang en toegankelijkheid'},
-    afvoer:{label:'Afvoer ontstopping',range:'€ 75 – € 150',note:'standaard tot complexe verstopping'},
-    ketel:{label:'Ketelonderhoud/-rep.',range:'€ 90 – € 220',note:'onderhoud of reparatie, excl. onderdelen'},
-    installatie:{label:'Installatie',range:'€ 120 – € 300',note:'afhankelijk van type en complexiteit'}
+    gazon:{label:'Gazononderhoud',range:'€ 35 – € 85',note:'maaien + kanten steken, per beurt'},
+    heg:{label:'Heg- & struiksnoei',range:'€ 50 – € 150',note:'afhankelijk van lengte en hoogte'},
+    boom:{label:'Boomverzorging',range:'€ 80 – € 280',note:'incl. afvoer snoeihout'},
+    aanleg:{label:'Tuinaanleg',range:'op offerte',note:'gratis plaatsbezoek, prijs op maat'}
   };
   var PRICE_SYNONYMS={
-    lekdetectie:['lek','lekkage','detectie','lekt','waterlek'],
-    afvoer:['afvoer','verstopt','riool','gootsteen','afvoerpijp','prop'],
-    ketel:['ketel','boiler','cv','verwarming','warmwater','geiser'],
-    installatie:['kraan','toilet','wastafel','douche','bad','sink','lavabo','wasbak','installeer']
+    gazon:['gazon','gras','maaien','lawn','grasmat','grasveld','pelouse','gazonmaaien'],
+    heg:['heg','haag','struik','heester','buxus','taxus','laurier','snoei','snoeien','heggen'],
+    boom:['boom','bomen','tak','takken','boomverzorging','knotten','vellen','rooien','boomsnoeien'],
+    aanleg:['aanleg','tuinaanleg','ontwerp','tuinontwerp','aanleggen','nieuwe tuin','heraanleg','inrichten']
   };
   var PRICE_CHIPS=[
-    {id:'lekdetectie',label:'🔧 Lekdetectie'},
-    {id:'afvoer',label:'🚿 Afvoer'},
-    {id:'ketel',label:'🔥 Ketel'},
-    {id:'installatie',label:'🚰 Installatie'},
+    {id:'gazon',label:'🌱 Gazon maaien'},
+    {id:'heg',label:'✂️ Heg & struiken'},
+    {id:'boom',label:'🌳 Boomverzorging'},
+    {id:'aanleg',label:'🏡 Tuinaanleg'},
     {id:'other',label:'❓ Anders'}
   ];
-  var PHONE='+3250000000';
-  var PHONE_DISPLAY='+32 500 00 00';
+  var PHONE='[TELEFOONNUMMER]';
+  var PHONE_DISPLAY='[TELEFOONNUMMER]';
 
   // Social interaction patterns
   var RE_GREET=/^(hallo|dag|goedemorgen|goedemiddag|goedenavond|goede avond|goede morgen|goede middag|hi|hello|hey|hoi|salut|goeie|bonjour)\b[\s!.?]*$/i;
@@ -1520,7 +1521,7 @@ if (shell && divider && handle && captionTitle) {
   }
 
   function showWelcome(){
-    addBotMsg('Hallo! Ik ben de Dropwork assistent. Waarmee kan ik u helpen?',false);
+    addBotMsg('Hallo! Ik ben de AD Groenservice assistent. Waarmee kan ik u helpen?',false);
     buildShortcuts();
   }
 
@@ -1729,16 +1730,16 @@ if (shell && divider && handle && captionTitle) {
     // Chip clicks: matchedFaq is always provided — use instant local FAQ
     if(matchedFaq){
       lastContext=matchedFaq.id;
-      if(matchedFaq.id==='services'){
-        addBotMsg('Wij bieden:<br>• Noodloodgieters (24/7)<br>• Lekdetectie &amp; reparatie<br>• Afvoer ontstopping<br>• Ketel reparatie &amp; onderhoud<br><br>Over welke dienst wilt u een prijsindicatie?',false,buildPriceChips());
+      if(matchedFaq.id==='diensten'){
+        addBotMsg('Wij bieden:<br>• Gazononderhoud &amp; maaien<br>• Heg- &amp; struiksnoei<br>• Boomverzorging &amp; snoeien<br>• Tuinaanleg op maat<br>• Tuinopkuis &amp; bladruimen<br><br>Over welke dienst wilt u een prijsindicatie?',false,buildPriceChips());
         return;
       }
-      if(matchedFaq.id==='availability'){
-        addBotMsg(matchedFaq.answer+'<br><br>Heeft u een <strong>noodgeval</strong> of wilt u een <strong>afspraak plannen</strong>?',false);
+      if(matchedFaq.id==='bereikbaarheid'){
+        addBotMsg(matchedFaq.answer+'<br><br>Heeft u <strong>stormschade</strong> of wilt u een <strong>afspraak plannen</strong>?',false);
         return;
       }
-      if(matchedFaq.id==='booking'){
-        addBotMsg('Een afspraak maken gaat het snelst telefonisch. Voor welke klus heeft u iemand nodig?',false);
+      if(matchedFaq.id==='afspraak'){
+        addBotMsg('Een afspraak maken gaat het snelst telefonisch. Voor welke tuinklus heeft u iemand nodig?',false);
         return;
       }
       addBotMsg(matchedFaq.answer,true);
