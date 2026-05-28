@@ -243,7 +243,7 @@
   /* ============================================
      HERO
   ============================================ */
-  .hero { min-height: 100vh; padding: 0; position: relative; overflow: hidden; background: var(--bg); display: flex; align-items: stretch; }
+  .hero { min-height: calc(100vh - 32px); margin: 16px; border-radius: 24px; padding: 0; position: relative; overflow: hidden; background: var(--bg); display: flex; align-items: stretch; }
   .hero-video { position: absolute; inset: 0; z-index: 0; }
   .hero-video video, .hero-video img { width: 100%; height: 100%; object-fit: cover; }
   .hero-overlay {
@@ -270,12 +270,12 @@
      GRID + MOUSE FOLLOW GLOW
   ============================================ */
   .hero-grid {
+    display: none;
     position: absolute;
     inset: 0;
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
-    /* CSS variables die JS update voor mouse positie */
     --mouse-x: 50%;
     --mouse-y: 50%;
   }
@@ -315,12 +315,7 @@
     transform: scale(1.02);
   }
   /* Corner brackets - blueprint style */
-  .hero-corners {
-    position: absolute;
-    inset: 32px;
-    z-index: 2;
-    pointer-events: none;
-  }
+  .hero-corners { display: none; }
   .hero-corner {
     position: absolute;
     width: 32px; height: 32px;
@@ -332,7 +327,8 @@
   .hero-corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
   .hero-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
 
-  .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1300px; margin: 0 auto; padding: 140px 5% 160px; display: flex; flex-direction: column; justify-content: center; }
+  .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1300px; margin: 0 auto; padding: 140px 5% 80px; display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: center; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; }
   .hero-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 36px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lime); letter-spacing: 2.5px; text-transform: uppercase; opacity: 0; }
   .hero-meta .dot { width: 7px; height: 7px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 10px var(--lime); animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.6; box-shadow: 0 0 0 8px transparent; } }
@@ -474,6 +470,22 @@
     transition: gap 0.2s;
   }
   .hero-float-card-link:hover { gap: 10px; }
+
+  /* Hero service pill chips */
+  .hero-service-pills { margin-top: 32px; opacity: 0; }
+  .hero-pills-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 10px; }
+  .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-pill { padding: 6px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 100px; font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500; background: rgba(255,255,255,0.04); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+  /* Hero cards panel (right side) */
+  .hero-panel { display: flex; flex-direction: column; gap: 12px; opacity: 0; position: relative; z-index: 4; }
+  .hero-panel-card { background: rgba(5,5,5,0.52); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 14px; }
+  .hero-panel-card img { width: 72px; height: 72px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+  .hero-panel-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.25; }
+  .hero-panel-card-desc { font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .hero-panel-dots { display: flex; gap: 6px; justify-content: flex-end; padding-right: 2px; margin-top: 2px; }
+  .hero-panel-dot { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); transition: background 0.3s, width 0.3s; width: 20px; }
+  .hero-panel-dot.active { background: var(--lime); width: 28px; }
 
   /* ============================================
      SITE INTRO OVERLAY
@@ -1504,12 +1516,10 @@
 
     /* HERO */
     section { padding: 60px 5%; }
-    .hero { min-height: 95vh; }
-    .hero-content { padding: 110px 5% 160px; }
-    .hero-corners { display: none; }
-    .hero-grid::before { background-size: 50px 50px; }
-    /* Op mobile: geen mouse follow glow (geen muis) */
-    .hero-grid::after { display: none; }
+    .hero { min-height: calc(100vh - 16px); margin: 8px; border-radius: 16px; }
+    .hero-content { padding: 110px 5% 80px; grid-template-columns: 1fr; gap: 0; }
+    .hero-panel { display: none; }
+    .hero-service-pills { display: none; }
     h1 { font-size: clamp(34px, 9vw, 56px); letter-spacing: -1.5px; margin-bottom: 24px; }
     .hero-sub { font-size: 14px; margin-bottom: 32px; max-width: 100%; }
     .hero-meta { font-size: 9px; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
@@ -2023,51 +2033,74 @@
   </div>
 
   <div class="hero-content">
-    <div class="hero-meta">
-      <span class="dot"></span>
-      <span>Vandaag beschikbaar</span>
-      <span class="hero-meta-divider"></span>
-      <span>Brugge en West-Vlaanderen</span>
+    <div class="hero-left">
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span>Vandaag beschikbaar</span>
+        <span class="hero-meta-divider"></span>
+        <span>Brugge en West-Vlaanderen</span>
+      </div>
+
+      <h1>
+        <span class="word-line"><span class="word">De tuin</span></span>
+        <span class="word-line">
+          <span class="word">die </span>
+          <span class="word"><span class="lime">groeit.</span></span>
+        </span>
+      </h1>
+
+      <p class="hero-sub">
+        Van maaien en snoeien tot ontmossen en bladruimen. Jan doet het netjes — met vaste prijs en zonder gedoe.
+      </p>
+
+      <div class="cta-group">
+        <a href="tel:+320000000000" class="btn btn-primary magnetic" data-cursor="hover" aria-label="Bel ons nu op [TODO: TELEFOONNUMMER]">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+          <span>Bel direct</span>
+        </a>
+        <a href="https://wa.me/32000000000?text=Hallo%20Verdant%2C%20ik%20heb%20een%20vraag." class="btn btn-whatsapp magnetic" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur ons een WhatsApp bericht">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="#diensten" class="btn btn-secondary magnetic" data-cursor="hover">
+          <span>Ons werk</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <div class="hero-service-pills">
+        <span class="hero-pills-label">Onze diensten</span>
+        <div class="hero-pills">
+          <span class="hero-pill">Tuinaanleg</span>
+          <span class="hero-pill">Snoeiwerk</span>
+          <span class="hero-pill">Onderhoud</span>
+          <span class="hero-pill">Beregening</span>
+          <span class="hero-pill">Ecologisch</span>
+        </div>
+      </div>
     </div>
 
-    <h1>
-      <span class="word-line"><span class="word">De tuin</span></span>
-      <span class="word-line">
-        <span class="word">die </span>
-        <span class="word"><span class="lime">groeit.</span></span>
-      </span>
-    </h1>
-
-    <p class="hero-sub">
-      Van maaien en snoeien tot ontmossen en bladruimen. Jan doet het netjes — met vaste prijs en zonder gedoe.
-    </p>
-
-    <div class="cta-group">
-      <a href="tel:+320000000000" class="btn btn-primary magnetic" data-cursor="hover" aria-label="Bel ons nu op [TODO: TELEFOONNUMMER]">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-        <span>Bel direct</span>
-      </a>
-      <a href="https://wa.me/32000000000?text=Hallo%20Verdant%2C%20ik%20heb%20een%20vraag." class="btn btn-whatsapp magnetic" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur ons een WhatsApp bericht">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span>WhatsApp</span>
-      </a>
-      <a href="#diensten" class="btn btn-secondary magnetic" data-cursor="hover">
-        <span>Ons werk</span>
-        <span aria-hidden="true">↓</span>
-      </a>
+    <div class="hero-panel" id="heroPanel">
+      <div class="hero-panel-card">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=144&h=144&q=80" alt="Tuinaanleg Brugge" loading="lazy">
+        <div>
+          <div class="hero-panel-card-title">Uw tuin in topvorm</div>
+          <div class="hero-panel-card-desc">Vakkundige tuinaanleg en onderhoud op maat, netjes afgewerkt.</div>
+        </div>
+      </div>
+      <div class="hero-panel-card">
+        <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=144&h=144&q=80" alt="Snoeiwerk en onderhoud" loading="lazy">
+        <div>
+          <div class="hero-panel-card-title">Snoei en onderhoud</div>
+          <div class="hero-panel-card-desc">Altijd Jan zelf — geen onderaannemers, vaste prijs vóór de start.</div>
+        </div>
+      </div>
+      <div class="hero-panel-dots">
+        <span class="hero-panel-dot active"></span>
+        <span class="hero-panel-dot"></span>
+        <span class="hero-panel-dot"></span>
+      </div>
     </div>
-  </div>
-
-  <div class="hero-float-card" id="heroFloatCard">
-    <div class="hero-float-card-eyebrow">
-      <div class="hero-float-card-dot"></div>
-      <span>Jan's belofte</span>
-    </div>
-    <p>Vaste prijs vóór het begin. Netjes afgewerkt. Altijd Jan die langskomt — geen onderaannemers.</p>
-    <a href="#diensten" class="hero-float-card-link">
-      Bekijk diensten
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
   </div>
 
 </header>
@@ -2935,7 +2968,7 @@
 
   // HERO ENTRY — paused, triggered by intro sequence
   gsap.set('.nav', { opacity: 0, y: -16 });
-  gsap.set('.hero-meta, .hero-sub, .cta-group, .hero-float-card', { opacity: 0, y: 24 });
+  gsap.set('.hero-meta, .hero-sub, .cta-group, .hero-panel, .hero-service-pills', { opacity: 0, y: 24 });
   const heroTl = gsap.timeline({ paused: true });
   heroTl
     .to('.nav', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' })
@@ -2943,7 +2976,8 @@
     .to('h1 .word', { y: 0, duration: 1.1, ease: 'power4.out', stagger: 0.08 }, '-=0.4')
     .to('.hero-sub', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.5')
     .to('.cta-group', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.6')
-    .to('.hero-float-card', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.4');
+    .to('.hero-panel', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.5')
+    .to('.hero-service-pills', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.6');
 
   // SITE INTRO SEQUENCE
   const siteIntro   = document.getElementById('site-intro');
