@@ -5,8 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
 
-<title>AD Groenservice. Tuinaanleg & onderhoud in Brugge.</title>
-<meta name="description" content="Professionele tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Duurzaam, vakkundig, ecologisch. Bel direct.">
+<title>Tuinen Decoster. Tuinaanleg & onderhoud in Brugge.</title>
+<meta name="description" content="Tuinen Decoster: tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Jan, uw vaste tuinman. Duurzaam, vakkundig, ecologisch. Bel 0491 32 45 09.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2366bb35'/%3E%3Cpath d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z' fill='%23ffffff'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tuinen Decoster. Tuinaanleg & onderhoud in Brugge.">
+<meta property="og:description" content="Jan, uw vaste tuinman in Brugge en West-Vlaanderen. Vaste prijs vooraf, persoonlijke service. Bel 0491 32 45 09.">
+<meta property="og:image" content="assets/jan-owner.png">
+<meta property="og:locale" content="nl_BE">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Tuinen Decoster",
+  "image": "assets/jan-owner.png",
+  "description": "Tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Jan Decoster, uw vaste tuinman.",
+  "@id": "",
+  "telephone": "+32491324509",
+  "email": "info@tuinendecoster.be",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Gistelse Steenweg 142",
+    "addressLocality": "Sint-Andries (Brugge)",
+    "postalCode": "8200",
+    "addressCountry": "BE"
+  },
+  "areaServed": "Brugge en West-Vlaanderen",
+  "priceRange": "€€",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:30", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -235,7 +269,7 @@
   ============================================ */
   .hero { min-height: calc(100vh - 48px); margin: 24px; border-radius: 24px; padding: 0; position: relative; overflow: hidden; background: var(--bg); display: flex; align-items: stretch; }
   .hero-video { position: absolute; inset: 0; z-index: 0; }
-  .hero-video video, .hero-video img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-video video, .hero-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 1;
     background:
@@ -318,11 +352,11 @@
   .hero-corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
   .hero-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
 
-  .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1300px; margin: 0 auto; padding: 140px 5% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; color: #ffffff; }
-  .hero-left { display: flex; flex-direction: column; justify-content: flex-end; }
+  .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1300px; margin: 0 auto; padding: 140px 5% 92px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; color: #ffffff; }
+  .hero-left { display: flex; flex-direction: column; justify-content: flex-end; min-width: 0; }
   .hero-meta { display: flex; align-items: center; margin-bottom: 28px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; color: var(--lime); letter-spacing: 2px; text-transform: uppercase; opacity: 0; font-weight: 700; }
 
-  h1 { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: clamp(40px, 6.8vw, 92px); line-height: 1.0; letter-spacing: -2px; margin-bottom: 36px; max-width: 900px; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+  h1 { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: clamp(40px, 6.8vw, 92px); line-height: 1.06; letter-spacing: -2px; margin-bottom: 40px; max-width: 900px; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
   h1 .word-line { display: block; overflow: hidden; padding: 2px 0; }
   h1 .word { display: inline-block; transform: translateY(110%); }
   h1 .lime { color: var(--lime); }
@@ -376,15 +410,6 @@
     color: #fff;
     border-color: #1ea952;
   }
-  /* On lime backgrounds (final CTA) */
-  .final-cta .btn-whatsapp {
-    background: #fff;
-    color: #25D366;
-    border-color: #fff;
-  }
-  .final-cta .btn-whatsapp::before { background: #25D366; }
-  .final-cta .btn-whatsapp:hover { color: #fff; border-color: #25D366; }
-
   /* PRIMARY: lime → zwart bij hover (tekst wordt lime) */
   .btn-primary {
     background: var(--lime);
@@ -466,19 +491,30 @@
   .hero-pill { padding: 7px 16px; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: rgba(255,255,255,0.82); font-weight: 600; background: rgba(8,28,12,0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); cursor: pointer; transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.2s; }
   .hero-pill:hover { background: rgba(102,187,53,0.15); border-color: var(--lime); color: #fff; transform: translateY(-2px); }
 
-  /* Hero cards panel (right side) */
-  .hero-panel { display: flex; flex-direction: column; gap: 12px; opacity: 0; position: relative; z-index: 4; }
-  .hero-panel-cards { display: flex; flex-direction: row; gap: 10px; }
-  .hero-panel-cards .hero-panel-card { flex: 1; min-width: 0; transition: opacity 0.45s ease, border-color 0.45s ease, transform 0.45s ease, box-shadow 0.3s ease; }
-  .hero-panel-card { background: rgba(255,255,255,0.07); backdrop-filter: blur(32px) saturate(180%); -webkit-backdrop-filter: blur(32px) saturate(180%); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15); text-decoration: none; color: inherit; }
-  .hero-panel-card.active-card { border-color: rgba(255,255,255,0.32); box-shadow: 0 4px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
-  .hero-panel-card.dim-card { opacity: 0.55; transform: scale(0.97); }
-  .hero-panel-card:hover { opacity: 1 !important; transform: scale(1.02) !important; border-color: rgba(102,187,53,0.5) !important; box-shadow: 0 8px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2) !important; cursor: pointer; }
-  .hero-panel-card img { width: 76px; height: 76px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-  .hero-panel-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 5px; line-height: 1.2; }
-  .hero-panel-card-desc { font-family: 'Inter Tight', sans-serif; font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .hero-panel-dots { display: flex; gap: 6px; align-items: center; justify-content: flex-end; padding-right: 2px; margin-top: 4px; }
-  .hero-panel-dot { height: 8px; width: 8px; border-radius: 50%; background: rgba(255,255,255,0.28); transition: background 0.45s ease, width 0.45s ease, border-radius 0.45s ease; flex-shrink: 0; }
+  /* Hero cards panel (right side) — sliding carousel */
+  .hero-panel { display: flex; flex-direction: column; gap: 10px; opacity: 0; position: relative; z-index: 4; min-width: 0; }
+  .hero-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 2px; }
+  .hero-panel-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s ease, gap 0.2s ease; }
+  .hero-panel-label span { color: var(--lime); }
+  @media (hover: hover) and (pointer: fine) {
+    .hero-panel-label:hover { color: #fff; gap: 9px; }
+  }
+  .hero-panel-cards { overflow: hidden; border-radius: 16px; }
+  .hero-panel-track { display: flex; will-change: transform; transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+  .hero-panel-slide { flex: 0 0 100%; min-width: 0; display: flex; flex-direction: row; gap: 10px; }
+  .hero-panel-slide .hero-panel-card { flex: 1; min-width: 0; }
+  .hero-panel-card { background: rgba(255,255,255,0.07); backdrop-filter: blur(32px) saturate(180%); -webkit-backdrop-filter: blur(32px) saturate(180%); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 11px 12px; display: flex; align-items: center; gap: 11px; box-shadow: 0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15); text-decoration: none; color: inherit; transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
+  @media (hover: hover) and (pointer: fine) {
+    .hero-panel-card:hover { transform: translateY(-2px); border-color: rgba(102,187,53,0.5); box-shadow: 0 8px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2); cursor: pointer; }
+  }
+  .hero-panel-card img { width: 54px; height: 54px; border-radius: 9px; object-fit: cover; flex-shrink: 0; }
+  .hero-panel-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #ffffff; margin-bottom: 3px; line-height: 1.2; }
+  .hero-panel-card-desc { font-family: 'Inter Tight', sans-serif; font-size: 10.5px; color: rgba(255,255,255,0.55); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .hero-panel-dots { display: flex; gap: 6px; align-items: center; justify-content: flex-end; padding-right: 0; margin-top: 0; }
+  .hero-panel-dot { height: 8px; width: 8px; padding: 0; border: none; border-radius: 50%; background: rgba(255,255,255,0.28); transition: background 0.45s ease, width 0.45s ease, border-radius 0.45s ease; flex-shrink: 0; cursor: pointer; }
+  @media (hover: hover) and (pointer: fine) {
+    .hero-panel-dot:hover { background: rgba(255,255,255,0.55); }
+  }
   .hero-panel-dot.active { background: var(--lime); width: 28px; border-radius: 4px; }
 
   /* ============================================
@@ -487,7 +523,7 @@
   #site-intro {
     position: fixed;
     inset: 0;
-    z-index: 8000;
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -512,17 +548,18 @@
     pointer-events: none;
   }
 
-  /* ---- VIDEO WINDOW (desktop only) ---- */
+  /* ---- VIDEO WINDOW — expands to match the hero rect (desktop + mobile) ---- */
   #intro-video-window {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 28px;
+    border-radius: 24px;
     overflow: hidden;
     z-index: 1;
     opacity: 0;
+    will-change: transform, opacity;
   }
   #intro-video-window video {
     width: 100%;
@@ -540,9 +577,6 @@
       linear-gradient(180deg, rgba(5,5,5,0.22) 0%, transparent 35%, transparent 58%, rgba(5,5,5,0.88) 100%);
     pointer-events: none;
     z-index: 1;
-  }
-  @media (max-width: 768px) {
-    #intro-video-window { display: none; }
   }
 
   /* ---- LOGO CONTENT ---- */
@@ -587,6 +621,8 @@
     font-weight: 700;
     color: var(--text);
     line-height: 1;
+    white-space: nowrap;
+    max-width: 100%;
   }
   #intro-tagline {
     font-family: 'JetBrains Mono', monospace;
@@ -609,10 +645,11 @@
 
   /* MARQUEE */
   .marquee { background: var(--lime); color: var(--forest); padding: 18px 0; overflow: hidden; position: relative; z-index: 2; }
-  .marquee-track { display: flex; gap: 40px; white-space: nowrap; animation: marqueeMove 30s linear infinite; }
-  .marquee-item { display: flex; align-items: center; gap: 40px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 22px); letter-spacing: -0.4px; }
+  .marquee-track { display: flex; width: max-content; white-space: nowrap; animation: marqueeMove 30s linear infinite; will-change: transform; }
+  .marquee-item { display: flex; align-items: center; gap: 40px; margin-right: 40px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 22px); letter-spacing: -0.4px; }
   .marquee-item::after { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--forest); border-radius: 50%; flex-shrink: 0; }
-  @keyframes marqueeMove { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  /* Two identical halves + per-item trailing margin => translateX(-50%) is a seam-free loop */
+  @keyframes marqueeMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* SECTIONS */
   section { padding: 100px 5%; position: relative; }
@@ -704,17 +741,33 @@
   .before-after-section { background: var(--bg); padding: 120px 5%; border-top: 1px solid var(--border); }
   .ba-header { margin-bottom: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
   .ba-header p { color: var(--text-dim); font-size: 15px; max-width: 380px; padding-bottom: 8px; line-height: 1.7; }
-  .ba-cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  /* Project switcher — desktop hidden, mobile visible */
-  .ba-switcher { display: none; }
-  .ba-tab { flex: 1; padding: 10px 18px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; cursor: pointer; transition: all 0.2s; }
-  .ba-tab.active { background: var(--lime); color: var(--bg); border-color: var(--lime); }
+  /* Carousel: one realisatie per slide, navigate with arrows + dots */
+  .ba-intro-mobile { display: none; }   /* shown only ≤768px (swipe copy); desktop shows .ba-intro-desktop */
+  .ba-carousel { position: relative; }
+  .ba-viewport { overflow: hidden; border-radius: 14px; }
+  .ba-track { display: flex; will-change: transform; transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+  .ba-case { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: 1.35fr 1fr; background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .ba-info { display: flex; flex-direction: column; justify-content: flex-start; }
 
-  .ba-case { background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.3s; }
-  .ba-case:hover { border-color: var(--lime); }
+  .ba-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px; }
+  .ba-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-strong); background: var(--bg-2); color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+  @media (hover: hover) and (pointer: fine) {
+    .ba-arrow:hover { background: var(--lime); border-color: var(--lime); color: var(--bg); }
+  }
+  .ba-arrow:active { transform: scale(0.94); }
+  .ba-arrow:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+  .ba-dots { display: flex; gap: 7px; align-items: center; }
+  .ba-dot { height: 9px; width: 9px; padding: 0; border: none; border-radius: 50%; background: var(--border-strong); cursor: pointer; transition: background 0.45s ease, width 0.45s ease, border-radius 0.45s ease; }
+  @media (hover: hover) and (pointer: fine) {
+    .ba-dot:hover { background: var(--moss); }
+  }
+  .ba-dot.active { background: var(--lime); width: 28px; border-radius: 5px; }
 
   .ba-slider-wrapper {
     position: relative; aspect-ratio: 16/10;
+    /* Fill the grid row so the image stretches to match a taller info panel
+       (otherwise aspect-ratio locks the height and leaves white space below). */
+    height: 100%;
     overflow: hidden; cursor: ew-resize;
     user-select: none;
     background: var(--bg-3);
@@ -788,11 +841,27 @@
   .ba-label { position: absolute; top: 16px; padding: 6px 14px; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; z-index: 2; backdrop-filter: blur(8px); }
   .ba-label.before { left: 16px; background: rgba(5,5,5,0.7); color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
   .ba-label.after { right: 16px; background: var(--lime); color: var(--forest); }
-  .ba-info { padding: 24px; }
-  .ba-info h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 8px; letter-spacing: -0.5px; }
-  .ba-info p { color: var(--text-dim); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px; }
-  .ba-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .ba-tag { background: var(--bg-3); color: var(--text-dim); padding: 4px 12px; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--border); }
+  .ba-info { padding: 36px 38px; gap: 16px; background: var(--forest); color: var(--white); position: relative; overflow: hidden; }
+  .ba-info::before { content: ''; position: absolute; top: -45%; right: -28%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(102,187,53,0.24), transparent 70%); pointer-events: none; }
+  .ba-info > * { position: relative; z-index: 1; }
+  .ba-info h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; margin-bottom: 0; letter-spacing: -0.5px; color: var(--white); }
+  .ba-info p { color: rgba(255,255,255,0.66); font-size: 13.5px; line-height: 1.65; margin-bottom: 0; }
+  .ba-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .ba-tag { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.9); padding: 5px 12px; border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.18); }
+  /* margin-top:auto pins the price + CTA to the bottom so every card's title (top) and CTA (bottom) line up. */
+  .ba-foot { margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 15px; }
+  .ba-price { display: flex; align-items: baseline; gap: 10px; }
+  .ba-price-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .ba-price-value { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--lime-bright); letter-spacing: -0.5px; }
+  .ba-price-value em { font-style: normal; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.5); margin-right: 3px; }
+  .ba-quote-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; align-self: flex-start; background: var(--lime); color: var(--forest); font-weight: 700; font-size: 13px; padding: 14px 22px; border-radius: 100px; text-decoration: none; transition: background 0.25s ease, transform 0.2s ease; }
+  .ba-quote-btn svg { transition: transform 0.25s ease; }
+  @media (hover: hover) and (pointer: fine) {
+    .ba-quote-btn:hover { background: var(--lime-bright); }
+    .ba-quote-btn:hover svg { transform: translate(2px, -2px); }
+  }
+  .ba-quote-btn:active { transform: scale(0.97); }
+  .ba-quote-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
 
   /* ============================================
      PROCESS - ANIMATED LINE BETWEEN STEPS
@@ -948,12 +1017,26 @@
   a.google-summary-count:hover {
     color: var(--lime);
   }
+  .google-review-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 14px;
+    padding: 9px 16px; border-radius: 100px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff; text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px;
+    letter-spacing: 0.2px; cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s, transform .2s;
+  }
+  .google-review-btn svg { color: var(--lime); transition: color .2s; }
+  .google-review-btn:hover { background: var(--lime); border-color: var(--lime); color: var(--bg); transform: translateY(-1px); }
+  .google-review-btn:hover svg { color: var(--bg); }
 
   /* MARQUEE-STYLE REVIEW SLIDER */
   .reviews-marquee {
     position: relative;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 6px 0;
   }
   /* Edge fade gradient */
   .reviews-marquee::before,
@@ -974,13 +1057,30 @@
     background: linear-gradient(to left, var(--forest), transparent);
   }
 
+  /* Scroll viewport: native swipe-to-scrub on touch, JS drives the auto-scroll */
+  .reviews-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    /* Vertical room so a lifted/selected card + its shadow isn't clipped by overflow-y:hidden */
+    padding: 20px 0 30px;
+  }
+  .reviews-viewport::-webkit-scrollbar { display: none; }
+  .reviews-viewport.dragging { cursor: grabbing; }
   .reviews-track {
     display: flex;
     gap: 20px;
-    animation: reviewsScroll 40s linear infinite;
     width: max-content;
   }
-  .reviews-track.paused { animation-play-state: paused; }
+  .review-card.selected {
+    border-color: var(--lime);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.32);
+    transform: translateY(-3px);
+  }
 
   @keyframes reviewsScroll {
     0% { transform: translateX(0); }
@@ -1236,23 +1336,34 @@
   .faq-cta-wa:hover {
     background: #1ea952;
   }
+  .faq-cta-chat {
+    background: var(--text-dark);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .faq-cta-chat:hover {
+    background: var(--moss);
+  }
 
   /* MAP */
   .map-section { background: var(--bg); padding: 0; border-top: 1px solid var(--border); position: relative; }
   .map-grid { display: grid; grid-template-columns: 1fr 1.5fr; min-height: 600px; }
-  .map-content { padding: 80px 48px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
-  .map-content .section-title { font-size: clamp(28px, 3.5vw, 48px); }
-  .map-content p { color: var(--text-dim); font-size: 15px; margin-bottom: 32px; max-width: 360px; line-height: 1.7; }
+  .map-content { padding: 80px 48px; display: flex; flex-direction: column; justify-content: center; background: var(--forest); color: var(--white); position: relative; overflow: hidden; }
+  .map-content::before { content: ''; position: absolute; top: -30%; left: -22%; width: 360px; height: 360px; background: radial-gradient(circle, rgba(102,187,53,0.20), transparent 70%); pointer-events: none; }
+  .map-content > * { position: relative; z-index: 1; }
+  .map-content .section-title { font-size: clamp(28px, 3.5vw, 48px); color: var(--white); }
+  .map-content p { color: rgba(255,255,255,0.66); font-size: 15px; margin-bottom: 32px; max-width: 360px; line-height: 1.7; }
   .areas { display: flex; flex-wrap: wrap; gap: 6px; }
   .area-chip {
-    padding: 8px 14px; border: 1px solid var(--border);
+    padding: 8px 14px; border: 1px solid rgba(255,255,255,0.2);
     border-radius: 100px; font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; color: var(--text-dim); letter-spacing: 0.8px;
+    font-size: 10px; color: rgba(255,255,255,0.82); letter-spacing: 0.8px;
     text-transform: uppercase; transition: all 0.3s;
-    cursor: pointer; background: transparent; position: relative; overflow: hidden;
+    cursor: pointer; background: rgba(255,255,255,0.05); position: relative; overflow: hidden;
   }
-  .area-chip:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-soft); }
-  .area-chip.active { background: var(--lime); border-color: var(--lime); color: var(--bg); }
+  .area-chip:hover { border-color: var(--lime); color: var(--lime); background: rgba(102,187,53,0.16); }
+  .area-chip.active { background: var(--lime); border-color: var(--lime); color: var(--forest); }
   .areas-toggle { display: none; }
 
   /* ⚡ ANIMATION 10: Chip activation ripple */
@@ -1273,9 +1384,9 @@
     width: 100%; height: 100%; min-height: 600px;
     background: var(--bg-2);
   }
-  /* Filter ALLEEN op de tile pane, markers blijven origineel */
+  /* Keep the basemap light but lift saturation + contrast so streets/water/parks read clearly */
   #map .leaflet-tile-pane {
-    filter: invert(1) hue-rotate(180deg) brightness(0.95) saturate(0.6);
+    filter: saturate(1.08) contrast(1.06);
   }
   .map-overlay { position: absolute; top: 24px; left: 24px; background: var(--bg); border: 1px solid var(--lime); padding: 14px 18px; border-radius: 10px; z-index: 1000; pointer-events: none; }
   .map-overlay-title { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--lime); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
@@ -1401,28 +1512,22 @@
   /* ============================================
      FINAL CTA - CONCENTRIC PULSE RINGS
   ============================================ */
-  .final-cta { background: var(--lime); color: var(--bg); padding: 140px 5%; text-align: center; position: relative; overflow: hidden; }
-
-  /* Background photo with lime overlay */
-  .cta-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.15;
-    mix-blend-mode: multiply;
-  }
-  .cta-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: grayscale(1) contrast(1.2);
+  /* Clean light variant — no photo, soft lime glow on the page surface */
+  .final-cta { background: var(--bg); color: var(--text); padding: 140px 5%; text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--border); }
+  .final-cta::before {
+    content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 42%, rgba(102,187,53,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 42% 40% at 14% 18%, rgba(102,187,53,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 42% 40% at 86% 82%, rgba(102,187,53,0.05) 0%, transparent 60%);
   }
 
-  /* ⚡ ANIMATION 11: Concentric pulsing rings */
+  /* ⚡ ANIMATION 11: Concentric pulsing rings (lime-tinted for the light variant) */
   .cta-rings { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .cta-ring {
     position: absolute;
     top: 50%; left: 50%;
-    border: 1px solid rgba(0,0,0,0.15);
+    border: 1px solid rgba(102,187,53,0.20);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: ctaRing 4s ease-out infinite;
@@ -1437,6 +1542,10 @@
   }
 
   .final-cta h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(40px, 6.5vw, 100px); margin-bottom: 24px; line-height: 0.95; letter-spacing: -3px; position: relative; z-index: 1; color: var(--forest); }
+  /* Inline portrait of Jan tucked into the headline next to "Bel me," */
+  .cta-face { display: inline-block; width: 0.84em; height: 0.84em; border-radius: 50%; vertical-align: middle; margin: 0 0.02em 0 0.12em; position: relative; top: -0.05em; background-image: url('assets/jan-closeup.png'); background-repeat: no-repeat; background-size: cover; background-position: 50% 22%; border: 3px solid var(--lime); box-shadow: 0 10px 26px rgba(26,58,37,0.28); }
+  /* Inline portrait next to "Jan" in the About heading — no shadow (clipped by .line overflow) */
+  .about-face { display: inline-block; width: 0.78em; height: 0.78em; border-radius: 50%; vertical-align: middle; margin: 0 0.02em 0 0.1em; position: relative; top: -0.04em; background-image: url('assets/jan-closeup.png'); background-repeat: no-repeat; background-size: cover; background-position: 50% 22%; border: 2.5px solid var(--lime); }
   .final-cta p { font-size: clamp(15px, 1.3vw, 18px); margin-bottom: 40px; color: rgba(0,0,0,0.7); position: relative; z-index: 1; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.6; }
   .btn-cta-final { position: relative; z-index: 1; padding: 22px 44px; font-size: 14px; }
   .final-cta-buttons {
@@ -1467,7 +1576,6 @@
     /* Layout grids → 1 col */
     .intro-grid { grid-template-columns: 1fr; gap: 48px; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .ba-cases { grid-template-columns: 1fr; gap: 20px; }
     .process-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; row-gap: 56px; }
     .process-line-bg, .process-line-progress { display: none; }
     .map-grid { grid-template-columns: 1fr; }
@@ -1510,19 +1618,23 @@
     .nav.scrolled { padding: 10px 16px; }
     .logo-mark { width: 32px; height: 32px; }
     .logo-text { font-size: 16px; }
-    .logo-text span { font-size: 7px; }
+    .logo-text span { font-size: 16px; }
     .nav-cta { padding: 9px 14px; font-size: 11px; }
     .nav-cta span { display: none; }
     .nav-links { display: none; }
 
+    /* INTRO LOADER — keep brand name on one line throughout the animation */
+    #intro-name { font-size: clamp(26px, 7.4vw, 40px); letter-spacing: -0.02em; }
+    #intro-tagline { font-size: 10px; letter-spacing: 2.5px; }
+
     /* HERO */
     section { padding: 60px 5%; }
     .hero { min-height: calc(100vh - 16px); margin: 8px; border-radius: 16px; }
-    .hero-content { padding: 110px 5% 80px; grid-template-columns: 1fr; gap: 0; }
+    .hero-content { padding: 116px 6% 96px; grid-template-columns: 1fr; gap: 0; }
     .hero-panel { display: none; }
     .hero-service-pills { display: none; }
-    h1 { font-size: clamp(34px, 9vw, 56px); letter-spacing: -1.5px; margin-bottom: 24px; }
-    .hero-sub { font-size: 14px; margin-bottom: 32px; max-width: 100%; }
+    h1 { font-size: clamp(34px, 9vw, 56px); letter-spacing: -1px; line-height: 1.08; margin-bottom: 22px; }
+    .hero-sub { font-size: 15px; margin-bottom: 30px; max-width: 100%; line-height: 1.65; }
     .hero-meta { font-size: 9px; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
     .hero-meta-divider { display: none; }
     .hero-float-card { display: none; }
@@ -1552,20 +1664,27 @@
     .services-grid { grid-template-columns: 1fr; gap: 14px; }
     .service-card h3 { font-size: 17px; }
 
-    /* BEFORE/AFTER */
-    .ba-cases { grid-template-columns: 1fr; gap: 0; }
-    .ba-case { display: none; }
-    .ba-case.active { display: block; }
-    .ba-switcher { display: flex; gap: 8px; margin-bottom: 20px; }
-    .ba-slider-wrapper { aspect-ratio: 4/3; }
-    .ba-handle::before { width: 36px; height: 36px; }
-    .ba-handle::after { font-size: 16px; }
+    /* BEFORE/AFTER — stack slider over info, cap to viewport height, swipe to navigate.
+       Flex column so the whole card (image + info) fits on screen; image fills the leftover space. */
+    .ba-case { display: flex; flex-direction: column; height: clamp(440px, 80vh, 600px); }
+    .ba-viewport { touch-action: pan-y; }          /* horizontal swipe = ours, vertical = page scroll */
+    .ba-slider-wrapper { aspect-ratio: auto; height: auto; flex: 1 1 auto; min-height: 180px; }
+    /* On mobile hide only the draggable knob (button + pulse); the thin line still glides with the
+       auto-reveal so the before/after keeps playing, but nothing looks draggable. Swipe navigates. */
+    .ba-handle::before, .ba-handle::after, .ba-handle .pulse-ring { display: none; }
     .ba-label { font-size: 9px; padding: 5px 10px; top: 12px; }
     .ba-label.before { left: 12px; }
     .ba-label.after { right: 12px; }
-    .ba-info { padding: 20px; }
+    .ba-info { flex: 0 0 auto; padding: 20px 22px; gap: 11px; }
     .ba-info h3 { font-size: 16px; }
-    .ba-hint { font-size: 8px; padding: 5px 10px; bottom: 12px; }
+    .ba-info p { font-size: 13px; line-height: 1.55; }
+    .ba-price-value { font-size: 20px; }
+    .ba-quote-btn { align-self: stretch; }
+    .ba-hint { display: none; }
+    .ba-arrow { display: none; }                   /* swipe replaces the prev/next buttons; dots stay */
+    .ba-controls { margin-top: 18px; }
+    .ba-intro-desktop { display: none; }
+    .ba-intro-mobile { display: inline; }
 
     /* PROCESS - 2 cols stacked vertically */
     .process-grid { grid-template-columns: 1fr; gap: 32px; row-gap: 32px; }
@@ -1624,6 +1743,7 @@
     /* FINAL CTA */
     .final-cta { padding: 80px 5%; }
     .final-cta h2 { font-size: clamp(36px, 10vw, 56px); margin-bottom: 18px; letter-spacing: -1.8px; }
+    .cta-face { border-width: 2px; box-shadow: 0 6px 18px rgba(26,58,37,0.25); }
     .final-cta p { font-size: 14px; margin-bottom: 28px; }
     .btn-cta-final { padding: 18px 32px; font-size: 13px; }
     .cta-ring:nth-child(1), .cta-ring:nth-child(2), .cta-ring:nth-child(3), .cta-ring:nth-child(4) {
@@ -1649,7 +1769,7 @@
      RESPONSIVE - SMALL PHONE (≤480px)
   ============================================ */
   @media (max-width: 480px) {
-    .hero-content { padding: 100px 5% 180px; }
+    .hero-content { padding: 108px 6% 170px; }
     h1 { font-size: clamp(30px, 9vw, 44px); }
     .section-title { font-size: clamp(26px, 8.5vw, 36px); }
     .service-image { aspect-ratio: 16/9; }
@@ -1711,15 +1831,25 @@
     font-size: 15px;
     font-weight: 500;
     font-family: 'Inter Tight', sans-serif;
-    transition: transform 0.3s ease;
-    cursor: default;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
   }
-  .pc-pill:hover { transform: translateY(-3px); }
+  @media (hover: hover) and (pointer: fine) {
+    .pc-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(17,26,13,0.12); }
+  }
+  .pc-pill:active { transform: translateY(-1px) scale(0.98); }
   .pc-pill svg { width: 18px; height: 18px; }
   .pc-lime { background: var(--lime); color: var(--bg); }
   .pc-dark { background: var(--bg); color: var(--lime); border: 1px solid var(--border-strong); }
   .pc-moss { background: var(--moss); color: var(--text); }
   .pc-bright { background: var(--lime-bright); color: var(--bg); }
+
+  /* "Wat Jan voor u doet" — section call-to-action under the pills */
+  .pill-cta { margin: 8px auto 0; max-width: 720px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .pill-cta-text { font-family: 'Space Grotesk', sans-serif; font-size: clamp(17px, 2vw, 22px); font-weight: 600; color: var(--text); letter-spacing: -0.3px; }
+  .pill-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .pill-cta .btn { cursor: pointer; }
 
   /* ============================================
      LUVI AURORA BACKGROUND (FAQ)
@@ -1824,8 +1954,9 @@
 .faq-header-logo{
   width:36px;height:36px;border-radius:.5rem;
   background:var(--lime);display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;color:var(--bg);
+  flex-shrink:0;color:var(--bg);overflow:hidden;
 }
+.faq-header-logo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
 .faq-header-title{flex:1;font-family:'Space Grotesk',sans-serif;}
 .faq-header-title strong{display:block;font-size:.9375rem;font-weight:700;color:var(--text);}
 .faq-header-title span{font-size:.75rem;color:var(--text-dim);display:flex;align-items:center;gap:.375rem;font-family:'JetBrains Mono',monospace;}
@@ -1852,6 +1983,7 @@
   flex-shrink:0;overflow:hidden;color:var(--bg);
 }
 .faq-avatar svg{width:18px;height:18px;display:block;}
+.faq-avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
 .faq-bubble{
   max-width:80%;padding:.625rem .875rem;
   border-radius:1rem;font-size:.875rem;line-height:1.5;font-family:'Inter Tight',sans-serif;
@@ -1950,7 +2082,7 @@
     <div id="intro-mark">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
     </div>
-    <div id="intro-name">AD Groenservice.</div>
+    <div id="intro-name">Tuinen Decoster.</div>
     <div id="intro-tagline">Tuinaanleg &amp; onderhoud · Brugge</div>
   </div>
   <div id="intro-line"></div>
@@ -1961,10 +2093,10 @@
 
 <noscript>
   <div style="position:fixed;top:0;left:0;right:0;background:#C2DD62;color:#0a1408;padding:14px 20px;text-align:center;z-index:99999;font-family:system-ui,-apple-system,sans-serif;font-size:14px;font-weight:600;">
-    JavaScript is uitgeschakeld. Bel ons direct op
-    <a href="tel:+320000000000" style="color:#0a1408;text-decoration:underline;">[TODO: TELEFOONNUMMER]</a>
+    JavaScript is uitgeschakeld. Bel mij direct op
+    <a href="tel:+32491324509" style="color:#0a1408;text-decoration:underline;">0491 32 45 09</a>
     of stuur een
-    <a href="https://wa.me/32000000000" style="color:#0a1408;text-decoration:underline;">WhatsApp</a>.
+    <a href="https://wa.me/32491324509" style="color:#0a1408;text-decoration:underline;">WhatsApp</a>.
   </div>
 </noscript>
 
@@ -1973,22 +2105,22 @@
 
 <!-- Sticky mobile actie-bar: bel + WhatsApp -->
 <div class="mobile-call-bar" role="region" aria-label="Snelle contact-acties">
-  <a href="tel:+320000000000" class="mc-tel" aria-label="Bel ons op [TODO: TELEFOONNUMMER]">
+  <a href="tel:+32491324509" class="mc-tel" aria-label="Bel mij op 0491 32 45 09">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
     Bellen
   </a>
-  <a href="https://wa.me/32000000000?text=Hallo%20AD%20Groenservice%2C%20ik%20heb%20een%20vraag." class="mc-wa" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp">
+  <a href="https://wa.me/32491324509?text=Hallo%20Tuinen%20Decoster%2C%20ik%20heb%20een%20vraag." class="mc-wa" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     WhatsApp
   </a>
 </div>
 
 <nav class="nav" id="nav">
-  <a href="#" class="logo" data-cursor="hover" aria-label="AD Groenservice - terug naar home">
+  <a href="#" class="logo" data-cursor="hover" aria-label="Tuinen Decoster - terug naar home">
     <div class="logo-mark">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
     </div>
-    <div class="logo-text">AD <span class="logo-lime">Groenservice</span></div>
+    <div class="logo-text">Tuinen <span class="logo-lime">Decoster</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#diensten">Diensten</a></li>
@@ -2001,10 +2133,10 @@
 
 <!-- FLOATING CONTACT WIDGET — slides in after scrolling past fold -->
 <div class="float-contact" id="float-contact" aria-label="Snelle contact-opties">
-  <a href="tel:+320000000000" class="fc-btn fc-tel" data-label="Bel ons" data-cursor="hover" aria-label="Bel ons op [TODO: TELEFOONNUMMER]">
+  <a href="tel:+32491324509" class="fc-btn fc-tel" data-label="Bel mij" data-cursor="hover" aria-label="Bel mij op 0491 32 45 09">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
   </a>
-  <a href="https://wa.me/32000000000?text=Hallo%20AD%20Groenservice%2C%20ik%20heb%20een%20vraag." class="fc-btn fc-wa" data-label="WhatsApp" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp bericht">
+  <a href="https://wa.me/32491324509?text=Hallo%20Tuinen%20Decoster%2C%20ik%20heb%20een%20vraag." class="fc-btn fc-wa" data-label="WhatsApp" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp bericht">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 </div>
@@ -2012,10 +2144,8 @@
 <main id="main-content">
 <header class="hero">
   <div class="hero-video">
-    <video autoplay muted loop playsinline preload="auto">
-      <source src="https://github.com/57gd7jymhs-spec/AD-groenservice-template/releases/download/v1.0/video.template.1.mp4" type="video/mp4">
-      <img src="assets/Detail%20shot.png" alt="AD Groenservice tuinaanleg">
-    </video>
+    <!-- Poster shows until the intro clip is handed off here (the clip is loaded once, in #intro-video-window) -->
+    <img src="assets/Detail%20shot.png" alt="Verzorgde tuin met strak gesnoeide buxus door Tuinen Decoster">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-grid" id="heroGrid" aria-hidden="true"></div>
@@ -2033,51 +2163,90 @@
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-meta">
-        <span>Tuinaanleg &amp; onderhoud</span>
+        <span>Jan · uw vaste tuinman in Brugge</span>
       </div>
 
       <h1>
-        <span class="word-line"><span class="word">Vakkennis,</span></span>
-        <span class="word-line"><span class="word">geen praatjes.</span></span>
+        <span class="word-line"><span class="word">Uw tuin,</span></span>
+        <span class="word-line"><span class="word">altijd <span class="lime">verzorgd.</span></span></span>
       </h1>
 
       <p class="hero-sub">
-        Van maaien en snoeien tot ontmossen en bladruimen. Jan doet het netjes — met vaste prijs en zonder gedoe.
+        Ik ben Jan. Van gras maaien en hagen scheren tot ontmossen en onkruid wieden, ik hou uw tuin <strong>het hele jaar netjes</strong>. <strong>Vaste prijs vooraf</strong>, en u heeft altijd dezelfde persoon aan de lijn.
       </p>
 
       <div class="cta-group">
-        <a href="tel:+320000000000" class="btn btn-primary magnetic" data-cursor="hover" aria-label="Bel ons nu op [TODO: TELEFOONNUMMER]">
+        <a href="tel:+32491324509" class="btn btn-primary magnetic" data-cursor="hover" aria-label="Bel mij nu op 0491 32 45 09">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-          <span>Bel direct</span>
+          <span>Bel mij direct</span>
         </a>
         <a href="#realisaties" class="btn btn-secondary magnetic" data-cursor="hover">
-          <span>Bekijk projecten</span>
+          <span>Bekijk mijn werk</span>
         </a>
       </div>
 
     </div>
 
     <div class="hero-panel" id="heroPanel">
-      <div class="hero-panel-cards">
-        <a href="#diensten" class="hero-panel-card" aria-label="Bekijk onze tuinaanleg service">
-          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=144&h=144&q=80" alt="Tuinaanleg Brugge" loading="lazy">
-          <div>
-            <div class="hero-panel-card-title">Tuinaanleg</div>
-            <div class="hero-panel-card-desc">Vakkundige aanleg op maat, netjes afgewerkt en op vaste prijs.</div>
-          </div>
-        </a>
-        <a href="#diensten" class="hero-panel-card" aria-label="Bekijk onderhoud service">
-          <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=144&h=144&q=80" alt="Snoeiwerk en onderhoud" loading="lazy">
-          <div>
-            <div class="hero-panel-card-title">Onderhoud</div>
-            <div class="hero-panel-card-desc">Altijd dezelfde vakman — geen onderaannemers, vaste prijs.</div>
-          </div>
-        </a>
+      <div class="hero-panel-head">
+        <a href="#diensten" class="hero-panel-label" data-cursor="hover">Onze diensten <span aria-hidden="true">↗</span></a>
+        <div class="hero-panel-dots" role="tablist" aria-label="Diensten carrousel">
+          <button type="button" class="hero-panel-dot active" role="tab" aria-selected="true" aria-label="Toon diensten 1 van 3"></button>
+          <button type="button" class="hero-panel-dot" role="tab" aria-selected="false" aria-label="Toon diensten 2 van 3"></button>
+          <button type="button" class="hero-panel-dot" role="tab" aria-selected="false" aria-label="Toon diensten 3 van 3"></button>
+        </div>
       </div>
-      <div class="hero-panel-dots">
-        <span class="hero-panel-dot active"></span>
-        <span class="hero-panel-dot"></span>
-        <span class="hero-panel-dot"></span>
+      <div class="hero-panel-cards">
+        <div class="hero-panel-track" id="heroPanelTrack">
+          <div class="hero-panel-slide" role="group" aria-roledescription="slide" aria-label="Diensten 1 van 3">
+            <a href="#diensten" class="hero-panel-card" aria-label="Bekijk tuinaanleg">
+              <img src="assets/after-garden.png" alt="Tuinaanleg in Brugge" loading="lazy">
+              <div>
+                <div class="hero-panel-card-title">Tuinaanleg</div>
+                <div class="hero-panel-card-desc">Vakkundige aanleg op maat, netjes afgewerkt en op vaste prijs.</div>
+              </div>
+            </a>
+            <a href="#diensten" class="hero-panel-card" aria-label="Bekijk onderhoud">
+              <img src="assets/action-harking.png" alt="Gazononderhoud" loading="lazy">
+              <div>
+                <div class="hero-panel-card-title">Onderhoud</div>
+                <div class="hero-panel-card-desc">Altijd dezelfde vakman, geen onderaannemers, vaste prijs.</div>
+              </div>
+            </a>
+          </div>
+          <div class="hero-panel-slide" role="group" aria-roledescription="slide" aria-label="Diensten 2 van 3">
+            <a href="#diensten" class="hero-panel-card" aria-label="Bekijk snoeiwerk">
+              <img src="assets/action-cutting-bush.png" alt="Heg- en struiksnoei" loading="lazy">
+              <div>
+                <div class="hero-panel-card-title">Snoeiwerk</div>
+                <div class="hero-panel-card-desc">Hagen, buxus en heesters strak bijgeknipt, opruim inbegrepen.</div>
+              </div>
+            </a>
+            <a href="#diensten" class="hero-panel-card" aria-label="Bekijk ontmossen">
+              <img src="assets/after-moss.png" alt="Ontmossen oprit en terras" loading="lazy">
+              <div>
+                <div class="hero-panel-card-title">Ontmossen</div>
+                <div class="hero-panel-card-desc">Oprit, terras of dak. Grondig en milieuvriendelijk ontmost.</div>
+              </div>
+            </a>
+          </div>
+          <div class="hero-panel-slide" role="group" aria-roledescription="slide" aria-label="Diensten 3 van 3">
+            <a href="#diensten" class="hero-panel-card" aria-label="Bekijk boomverzorging">
+              <img src="assets/action-cutting.png" alt="Boomverzorging" loading="lazy">
+              <div>
+                <div class="hero-panel-card-title">Boomverzorging</div>
+                <div class="hero-panel-card-desc">Snoeien en kronen optillen. Veilig, met afvoer van snoeihout.</div>
+              </div>
+            </a>
+            <a href="#diensten" class="hero-panel-card" aria-label="Bekijk terras en oprit">
+              <img src="assets/after-porch.png" alt="Terras en oprit" loading="lazy">
+              <div>
+                <div class="hero-panel-card-title">Terras &amp; oprit</div>
+                <div class="hero-panel-card-desc">Opkuis en heraanleg van terras, oprit en voortuin.</div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2105,18 +2274,18 @@
   <div class="container">
     <div class="intro-grid">
       <div class="intro-image" style="position: relative;">
-        <img src="assets/Detail%20shot.png" alt="AD Groenservice — vakkundig snoeiwerk en tuinaanleg">
+        <img src="assets/jan-owner.png" alt="Jan Decoster, uw vaste tuinman, in een door hem aangelegde tuin" style="object-position: 60% 30%;">
         <div class="mask"></div>
         <div class="badge">Beschikbaar</div>
       </div>
       <div class="intro-content">
-        <span class="section-tag section-tag-light">Over AD Groenservice</span>
+        <span class="section-tag section-tag-light">Even voorstellen</span>
         <h2 class="section-title">
-          <span class="line"><span>Vakkennis,</span></span>
-          <span class="line"><span>geen <span class="lime">praatjes.</span></span></span>
+          <span class="line"><span>Ik ben Jan, <span class="about-face" role="img" aria-label="Jan, uw tuinman"></span></span></span>
+          <span class="line"><span>uw <span class="lime">tuinman.</span></span></span>
         </h2>
-        <p>Jan is uw lokale tuinman — al meer dan 15 jaar bezig met één ding: uw tuin netjes, gezond en in topconditie houden.</p>
-        <p>U belt Jan, Jan komt langs. Geen onderaannemers, geen verrassingen.</p>
+        <p>Al <strong>meer dan 15 jaar</strong> doe ik één ding met volle overgave: tuinen netjes, gezond en verzorgd houden. <strong>Geen ploeg en geen onderaannemers</strong>. Gewoon ik, met oog voor detail.</p>
+        <p>U belt, <strong>ik kom zelf langs</strong>. Zo weet u meteen wie het werk uitvoert en blijft alles persoonlijk, duidelijk en <strong>afspraak is afspraak</strong>.</p>
 
         <ul class="intro-list">
           <li><span>Erkenning</span><span>BIO-gecertificeerd · BTW geregistreerd</span></li>
@@ -2139,7 +2308,7 @@
           <span class="line"><span>uw tuin <span class="lime">nodig heeft.</span></span></span>
         </h2>
       </div>
-      <p>Vaste tarieven, geen verrassingen achteraf. Jan geeft altijd een prijs vóór hij begint.</p>
+      <p><strong>Vaste tarieven</strong>, geen verrassingen achteraf. U krijgt altijd een duidelijke prijs <strong>vóór ik begin</strong>.</p>
     </div>
 
     <div class="services-grid">
@@ -2154,7 +2323,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Gazononderhoud</h3>
-          <p>Maaien, kanten steken en verzorging op maat. Regelmatig of éénmalig — Jan laat uw gazon er altijd verzorgd uitzien.</p>
+          <p>Maaien, kanten afsteken en verzorging op maat. Regelmatig of eenmalig, ik laat uw gazon er <strong>strak en verzorgd</strong> uitzien.</p>
           <span class="service-price">Vanaf €35 / beurt</span>
         </div>
       </article>
@@ -2170,7 +2339,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Heg- & struiksnoei</h3>
-          <p>Alle soorten hagen, buxussen en sierheesters. Strak bijgeknipt en nette opruiming inbegrepen.</p>
+          <p>Hagen, buxus en sierheesters <strong>strak in vorm</strong> gesnoeid. Ik ruim het snoeisel netjes op, zodat uw tuin er <strong>meteen verzorgd</strong> bijligt.</p>
           <span class="service-price">Vanaf €50</span>
         </div>
       </article>
@@ -2186,7 +2355,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Boomverzorging</h3>
-          <p>Snoeien, kronen optillen en kleine verwijderingen. Jan werkt veilig en voorzichtig. Afvoer snoeihout inbegrepen.</p>
+          <p>Snoeien, kronen optillen en kleine vellingen. Ik werk <strong>veilig en met respect</strong> voor uw bomen, en de <strong>afvoer van het snoeihout</strong> zit erbij.</p>
           <span class="service-price">Op offerte</span>
         </div>
       </article>
@@ -2202,7 +2371,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Ontmossen</h3>
-          <p>Oprit, terras, gazon of dak — Jan verwijdert mos grondig en milieuvriendelijk. Resultaat zichtbaar na één behandeling.</p>
+          <p>Oprit, terras of gazon vol mos? Ik verwijder het <strong>grondig en milieuvriendelijk</strong>, en het verschil ziet u al <strong>na één behandeling</strong>.</p>
           <span class="service-price">Vanaf €40</span>
         </div>
       </article>
@@ -2218,7 +2387,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Tuinopkuis & bladruimen</h3>
-          <p>Herfst- en lentebeurt, bladruimen, onkruid wieden en alles netjes achterlaten. Éénmalig of als vast onderdeel.</p>
+          <p>Herfst- en lentebeurt, bladeren ruimen en onkruid wieden. Ik laat <strong>alles netjes achter</strong>, eenmalig of als vast onderdeel.</p>
           <span class="service-price">Vanaf €45</span>
         </div>
       </article>
@@ -2234,7 +2403,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Seizoenscontract</h3>
-          <p>Elke maand of elk seizoen uw tuin in topconditie. Vaste prijs, vaste tuinman — geen zorgen.</p>
+          <p>Uw tuin <strong>het hele jaar in topconditie</strong>, zonder eraan te denken. <strong>Vaste prijs, vaste tuinman</strong>, geen zorgen.</p>
           <span class="service-price">Prijs op maat</span>
         </div>
       </article>
@@ -2252,60 +2421,195 @@
           <span class="line"><span>na, naast <span class="lime">elkaar.</span></span></span>
         </h2>
       </div>
-      <p>De sliders bewegen automatisch. Houd je muis erover om te pauzeren en zelf te slepen.</p>
+      <p>
+        <span class="ba-intro-desktop">De slider beweegt automatisch. Houd uw muis erover om te pauzeren en zelf te slepen. Blader met de pijlen of stippen door mijn realisaties.</span>
+        <span class="ba-intro-mobile">De beelden wisselen vanzelf tussen <strong>voor</strong> en <strong>na</strong>. Veeg opzij om door mijn realisaties te bladeren.</span>
+      </p>
     </div>
 
-    <div class="ba-switcher" role="tablist" aria-label="Selecteer project">
-      <button class="ba-tab active" role="tab" aria-selected="true" data-case="0">Oprit Brugge</button>
-      <button class="ba-tab" role="tab" aria-selected="false" data-case="1">Ontmossen Assebroek</button>
-    </div>
-    <div class="ba-cases">
-      <div class="ba-case">
-        <div class="ba-slider-wrapper" data-ba data-auto>
-          <div class="ba-img before">
-            <img src="assets/before-porch.png" alt="Voor opkuis voortuin">
-          </div>
-          <div class="ba-img after">
-            <img src="assets/after-porch.png" alt="Na opkuis voortuin">
-          </div>
-          <span class="ba-label before">Voor</span>
-          <span class="ba-label after">Na</span>
-          <div class="ba-handle"><div class="pulse-ring"></div></div>
-          <div class="ba-hint">Sleep om te vergelijken</div>
-        </div>
-        <div class="ba-info">
-          <h3>Oprit & voortuin Brugge</h3>
-          <p>Verwaarloosde voortuin opgeruimd, onkruid verwijderd en oprit grondig gereinigd. Klaar in één dag.</p>
-          <div class="ba-tags">
-            <span class="ba-tag">Opkuis</span>
-            <span class="ba-tag">Onkruid</span>
-            <span class="ba-tag">1 dag</span>
-          </div>
+    <div class="ba-carousel">
+      <div class="ba-viewport" id="baViewport">
+        <div class="ba-track" id="baTrack">
+          <article class="ba-case">
+            <div class="ba-slider-wrapper" data-ba data-auto>
+              <div class="ba-img before">
+                <img src="assets/before-garden.png" alt="Voor: verwaarloosde voortuin">
+              </div>
+              <div class="ba-img after">
+                <img src="assets/after-garden.png" alt="Na: aangelegde voortuin met beplanting en verlichting">
+              </div>
+              <span class="ba-label before">Voor</span>
+              <span class="ba-label after">Na</span>
+              <div class="ba-handle"><div class="pulse-ring"></div></div>
+              <div class="ba-hint">Sleep om te vergelijken</div>
+            </div>
+            <div class="ba-info">
+              <h3>Voortuin heraanleg, Brugge</h3>
+              <p>Complete heraanleg: nieuwe beplanting, strakke buxushagen, sfeerverlichting en een nette klinkeroprit.</p>
+              <div class="ba-tags">
+                <span class="ba-tag">Tuinaanleg</span>
+                <span class="ba-tag">Beplanting</span>
+                <span class="ba-tag">Verlichting</span>
+              </div>
+              <div class="ba-foot">
+                <div class="ba-price">
+                  <span class="ba-price-label">Richtprijs</span>
+                  <span class="ba-price-value"><em>vanaf</em> €1.450</span>
+                </div>
+                <a href="#contact" class="ba-quote-btn" data-cursor="hover">
+                  Vrijblijvend een offerte
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ba-case">
+            <div class="ba-slider-wrapper" data-ba data-auto>
+              <div class="ba-img before">
+                <img src="assets/before-porch.png" alt="Voor opkuis voortuin">
+              </div>
+              <div class="ba-img after">
+                <img src="assets/after-porch.png" alt="Na opkuis voortuin">
+              </div>
+              <span class="ba-label before">Voor</span>
+              <span class="ba-label after">Na</span>
+              <div class="ba-handle"><div class="pulse-ring"></div></div>
+              <div class="ba-hint">Sleep om te vergelijken</div>
+            </div>
+            <div class="ba-info">
+              <h3>Oprit &amp; voortuin Brugge</h3>
+              <p>Verwaarloosde voortuin opgeruimd, onkruid verwijderd en oprit grondig gereinigd. Klaar in één dag.</p>
+              <div class="ba-tags">
+                <span class="ba-tag">Opkuis</span>
+                <span class="ba-tag">Onkruid</span>
+                <span class="ba-tag">1 dag</span>
+              </div>
+              <div class="ba-foot">
+                <div class="ba-price">
+                  <span class="ba-price-label">Richtprijs</span>
+                  <span class="ba-price-value"><em>vanaf</em> €275</span>
+                </div>
+                <a href="#contact" class="ba-quote-btn" data-cursor="hover">
+                  Vrijblijvend een offerte
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ba-case">
+            <div class="ba-slider-wrapper" data-ba data-auto>
+              <div class="ba-img before">
+                <img src="assets/before-moss-assebroek.png" alt="Voor ontmossen oprit">
+              </div>
+              <div class="ba-img after">
+                <img src="assets/after-moss.png" alt="Na ontmossen oprit">
+              </div>
+              <span class="ba-label before">Voor</span>
+              <span class="ba-label after">Na</span>
+              <div class="ba-handle"><div class="pulse-ring"></div></div>
+              <div class="ba-hint">Sleep om te vergelijken</div>
+            </div>
+            <div class="ba-info">
+              <h3>Ontmossen oprit Assebroek</h3>
+              <p>Volledige ontmossing van oprit en terras. Milieuvriendelijk middel, geen beschadiging aan tegels.</p>
+              <div class="ba-tags">
+                <span class="ba-tag">Ontmossen</span>
+                <span class="ba-tag">Terras</span>
+                <span class="ba-tag">½ dag</span>
+              </div>
+              <div class="ba-foot">
+                <div class="ba-price">
+                  <span class="ba-price-label">Richtprijs</span>
+                  <span class="ba-price-value"><em>vanaf</em> €135</span>
+                </div>
+                <a href="#contact" class="ba-quote-btn" data-cursor="hover">
+                  Vrijblijvend een offerte
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ba-case">
+            <div class="ba-slider-wrapper" data-ba data-auto>
+              <div class="ba-img before">
+                <img src="assets/before-buxus-sint-andries.png" alt="Voor buxus snoei">
+              </div>
+              <div class="ba-img after">
+                <img src="assets/after-buxus-sint-andries.png" alt="Na buxus snoei">
+              </div>
+              <span class="ba-label before">Voor</span>
+              <span class="ba-label after">Na</span>
+              <div class="ba-handle"><div class="pulse-ring"></div></div>
+              <div class="ba-hint">Sleep om te vergelijken</div>
+            </div>
+            <div class="ba-info">
+              <h3>Heg- &amp; buxussnoei Sint-Andries</h3>
+              <p>Overgroeide buxus en sierstruik opnieuw strak in vorm gesnoeid. Losse scheuten verwijderd, gezonde groei behouden en alles netjes opgekuist.</p>
+              <div class="ba-tags">
+                <span class="ba-tag">Snoei</span>
+                <span class="ba-tag">Buxus</span>
+                <span class="ba-tag">2 uur</span>
+              </div>
+              <div class="ba-foot">
+                <div class="ba-price">
+                  <span class="ba-price-label">Richtprijs</span>
+                  <span class="ba-price-value"><em>vanaf</em> €85</span>
+                </div>
+                <a href="#contact" class="ba-quote-btn" data-cursor="hover">
+                  Vrijblijvend een offerte
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="ba-case">
+            <div class="ba-slider-wrapper" data-ba data-auto>
+              <div class="ba-img before">
+                <img src="assets/before-boomverzorging-brugge.png" alt="Voor boomverzorging">
+              </div>
+              <div class="ba-img after">
+                <img src="assets/after-boomverzorging-brugge.png" alt="Na boomverzorging">
+              </div>
+              <span class="ba-label before">Voor</span>
+              <span class="ba-label after">Na</span>
+              <div class="ba-handle"><div class="pulse-ring"></div></div>
+              <div class="ba-hint">Sleep om te vergelijken</div>
+            </div>
+            <div class="ba-info">
+              <h3>Boomverzorging Brugge</h3>
+              <p>Kleine sierboom uitgedund en de kruin opnieuw in balans gebracht. Kruisende takken verwijderd met behoud van een natuurlijke, gezonde vorm.</p>
+              <div class="ba-tags">
+                <span class="ba-tag">Boomverzorging</span>
+                <span class="ba-tag">Snoei</span>
+                <span class="ba-tag">½ dag</span>
+              </div>
+              <div class="ba-foot">
+                <div class="ba-price">
+                  <span class="ba-price-label">Richtprijs</span>
+                  <span class="ba-price-value"><em>vanaf</em> €180</span>
+                </div>
+                <a href="#contact" class="ba-quote-btn" data-cursor="hover">
+                  Vrijblijvend een offerte
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
 
-      <div class="ba-case">
-        <div class="ba-slider-wrapper" data-ba data-auto>
-          <div class="ba-img before">
-            <img src="assets/before-moss.png" alt="Voor ontmossen oprit">
-          </div>
-          <div class="ba-img after">
-            <img src="assets/after-moss.png" alt="Na ontmossen oprit">
-          </div>
-          <span class="ba-label before">Voor</span>
-          <span class="ba-label after">Na</span>
-          <div class="ba-handle"><div class="pulse-ring"></div></div>
-          <div class="ba-hint">Sleep om te vergelijken</div>
-        </div>
-        <div class="ba-info">
-          <h3>Ontmossen oprit Assebroek</h3>
-          <p>Volledige ontmossing van oprit en terras. Milieuvriendelijk middel, geen beschadiging aan tegels.</p>
-          <div class="ba-tags">
-            <span class="ba-tag">Ontmossen</span>
-            <span class="ba-tag">Terras</span>
-            <span class="ba-tag">½ dag</span>
-          </div>
-        </div>
+      <div class="ba-controls">
+        <button class="ba-arrow" id="baPrev" type="button" data-cursor="hover" aria-label="Vorige realisatie">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="ba-dots" id="baDots" role="tablist" aria-label="Realisaties"></div>
+        <button class="ba-arrow" id="baNext" type="button" data-cursor="hover" aria-label="Volgende realisatie">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -2315,13 +2619,13 @@
   <div class="container">
     <div class="process-header">
       <div>
-        <span class="section-tag section-tag-light">Jan's aanpak</span>
+        <span class="section-tag section-tag-light">Mijn aanpak</span>
         <h2 class="section-title">
           <span class="line"><span>Van vraag tot</span></span>
           <span class="line"><span>uitvoering.</span></span>
         </h2>
       </div>
-      <p>Een eenvoudig en transparant proces, zonder verrassingen onderweg.</p>
+      <p>Een eenvoudig, <strong>transparant proces</strong>. U weet <strong>bij elke stap</strong> waar u aan toe bent.</p>
     </div>
 
     <div class="process-grid">
@@ -2331,38 +2635,38 @@
       <div class="process-step" data-step="1">
         <div class="step-number">01</div>
         <div class="step-image">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Kennismaking">
+          <img src="assets/jan-owner.png" alt="Kennismaking met Jan, uw vaste tuinman" loading="lazy" style="object-position: 60% 30%;">
           <div class="step-image-overlay"></div>
         </div>
         <div class="step-title">Kennismaking</div>
-        <div class="step-desc">Gratis bezoek ter plaatse. We bekijken wat je nodig hebt.</div>
+        <div class="step-desc">Ik kom <strong>gratis langs</strong> en we bekijken samen wat uw tuin nodig heeft.</div>
       </div>
       <div class="process-step" data-step="2">
         <div class="step-number">02</div>
         <div class="step-image">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Vaste offerte">
+          <img src="assets/before-garden.png" alt="Plaatsbezoek: de tuin vóór aanleg, basis voor de offerte" loading="lazy">
           <div class="step-image-overlay"></div>
         </div>
         <div class="step-title">Vaste offerte</div>
-        <div class="step-desc">Heldere prijs vooraf. Geen verborgen kosten of meerwerk-facturen.</div>
+        <div class="step-desc">U krijgt een <strong>heldere prijs vooraf</strong>. Geen verborgen kosten, geen verrassingen op de factuur.</div>
       </div>
       <div class="process-step" data-step="3">
         <div class="step-number">03</div>
         <div class="step-image">
-          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80" alt="Uitvoering">
+          <img src="assets/action-cutting-bush.png" alt="Vakkundige uitvoering: hagen en struiken snoeien" loading="lazy">
           <div class="step-image-overlay"></div>
         </div>
         <div class="step-title">Uitvoering</div>
-        <div class="step-desc">Vakkundig werk volgens plan, met oog voor afwerking en duurzaamheid.</div>
+        <div class="step-desc">Ik voer het werk <strong>zelf uit</strong>, vakkundig en op tijd, met <strong>oog voor de afwerking</strong>.</div>
       </div>
       <div class="process-step" data-step="4">
         <div class="step-number">04</div>
         <div class="step-image">
-          <img src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&w=600&q=80" alt="Oplevering en nazorg">
+          <img src="assets/after-garden.png" alt="Opgeleverde tuin met verzorgde afwerking" loading="lazy">
           <div class="step-image-overlay"></div>
         </div>
         <div class="step-title">Oplevering & nazorg</div>
-        <div class="step-desc">Verzorgde afwerking en onderhoudsschema. We blijven bereikbaar voor advies.</div>
+        <div class="step-desc">Ik lever uw tuin <strong>netjes op</strong> en blijf bereikbaar voor onderhoud en advies.</div>
       </div>
     </div>
   </div>
@@ -2370,53 +2674,67 @@
 
 <section style="padding: 80px 5%; background: var(--bg);">
   <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <span class="section-tag section-tag-dark" style="margin-bottom: 16px; display: inline-block;">Wat Jan voor u doet</span>
+    <span class="section-tag section-tag-dark" style="margin-bottom: 16px; display: inline-block;">Wat ik voor u doe</span>
     <h2 class="section-title" style="margin-bottom: 32px;">
       <span class="line"><span>Alles wat ik</span></span>
       <span class="line"><span>voor u kan <span class="lime">doen.</span></span></span>
     </h2>
     <div class="pill-cloud">
       <div class="pill-cloud-row">
-        <span class="pc-pill pc-lime" data-img="assets/action-harking.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15 L15 15 M5 11 L7 9 L10 12 L13 7"/></svg>
+        <a href="#diensten" class="pc-pill pc-lime" data-img="assets/action-harking.png" data-cursor="hover" aria-label="Gazon maaien, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15 L15 15 M5 11 L7 9 L10 12 L13 7"/></svg>
           Gazon maaien
-        </span>
-        <span class="pc-pill pc-dark" data-img="assets/action-cutting-bush.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4 L14 14 M14 4 L4 14"/></svg>
+        </a>
+        <a href="#diensten" class="pc-pill pc-dark" data-img="assets/action-cutting-bush.png" data-cursor="hover" aria-label="Hagen snoeien, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 4 L14 14 M14 4 L4 14"/></svg>
           Hagen snoeien
-        </span>
-        <span class="pc-pill pc-moss" data-img="assets/action-cutting.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 13 Q9 5 15 13 M9 8 L9 13"/></svg>
+        </a>
+        <a href="#diensten" class="pc-pill pc-moss" data-img="assets/action-cutting.png" data-cursor="hover" aria-label="Bomen snoeien, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13 Q9 5 15 13 M9 8 L9 13"/></svg>
           Bomen snoeien
-        </span>
+        </a>
       </div>
       <div class="pill-cloud-row">
-        <span class="pc-pill pc-bright" data-img="assets/moss.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 14 Q4 9 4 5 Q4 3 6 3 Q8 3 9 6 Q10 3 12 3 Q14 3 14 5 Q14 9 9 14"/></svg>
+        <a href="#diensten" class="pc-pill pc-bright" data-img="assets/moss.png" data-cursor="hover" aria-label="Ontmossen, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 14 Q4 9 4 5 Q4 3 6 3 Q8 3 9 6 Q10 3 12 3 Q14 3 14 5 Q14 9 9 14"/></svg>
           Ontmossen
-        </span>
-        <span class="pc-pill pc-lime" data-img="assets/action-carrying-leaves.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9 Q6 7 9 9 Q12 11 15 9 M3 13 Q6 11 9 13 Q12 15 15 13"/></svg>
+        </a>
+        <a href="#diensten" class="pc-pill pc-lime" data-img="assets/action-carrying-leaves.png" data-cursor="hover" aria-label="Bladruimen, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 9 Q6 7 9 9 Q12 11 15 9 M3 13 Q6 11 9 13 Q12 15 15 13"/></svg>
           Bladruimen
-        </span>
-        <span class="pc-pill pc-dark" data-img="assets/after-porch.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="3"/><path d="M3 15 Q3 11 9 11 Q15 11 15 15"/></svg>
+        </a>
+        <a href="#diensten" class="pc-pill pc-dark" data-img="assets/after-porch.png" data-cursor="hover" aria-label="Onkruid wieden, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 15 Q3 11 9 11 Q15 11 15 15"/></svg>
           Onkruid wieden
-        </span>
+        </a>
       </div>
       <div class="pill-cloud-row">
-        <span class="pc-pill pc-moss" data-img="assets/after-porch.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="9" width="12" height="6" rx="1"/><path d="M9 3 L9 9 M6 6 L9 3 L12 6"/></svg>
+        <a href="#diensten" class="pc-pill pc-moss" data-img="assets/after-porch.png" data-cursor="hover" aria-label="Terrassen reinigen, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="9" width="12" height="6" rx="1"/><path d="M9 3 L9 9 M6 6 L9 3 L12 6"/></svg>
           Terrassen reinigen
-        </span>
-        <span class="pc-pill pc-dark" data-img="assets/testimonial-garden.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 14 Q9 11 9 9 Q9 5 5 5 M9 9 Q9 5 13 5 M3 15 L15 15"/></svg>
+        </a>
+        <a href="#diensten" class="pc-pill pc-dark" data-img="assets/testimonial-garden.png" data-cursor="hover" aria-label="Bemesten, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 14 Q9 11 9 9 Q9 5 5 5 M9 9 Q9 5 13 5 M3 15 L15 15"/></svg>
           Bemesten
-        </span>
-        <span class="pc-pill pc-lime" data-img="assets/testimonial-garden.png">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="10" y="3" width="5" height="5" rx="1"/><rect x="3" y="10" width="5" height="5" rx="1"/><rect x="10" y="10" width="5" height="5" rx="1"/></svg>
+        </a>
+        <a href="#diensten" class="pc-pill pc-lime" data-img="assets/testimonial-garden.png" data-cursor="hover" aria-label="Seizoenscontract, bekijk diensten">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="10" y="3" width="5" height="5" rx="1"/><rect x="3" y="10" width="5" height="5" rx="1"/><rect x="10" y="10" width="5" height="5" rx="1"/></svg>
           Seizoenscontract
-        </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="pill-cta">
+      <span class="pill-cta-text">Benieuwd wat ik nog meer voor u kan doen?</span>
+      <div class="pill-cta-buttons">
+        <a href="tel:+32491324509" class="btn btn-primary magnetic" data-cursor="hover" aria-label="Bel mij op 0491 32 45 09">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+          <span>Bel en vraag het mij</span>
+        </a>
+        <button type="button" class="btn btn-dark-light" data-open-chat data-cursor="hover" aria-label="Stel een vraag via de chat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Stel een vraag</span>
+        </button>
       </div>
     </div>
   </div>
@@ -2438,11 +2756,16 @@
         <span class="google-summary-score">4.9</span>
         <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
       </div>
-      <a href="https://www.google.com/maps/place/AD+Groenservice" target="_blank" rel="noopener noreferrer" class="google-summary-count" aria-label="Bekijk alle reviews op Google">Gebaseerd op [TODO: AANTAL_REVIEWS] Google reviews ↗</a>
+      <a href="https://www.google.com/maps/search/Tuinen+Decoster+Brugge" target="_blank" rel="noopener noreferrer" class="google-summary-count" aria-label="Bekijk alle reviews op Google">Gebaseerd op 47 Google reviews ↗</a>
+      <a href="https://www.google.com/maps/search/Tuinen+Decoster+Brugge" target="_blank" rel="noopener noreferrer" class="google-review-btn" data-cursor="hover" aria-label="Schrijf een review over Tuinen Decoster op Google">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        Schrijf een review
+      </a>
     </div>
   </div>
 
   <div class="reviews-marquee">
+    <div class="reviews-viewport" id="reviewsViewport">
     <div class="reviews-track" id="reviewsTrack">
       <!-- Cards duplicated for seamless loop -->
       <div class="review-card" data-cursor="hover">
@@ -2457,7 +2780,7 @@
           <span class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
           <span class="review-date">3 weken geleden</span>
         </div>
-        <p class="review-text">Onze achtertuin volledig opnieuw aangelegd. Bart heeft een prachtig ontwerp gemaakt en de uitvoering was top. Alles netjes afgewerkt.</p>
+        <p class="review-text">Onze achtertuin volledig opnieuw aangelegd. Jan heeft een prachtig ontwerp gemaakt en de uitvoering was top. Alles netjes afgewerkt.</p>
         <div class="review-google">
           <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Geplaatst op Google
@@ -2484,7 +2807,7 @@
       </div>
 
             <div class="review-photo-card" data-cursor="hover">
-        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=600&q=80" alt="Tuinaanleg project">
+        <img src="assets/after-garden.png" alt="Tuinaanleg project" loading="lazy">
         <div class="review-photo-label">
           <span class="review-photo-tag">Project</span>
           Tuinaanleg Sint-Andries
@@ -2511,7 +2834,7 @@
       </div>
 
             <div class="review-photo-card" data-cursor="hover">
-        <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=600&q=80" alt="Snoeiwerk project">
+        <img src="assets/action-cutting-bush.png" alt="Snoeiwerk project" loading="lazy">
         <div class="review-photo-label">
           <span class="review-photo-tag">Project</span>
           Snoeiwerk Oostkamp
@@ -2530,7 +2853,7 @@
           <span class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
           <span class="review-date">5 maanden geleden</span>
         </div>
-        <p class="review-text">Slechte ervaring gehad met een vorige tuinaannemer. Bart heeft alles hersteld en de tuin terug op punt gezet. Eerlijk en correct.</p>
+        <p class="review-text">Slechte ervaring gehad met een vorige tuinaannemer. Jan heeft alles hersteld en de tuin terug op punt gezet. Eerlijk en correct.</p>
         <div class="review-google">
           <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Geplaatst op Google
@@ -2538,10 +2861,10 @@
       </div>
 
             <div class="review-photo-card" data-cursor="hover">
-        <img src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&w=600&q=80" alt="Tuinverlichting project">
+        <img src="assets/after-porch.png" alt="Terras en oprit project" loading="lazy">
         <div class="review-photo-label">
           <span class="review-photo-tag">Project</span>
-          Tuinverlichting Knokke
+          Terras &amp; oprit Knokke
         </div>
       </div>
 
@@ -2577,7 +2900,7 @@
           <span class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
           <span class="review-date">3 weken geleden</span>
         </div>
-        <p class="review-text">Onze achtertuin volledig opnieuw aangelegd. Bart heeft een prachtig ontwerp gemaakt en de uitvoering was top. Alles netjes afgewerkt.</p>
+        <p class="review-text">Onze achtertuin volledig opnieuw aangelegd. Jan heeft een prachtig ontwerp gemaakt en de uitvoering was top. Alles netjes afgewerkt.</p>
         <div class="review-google">
           <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Geplaatst op Google
@@ -2604,7 +2927,7 @@
       </div>
 
             <div class="review-photo-card" data-cursor="hover">
-        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=600&q=80" alt="Tuinaanleg project">
+        <img src="assets/after-garden.png" alt="Tuinaanleg project" loading="lazy">
         <div class="review-photo-label">
           <span class="review-photo-tag">Project</span>
           Tuinaanleg Sint-Andries
@@ -2631,7 +2954,7 @@
       </div>
 
             <div class="review-photo-card" data-cursor="hover">
-        <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=600&q=80" alt="Snoeiwerk project">
+        <img src="assets/action-cutting-bush.png" alt="Snoeiwerk project" loading="lazy">
         <div class="review-photo-label">
           <span class="review-photo-tag">Project</span>
           Snoeiwerk Oostkamp
@@ -2650,7 +2973,7 @@
           <span class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
           <span class="review-date">5 maanden geleden</span>
         </div>
-        <p class="review-text">Slechte ervaring gehad met een vorige tuinaannemer. Bart heeft alles hersteld en de tuin terug op punt gezet. Eerlijk en correct.</p>
+        <p class="review-text">Slechte ervaring gehad met een vorige tuinaannemer. Jan heeft alles hersteld en de tuin terug op punt gezet. Eerlijk en correct.</p>
         <div class="review-google">
           <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Geplaatst op Google
@@ -2658,10 +2981,10 @@
       </div>
 
             <div class="review-photo-card" data-cursor="hover">
-        <img src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&w=600&q=80" alt="Tuinverlichting project">
+        <img src="assets/after-porch.png" alt="Terras en oprit project" loading="lazy">
         <div class="review-photo-label">
           <span class="review-photo-tag">Project</span>
-          Tuinverlichting Knokke
+          Terras &amp; oprit Knokke
         </div>
       </div>
 
@@ -2684,6 +3007,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -2699,47 +3023,51 @@
           <span class="line"><span>Vragen?</span></span>
           <span class="line"><span>antwoorden.</span></span>
         </h2>
-        <p>Antwoorden op de vragen die we het vaakst krijgen. Iets anders? Bel ons gerust.</p>
+        <p>Antwoorden op de vragen die ik het vaakst krijg. Iets anders? Bel me gerust.</p>
 
         <div class="faq-image">
-          <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=600&q=80" alt="Tuinier aan het werk">
+          <img src="assets/Detail%20shot.png" alt="Strak gesnoeide buxus in een verzorgde tuin" loading="lazy">
           <div class="faq-image-badge">Geen vraag te klein</div>
         </div>
       </div>
       <div class="faq-list">
         <details class="faq-item" data-cursor="hover">
-          <summary>Hoe snel kunnen jullie langskomen?</summary>
-          <p>Voor offertes in Brugge en omstreken zijn we meestal binnen 1 week ter plaatse. Voor dringend onderhoud (zoals een gevallen boom of beregeningsstoring) reageren we binnen 24 uur.</p>
+          <summary>Hoe snel kunt u langskomen?</summary>
+          <p>Voor een offerte in Brugge en omstreken ben ik meestal <strong>binnen de week</strong> ter plaatse. Heeft u dringend werk, zoals een afgewaaide tak na storm? Dan probeer ik er <strong>binnen 24 uur</strong> te zijn.</p>
         </details>
         <details class="faq-item" data-cursor="hover">
-          <summary>Werken jullie BIO-gecertificeerd en verzekerd?</summary>
-          <p>Ja, we zijn officieel BIO-gecertificeerd voor ecologisch tuinbeheer en BA-verzekerd. Bij elke nieuwe aanleg wordt een aanlegplan + beplantingsschema meegeleverd.</p>
+          <summary>Bent u verzekerd en werkt u milieuvriendelijk?</summary>
+          <p>Ja. Ik ben <strong>BIO-gecertificeerd</strong> voor ecologisch tuinbeheer en <strong>BA-verzekerd</strong>, dus u bent altijd in orde en volledig gedekt. Met respect werken voor uw tuin en het milieu vind ik vanzelfsprekend.</p>
         </details>
         <details class="faq-item" data-cursor="hover">
-          <summary>Doen jullie ook onderhoudscontracten?</summary>
-          <p>Zeker. We bieden jaarcontracten op maat: van 4 onderhoudsbeurten per jaar tot wekelijks bezoek. Vaste prijs, geen verrassingen.</p>
+          <summary>Doet u ook onderhoudscontracten?</summary>
+          <p>Zeker. Ik werk met onderhoudscontracten <strong>op maat</strong>: van een paar beurten per jaar tot wekelijks langskomen. <strong>Vaste prijs</strong>, en u hoeft zelf nergens meer aan te denken.</p>
         </details>
         <details class="faq-item" data-cursor="hover">
           <summary>Hoe verloopt een offerte?</summary>
-          <p>We komen eerst gratis langs om de tuin te bekijken en je wensen te bespreken. Daarna sturen we een vaste prijsofferte met beplantingsplan. We starten pas na jouw akkoord.</p>
+          <p>Ik kom eerst <strong>gratis langs</strong> om uw tuin te bekijken en uw wensen te bespreken. Daarna krijgt u van mij een duidelijke offerte met een <strong>vaste prijs</strong>. Ik start pas wanneer u akkoord bent.</p>
         </details>
         <details class="faq-item" data-cursor="hover">
-          <summary>Doen jullie ook kleine klussen?</summary>
-          <p>Zeker. Een haag snoeien, een plant vervangen, een terras heraanleggen: elke klus krijgt dezelfde aandacht als een volledige tuinaanleg.</p>
+          <summary>Doet u ook kleine klussen?</summary>
+          <p>Zeker. Een haag bijknippen, wat onkruid wieden of een terras ontmossen, elke klus krijgt <strong>evenveel aandacht</strong>. <strong>Geen enkele opdracht is te klein</strong>.</p>
         </details>
 
         <!-- FAQ post-CTA -->
         <div class="faq-cta">
-          <span>Geen antwoord op je vraag?</span>
+          <span>Geen antwoord op uw vraag?</span>
           <div class="faq-cta-buttons">
-            <a href="tel:+320000000000" class="faq-cta-link faq-cta-tel" aria-label="Bel ons op [TODO: TELEFOONNUMMER]">
+            <a href="tel:+32491324509" class="faq-cta-link faq-cta-tel" aria-label="Bel mij op 0491 32 45 09">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-              Bel ons
+              Bel mij
             </a>
-            <a href="https://wa.me/32000000000?text=Hallo%20AD%20Groenservice%2C%20ik%20heb%20een%20vraag." class="faq-cta-link faq-cta-wa" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp">
+            <a href="https://wa.me/32491324509?text=Hallo%20Tuinen%20Decoster%2C%20ik%20heb%20een%20vraag." class="faq-cta-link faq-cta-wa" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               WhatsApp
             </a>
+            <button type="button" class="faq-cta-link faq-cta-chat" data-open-chat data-cursor="hover" aria-label="Stel een vraag via de chat">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Chat
+            </button>
           </div>
         </div>
       </div>
@@ -2752,10 +3080,10 @@
     <div class="map-content">
       <span class="section-tag section-tag-dark">Werkgebied</span>
       <h2 class="section-title">
-        <span class="line"><span>Wij komen</span></span>
-        <span class="line"><span>tot bij jou.</span></span>
+        <span class="line"><span>Ik kom</span></span>
+        <span class="line"><span>tot bij u.</span></span>
       </h2>
-      <p>Klik op een gemeente om te zien waar we werken. Woon je net buiten de regio? Bel ons gerust, we kijken wat mogelijk is.</p>
+      <p>Klik op een gemeente om te zien waar ik werk. Woont u net buiten de regio? <strong>Bel me gerust</strong>, ik bekijk graag wat mogelijk is.</p>
 
       <button class="areas-toggle" id="areas-toggle" aria-expanded="false" aria-controls="areas">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2787,10 +3115,7 @@
   </div>
 </section>
 
-<section class="final-cta">
-  <div class="cta-bg">
-    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=2000&q=80" alt="">
-  </div>
+<section class="final-cta" id="contact">
   <div class="cta-rings">
     <div class="cta-ring"></div>
     <div class="cta-ring"></div>
@@ -2798,16 +3123,16 @@
     <div class="cta-ring"></div>
   </div>
   <h2>
-    <span style="display:block;">Laat ons</span>
-    <span style="display:block;">even bellen.</span>
+    <span style="display:block; white-space:nowrap;">Bel me, <span class="cta-face" role="img" aria-label="Jan, uw tuinman"></span></span>
+    <span style="display:block;">ik regel het.</span>
   </h2>
-  <p>Eén telefoontje volstaat. Of stuur een WhatsApp, dan reageren we snel.</p>
+  <p><strong>Eén telefoontje volstaat</strong>. Ik kom langs, bekijk uw tuin en geef u een <strong>eerlijke prijs</strong>. Liever WhatsApp? Ik antwoord snel, meestal nog dezelfde dag.</p>
   <div class="final-cta-buttons">
-    <a href="tel:+320000000000" class="btn btn-dark-light magnetic btn-cta-final" data-cursor="hover" aria-label="Bel ons op [TODO: TELEFOONNUMMER]">
+    <a href="tel:+32491324509" class="btn btn-primary magnetic btn-cta-final" data-cursor="hover" aria-label="Bel mij op 0491 32 45 09">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
-      <span>[TODO: TELEFOONNUMMER]</span>
+      <span>0491 32 45 09</span>
     </a>
-    <a href="https://wa.me/32000000000?text=Hallo%20AD%20Groenservice%2C%20ik%20heb%20een%20vraag." class="btn btn-whatsapp magnetic btn-cta-final" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur een WhatsApp bericht">
+    <a href="https://wa.me/32491324509?text=Hallo%20Tuinen%20Decoster%2C%20ik%20heb%20een%20vraag." class="btn btn-whatsapp magnetic btn-cta-final" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur een WhatsApp bericht">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       <span>WhatsApp</span>
     </a>
@@ -2819,21 +3144,19 @@
 <footer>
   <div class="footer-content">
     <div class="footer-brand">
-      <a href="#" class="logo" aria-label="AD Groenservice homepage">
+      <a href="#" class="logo" aria-label="Tuinen Decoster homepage">
         <div class="logo-mark">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
         </div>
-        <div class="logo-text">AD <span class="logo-lime">Groenservice</span></div>
+        <div class="logo-text">Tuinen <span class="logo-lime">Decoster</span></div>
       </a>
-      <p>Erkend tuinier in Brugge en omstreken. BIO-gecertificeerd, betrouwbaar, betaalbaar.</p>
+      <p>Ik ben Jan, uw <strong>vaste tuinman</strong> in Brugge en omstreken. <strong>Persoonlijke service</strong>, eerlijke prijzen en altijd verzorgd werk.</p>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="tel:+320000000000">[TODO: TELEFOONNUMMER]</a>
-      <!-- TODO: [EMAIL] -->
-      <a href="mailto:[TODO: EMAIL]">[TODO: EMAIL]</a>
-      <!-- TODO: [ADRES] -->
-      <p>[TODO: ADRES]</p>
+      <a href="tel:+32491324509">0491 32 45 09</a>
+      <a href="mailto:info@tuinendecoster.be">info@tuinendecoster.be</a>
+      <p>Gistelse Steenweg 142<br>8200 Sint-Andries (Brugge)</p>
     </div>
     <div class="footer-col">
       <h4>Uren</h4>
@@ -2842,14 +3165,13 @@
       <p>Zo: gesloten</p>
     </div>
     <div class="footer-col">
-      <h4>Official</h4>
-      <!-- TODO: [BTW_NUMMER] -->
-      <p>[TODO: BTW_NUMMER]</p>
+      <h4>Erkenningen</h4>
+      <p>BTW BE 0782.531.146</p>
       <p>BIO erkend</p>
       <p>BA verzekerd</p>
     </div>
   </div>
-  <div class="copyright">© 2026 AD Groenservice · Alle rechten voorbehouden</div>
+  <div class="copyright">© 2026 Tuinen Decoster · Alle rechten voorbehouden</div>
 </footer>
 
 <script>
@@ -2870,27 +3192,13 @@
     }, 250);
   });
 
-  // Video failsafe: als video niet laadt of niet kan afspelen, toon poster
-  const heroVideo = document.querySelector('.hero-video video');
+  // ONE shared hero clip: it lives in #intro-video-window and is moved into .hero-video at
+  // hand-off, so the ~9MB file downloads once (no duplicate hero <video>).
+  const heroVideoContainer = document.querySelector('.hero-video');
+  const heroVideo = document.querySelector('#intro-video-window video');
   if (heroVideo) {
-    let videoLoaded = false;
-    heroVideo.addEventListener('loadeddata', () => { videoLoaded = true; });
-    heroVideo.addEventListener('error', () => {
-      const poster = heroVideo.getAttribute('poster');
-      if (poster) {
-        heroVideo.outerHTML = `<img src="${poster}" alt="Tuinier" style="width:100%;height:100%;object-fit:cover;">`;
-      }
-    });
-    // Force fallback na 4 sec als nog niet geladen
-    setTimeout(() => {
-      if (!videoLoaded && heroVideo.readyState < 2) {
-        const poster = heroVideo.getAttribute('poster');
-        if (poster && heroVideo.parentNode) {
-          heroVideo.outerHTML = `<img src="${poster}" alt="Tuinier" style="width:100%;height:100%;object-fit:cover;">`;
-        }
-      }
-    }, 4000);
-    // Force play on touch devices
+    // Failsafe: if the clip can't play, drop it so the poster <img> in .hero-video shows.
+    heroVideo.addEventListener('error', () => { if (heroVideo.parentNode) heroVideo.remove(); });
     heroVideo.play().catch(() => {});
   }
 
@@ -2927,7 +3235,7 @@
 
   // HERO ENTRY — paused, triggered by intro sequence
   gsap.set('.nav', { opacity: 0, y: -16 });
-  gsap.set('.hero-meta, .hero-sub, .cta-group, .hero-panel, .hero-service-pills', { opacity: 0, y: 24 });
+  gsap.set('.hero-meta, .hero-sub, .cta-group, .hero-panel', { opacity: 0, y: 24 });
   const heroTl = gsap.timeline({ paused: true });
   heroTl
     .to('.nav', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' })
@@ -2935,37 +3243,41 @@
     .to('h1 .word', { y: 0, duration: 1.1, ease: 'power4.out', stagger: 0.08 }, '-=0.4')
     .to('.hero-sub', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.5')
     .to('.cta-group', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.6')
-    .to('.hero-panel', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.5')
-    .to('.hero-service-pills', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.6');
+    .to('.hero-panel', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.5');
 
-  // HERO PANEL — card cycle + dot indicator micro-animation
-  (function initPanelCycle() {
-    const panelCards = document.querySelectorAll('.hero-panel-cards .hero-panel-card');
+  // HERO PANEL — real sliding carousel (dots sync + auto-advance, pause on hover)
+  (function initPanelCarousel() {
+    const track = document.getElementById('heroPanelTrack');
+    const slides = track ? track.querySelectorAll('.hero-panel-slide') : [];
     const dots = document.querySelectorAll('.hero-panel-dot');
-    if (!panelCards.length || !dots.length) return;
+    if (!track || !slides.length || !dots.length) return;
+    const total = Math.min(slides.length, dots.length);
     let current = 0;
-    const total = dots.length; // 3 dot states cycle through 2 cards
+    let timer = null;
 
     function goTo(idx) {
-      // Dots
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-      // Cards: alternate highlight based on idx
-      const activeCardIdx = idx % panelCards.length;
-      panelCards.forEach((card, i) => {
-        card.classList.remove('active-card', 'dim-card');
-        if (i === activeCardIdx) card.classList.add('active-card');
-        else card.classList.add('dim-card');
+      current = (idx + total) % total;
+      track.style.transform = 'translateX(' + (-current * 100) + '%)';
+      dots.forEach((d, i) => {
+        const on = i === current;
+        d.classList.toggle('active', on);
+        d.setAttribute('aria-selected', on ? 'true' : 'false');
       });
     }
+    function next() { goTo(current + 1); }
+    function start() { stop(); timer = setInterval(next, 4500); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-    // Initialize after panel fades in
-    setTimeout(() => {
-      goTo(0);
-      setInterval(() => {
-        current = (current + 1) % total;
-        goTo(current);
-      }, 4000);
-    }, 3500);
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); start(); }));
+
+    const panel = document.getElementById('heroPanel');
+    if (panel) {
+      panel.addEventListener('mouseenter', stop);
+      panel.addEventListener('mouseleave', start);
+    }
+
+    goTo(0);
+    setTimeout(start, 3500); // begin once the hero panel has faded in
   })();
 
   // SITE INTRO SEQUENCE
@@ -2980,20 +3292,31 @@
   const introVidEl  = introVidWin ? introVidWin.querySelector('video') : null;
 
   // Initial GSAP states (no CSS opacity/transform on these elements)
-  gsap.set(introMark, { scale: 0, rotation: -12 });
-  gsap.set(introName, { opacity: 0, letterSpacing: '0.2em', y: 10 });
+  gsap.set(introMark, { scale: 0.3, rotation: -12, opacity: 0 });
+  gsap.set(introName, { opacity: 0, letterSpacing: isMobile ? '0.08em' : '0.2em', y: 10 });
   gsap.set(introTag,  { opacity: 0, y: 8 });
-  if (!isMobile && introVidWin) {
-    const heroW = window.innerWidth - 32;
-    const heroH = window.innerHeight - 32;
-    gsap.set(introVidWin, { xPercent: -50, yPercent: -50, scale: 0.1, opacity: 0, borderRadius: '28px', width: heroW, height: heroH });
-    if (introVidEl) gsap.set(introVidEl, { scale: 1.12 });
+
+  // Position the expanding video window EXACTLY over where the hero will sit,
+  // so the hand-off to the real hero video is pixel-perfect (no jump / re-scale).
+  function placeIntroWindow() {
+    if (!introVidWin) return;
+    const heroEl = document.querySelector('.hero');
+    if (!heroEl) return;
+    const r = heroEl.getBoundingClientRect();
+    gsap.set(introVidWin, {
+      top: r.top, left: r.left, width: r.width, height: r.height,
+      borderRadius: getComputedStyle(heroEl).borderRadius,
+      transformOrigin: '50% 50%',
+      scale: 0.62, opacity: 0
+    });
+    if (introVidEl) gsap.set(introVidEl, { scale: 1.08 });
   }
+  placeIntroWindow();
 
   const introTl = gsap.timeline();
   introTl
     // — Phase 1: Brand identity —
-    .to(introMark, { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.7)', delay: 0.3 })
+    .to(introMark, { scale: 1, rotation: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.7)', delay: 0.3 })
     .call(() => introMark.classList.add('shimmer'), null, '-=0.05')
     .to(introMark, { boxShadow: '0 0 0 14px rgba(194,221,98,0.07), 0 0 56px rgba(194,221,98,0.45)', duration: 0.4, ease: 'power2.out' }, '-=0.2')
     .to(introMark, { boxShadow: '0 0 0 0px rgba(194,221,98,0.0), 0 0 56px rgba(194,221,98,0.45)', duration: 0.65, ease: 'power2.out' })
@@ -3001,17 +3324,21 @@
     .to(introTag,  { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.25')
     .to(introLine, { width: '100%', duration: 1.0, ease: 'power1.inOut' }, '-=0.15');
 
-  if (!isMobile && introVidWin) {
-    // — Phase 2: Video window expands from centre (desktop) —
+  if (introVidWin) {
+    // — Phase 2: Video window glides open to the hero rect (desktop + mobile) —
+    // Rewind + play the window video from 0 so the in-video logo reveal plays AS it opens.
+    introTl.call(() => {
+      if (introVidEl) { try { introVidEl.currentTime = 0; introVidEl.play().catch(() => {}); } catch (e) {} }
+    }, null, '-=0.2');
     introTl
-      .to(introVidWin, { scale: 1, opacity: 1, borderRadius: '24px', duration: 1.3, ease: 'power4.inOut' }, '+=0.08')
-      .to(introVidEl,  { scale: 1.0, duration: 1.5, ease: 'power2.out' }, '-=1.3')
-      // Logo dissolves while window fills
-      .to(introWrap, { opacity: 0, scale: 0.95, duration: 0.4, ease: 'power2.in' }, '-=1.0')
-      .to(introLine, { opacity: 0, duration: 0.25 }, '-=0.5')
-      .to(introBg,   { opacity: 0, duration: 0.25, ease: 'power1.out' }, '-=0.2');
+      .to(introVidWin, { scale: 1, opacity: 1, duration: 1.25, ease: 'power3.inOut' }, '+=0.05')
+      .to(introVidEl,  { scale: 1.0, duration: 1.5, ease: 'power2.out' }, '<')
+      // Logo dissolves while the window fills the frame
+      .to(introWrap, { opacity: 0, scale: 0.96, duration: 0.45, ease: 'power2.in' }, '<0.15')
+      .to(introLine, { opacity: 0, duration: 0.25 }, '<')
+      .to(introBg,   { opacity: 0, duration: 0.55, ease: 'power1.out' }, '<0.15');
   } else {
-    // Mobile: simple dissolve
+    // Fallback (no window element): simple dissolve
     introTl
       .to(introBg,   { opacity: 0, duration: 1.0, ease: 'power2.inOut', delay: 0.1 }, '+=0.05')
       .to(introWrap, { opacity: 0, scale: 0.96, duration: 0.55, ease: 'power2.in' }, '-=0.6')
@@ -3019,6 +3346,17 @@
   }
 
   introTl
+    // Hand-off: physically move the SAME clip element into the hero, then drop the overlay.
+    // Same element = same buffer = keeps playing on the exact frame, with zero extra download.
+    .call(() => {
+      if (heroVideo && heroVideoContainer && heroVideo.parentNode !== heroVideoContainer) {
+        try {
+          gsap.set(heroVideo, { clearProps: 'transform,scale' });
+          heroVideoContainer.appendChild(heroVideo); // last child → paints over the poster
+          heroVideo.play().catch(() => {});
+        } catch (e) {}
+      }
+    })
     .set(siteIntro, { display: 'none' })
     .call(() => heroTl.play());
 
@@ -3114,7 +3452,7 @@
   }
 
   // ============================================
-  // VIDEO MOBILE PLAY HANDLING
+  // VIDEO MOBILE PLAY HANDLING + RELIABLE LOOP
   // ============================================
   // Force play video on mobile (needed for iOS Safari)
   if (heroVideo) {
@@ -3123,6 +3461,14 @@
     };
     document.addEventListener('touchstart', tryPlay, { once: true });
     document.addEventListener('click', tryPlay, { once: true });
+  }
+
+  // Belt-and-suspenders looping: re-arm `loop` and restart on 'ended' for the shared clip.
+  if (heroVideo) {
+    heroVideo.loop = true;
+    heroVideo.addEventListener('ended', () => {
+      try { heroVideo.currentTime = 0; heroVideo.play().catch(() => {}); } catch (e) {}
+    });
   }
 
   // SECTION TITLES
@@ -3145,18 +3491,25 @@
   });
 
 
-  // SERVICE CARDS - failsafe: zet opacity 1 als batch faalt
-  gsap.set('.service-card', { opacity: 1 }); // start zichtbaar
+  // SERVICE CARDS — reveal once; fromTo + clearProps so no stagger transform is left behind
+  // (the old gsap.from could be re-fired by ScrollTrigger.refresh and freeze cards mid-stagger,
+  //  leaving rows offset by ~11/27px — hence the "not aligned" look).
+  gsap.set('.service-card', { opacity: 1 }); // failsafe visible
   ScrollTrigger.batch('.service-card', {
-    start: 'top 100%',
-    onEnter: batch => gsap.from(batch, { opacity: 0, y: 40, duration: 0.7, stagger: 0.08, ease: 'power3.out', overwrite: true })
+    start: 'top 90%',
+    once: true,
+    onEnter: batch => gsap.fromTo(batch,
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', overwrite: true, clearProps: 'transform' })
   });
 
-  // BA CASES - failsafe
-  gsap.set('.ba-case', { opacity: 1 });
-  ScrollTrigger.batch('.ba-case', {
-    start: 'top 100%',
-    onEnter: batch => gsap.from(batch, { opacity: 0, y: 50, duration: 0.8, stagger: 0.15, ease: 'power3.out', overwrite: true })
+  // BA CAROUSEL — reveal the whole carousel once (cases live in a transform track)
+  gsap.set('.ba-carousel', { opacity: 1 });
+  ScrollTrigger.create({
+    trigger: '.ba-carousel', start: 'top 88%', once: true,
+    onEnter: () => gsap.fromTo('.ba-carousel',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform' })
   });
 
   // ⚡ PROCESS - LINE DRAWS WHILE SCROLLING + STEPS ACTIVATE ONE BY ONE
@@ -3187,12 +3540,93 @@
     }
   });
 
-  // ⚡ REVIEWS MARQUEE - pause on hover
-  const reviewsTrack = document.getElementById('reviewsTrack');
-  if (reviewsTrack) {
-    reviewsTrack.addEventListener('mouseenter', () => reviewsTrack.classList.add('paused'));
-    reviewsTrack.addEventListener('mouseleave', () => reviewsTrack.classList.remove('paused'));
-  }
+  // ⚡ REVIEWS — JS auto-scroll + manual swipe/drag scrub + tap-to-highlight
+  (function initReviews() {
+    const viewport = document.getElementById('reviewsViewport');
+    const track = document.getElementById('reviewsTrack');
+    if (!viewport || !track) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let paused = reduceMotion;
+    let selected = null;
+    let resumeTimer = null;
+    const SPEED = 24; // px/second — time-based so it's consistent on 60/120/144Hz displays
+
+    const half = () => track.scrollWidth / 2; // width of one duplicated set
+
+    let lastTs = null;
+    let pos = null; // float accumulator — scrollLeft snaps to whole px, so sub-px steps would stall at high refresh rates
+    function tick(ts) {
+      const h = half();
+      const dt = lastTs == null ? 0 : Math.min((ts - lastTs) / 1000, 0.05); // clamp jumps after tab inactive
+      lastTs = ts;
+      if (paused || h <= 0) {
+        pos = viewport.scrollLeft; // stay in sync while paused / manual scrubbing
+      } else {
+        if (pos == null) pos = viewport.scrollLeft;
+        pos += SPEED * dt;
+        if (pos >= h) pos -= h;
+        viewport.scrollLeft = pos;
+      }
+      requestAnimationFrame(tick);
+    }
+    function normalize() {
+      const h = half();
+      if (h <= 0) return;
+      if (viewport.scrollLeft <= 0) viewport.scrollLeft += h;
+      else if (viewport.scrollLeft >= h) viewport.scrollLeft -= h;
+    }
+    function pause() { paused = true; if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; } }
+    function resumeSoon(delay) {
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { if (!selected && !reduceMotion) paused = false; }, delay || 1200);
+    }
+
+    // Desktop hover pause
+    viewport.addEventListener('mouseenter', pause);
+    viewport.addEventListener('mouseleave', () => { if (!selected) resumeSoon(200); });
+
+    // Touch: native scroll does the scrubbing; pause auto while touching, resume after release
+    let touchStartX = 0, touchMoved = 0;
+    viewport.addEventListener('touchstart', (e) => { pause(); touchStartX = e.touches[0].clientX; touchMoved = 0; }, { passive: true });
+    viewport.addEventListener('touchmove', (e) => { touchMoved = Math.max(touchMoved, Math.abs(e.touches[0].clientX - touchStartX)); }, { passive: true });
+    viewport.addEventListener('touchend', () => { normalize(); if (!selected) resumeSoon(1400); }, { passive: true });
+
+    // Desktop pointer drag-to-scrub
+    let isDown = false, startX = 0, startScroll = 0, moved = 0;
+    viewport.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'touch') return;
+      isDown = true; moved = 0; startX = e.clientX; startScroll = viewport.scrollLeft;
+      viewport.classList.add('dragging'); pause();
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      viewport.scrollLeft = startScroll - dx;
+      normalize();
+    });
+    window.addEventListener('pointerup', () => {
+      if (!isDown) return;
+      isDown = false; viewport.classList.remove('dragging');
+      if (!selected) resumeSoon(800);
+    });
+
+    // Tap/click a card → pause + highlight (tap again to release)
+    track.querySelectorAll('.review-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (moved > 8 || touchMoved > 8) return; // it was a scrub, not a tap
+        if (selected === card) {
+          card.classList.remove('selected'); selected = null; resumeSoon(200);
+        } else {
+          if (selected) selected.classList.remove('selected');
+          card.classList.add('selected'); selected = card; pause();
+        }
+      });
+    });
+
+    requestAnimationFrame(tick);
+  })();
 
   // BANNER PARALLAX - niet op mobile (kan flickeren)
   if (!isMobile) {
@@ -3207,6 +3641,7 @@
   // ============================================
   // ⚡ BEFORE/AFTER - AUTO-ANIMATED + DRAG
   // ============================================
+  const baIsMobile = () => window.matchMedia('(max-width: 768px)').matches;
   document.querySelectorAll('[data-ba]').forEach((wrapper, idx) => {
     const after = wrapper.querySelector('.ba-img.after');
     const handle = wrapper.querySelector('.ba-handle');
@@ -3251,7 +3686,8 @@
       }
     }
 
-    // Start when in view
+    // Start the auto-compare when scrolled into view (desktop AND mobile — the reveal keeps playing;
+    // only the draggable knob is hidden on mobile, via CSS).
     ScrollTrigger.create({
       trigger: wrapper,
       start: 'top 80%',
@@ -3270,6 +3706,8 @@
       update(getPercent(e));
     });
     wrapper.addEventListener('touchstart', e => {
+      // On mobile, leave horizontal touch to the carousel swipe (the auto-reveal still plays; drag is off).
+      if (baIsMobile()) return;
       isDown = true;
       pauseAuto();
       wrapper.classList.add('dragging');
@@ -3300,18 +3738,22 @@
   // LEAFLET MAP - HQ PIN + AREA MARKERS
   // ============================================
   const map = L.map('map', {
-    zoomControl: false,
-    scrollWheelZoom: false,
-    dragging: !isTouch,
-    tap: false,
-    attributionControl: false,
-    touchZoom: false,
-    doubleClickZoom: false,
-    boxZoom: false,
-    keyboard: false
+    zoomControl: false,          // no zoom buttons — use scroll wheel / pinch
+    scrollWheelZoom: true,       // desktop: scroll to zoom
+    dragging: true,              // pan on desktop + mobile
+    touchZoom: true,             // mobile: pinch to zoom
+    doubleClickZoom: true,
+    boxZoom: true,
+    keyboard: true,              // a11y: +/- and arrow keys when focused
+    attributionControl: true
   }).setView([51.2093, 3.2247], 11);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  // Clean, light minimal basemap (CARTO Positron) — fits the site far better than dark-inverted OSM
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  }).addTo(map);
 
   // HQ icon - distinctive pin with lightning bolt
   const hqIcon = L.divIcon({
@@ -3321,7 +3763,7 @@
         <div class="marker-hq-ring"></div>
         <div class="marker-hq-pin"></div>
         <svg class="marker-hq-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg>
-        <div class="marker-hq-label">HQ · AD Groenservice</div>
+        <div class="marker-hq-label">HQ · Tuinen Decoster</div>
       </div>
     `,
     iconSize: [40, 50],
@@ -3466,22 +3908,69 @@
   });
 })();
 
-// ── Before/After Project Switcher ────────────────────────────────
+// ── Before/After Carousel (arrows + auto-generated dots) ──────────
 (function(){
-  var tabs = document.querySelectorAll('.ba-tab');
-  var cases = document.querySelectorAll('.ba-case');
-  if (!tabs.length || !cases.length) return;
-  cases[0].classList.add('active');
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      var idx = parseInt(tab.dataset.case, 10);
-      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-      cases.forEach(function(c){ c.classList.remove('active'); });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected','true');
-      if (cases[idx]) cases[idx].classList.add('active');
+  var track = document.getElementById('baTrack');
+  var viewport = document.getElementById('baViewport');
+  var dotsWrap = document.getElementById('baDots');
+  var prev = document.getElementById('baPrev');
+  var next = document.getElementById('baNext');
+  if (!track || !viewport || !dotsWrap) return;
+  var cases = track.querySelectorAll('.ba-case');
+  var total = cases.length;
+  if (!total) return;
+  var current = 0;
+
+  // Build one dot per case (so adding cases needs no JS change)
+  var dots = [];
+  for (var i = 0; i < total; i++){
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'ba-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role','tab');
+    d.setAttribute('aria-label','Realisatie ' + (i+1) + ' van ' + total);
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+    dotsWrap.appendChild(d);
+    dots.push(d);
+  }
+
+  function goTo(idx){
+    current = (idx + total) % total;
+    track.style.transform = 'translateX(' + (-current * 100) + '%)';
+    dots.forEach(function(dt, i){
+      var on = i === current;
+      dt.classList.toggle('active', on);
+      dt.setAttribute('aria-selected', on ? 'true' : 'false');
     });
+  }
+
+  if (prev) prev.addEventListener('click', function(){ goTo(current - 1); });
+  if (next) next.addEventListener('click', function(){ goTo(current + 1); });
+  // Keyboard arrows when the carousel has focus
+  viewport.setAttribute('tabindex','0');
+  viewport.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft'){ e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'ArrowRight'){ e.preventDefault(); goTo(current + 1); }
   });
+
+  // Touch swipe to navigate (mobile). The inner compare-sliders ignore touch on mobile,
+  // so a horizontal swipe here is unambiguous; a vertical swipe still scrolls the page.
+  var tsx = 0, tsy = 0, tracking = false;
+  var swipeOn = function(){ return window.matchMedia('(max-width: 768px)').matches; };
+  viewport.addEventListener('touchstart', function(e){
+    // Only swipe-navigate in mobile mode; on desktop the inner drag-to-compare owns touch.
+    // Checked per-gesture so it switches live when the viewport is resized/rotated.
+    if (!swipeOn() || e.touches.length !== 1) return;
+    tsx = e.touches[0].clientX; tsy = e.touches[0].clientY; tracking = true;
+  }, { passive: true });
+  viewport.addEventListener('touchend', function(e){
+    if (!tracking) return; tracking = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - tsx, dy = t.clientY - tsy;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) goTo(current + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  goTo(0);
 })();
 
 // ── Map Area Chips Toggle ─────────────────────────────────────────
@@ -3508,13 +3997,11 @@
 <div id="faq-panel" role="dialog" aria-label="Chatbot" aria-modal="true">
   <div class="faq-header">
     <div class="faq-header-logo">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 19c.93-1.32 2.29-3 4-3 2 0 3 1 5 1 3.5 0 5.5-2.5 5-6-2.5 1-5 1-4-3z"/>
-      </svg>
+      <img src="assets/jan-closeup.png" alt="Jan Decoster, uw tuinman">
     </div>
     <div class="faq-header-title">
-      <strong>Jan — Tuinman</strong>
-      <span><span class="faq-online-dot" aria-hidden="true"></span>Online — Stel ons een vraag</span>
+      <strong>Jan · Tuinman</strong>
+      <span><span class="faq-online-dot" aria-hidden="true"></span>Online · Stel een vraag</span>
     </div>
     <button class="faq-close" aria-label="Sluiten">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
@@ -3547,7 +4034,7 @@
                'maaien','tuin','aanleg','onderhoud','offerte','kosten','hoeveel','euro','betalen',
                'aanbod','welke','bieden','opkuis','bladruimen','onkruid','grasinzaai',
                'price','cost','how much','services','what do you','garden','lawn','hedge'],
-     answer:'Wij bieden:<br>• Gazononderhoud &amp; maaien<br>• Heg- &amp; struiksnoei<br>• Boomverzorging &amp; snoeien<br>• Tuinaanleg op maat<br>• Tuinopkuis &amp; bladruimen<br>• Onkruidbestrijding<br><br>Vraag een <strong>gratis offerte</strong> aan — wij komen vrijblijvend langs.'},
+     answer:'Ik bied:<br>• Gazononderhoud &amp; maaien<br>• Heg- &amp; struiksnoei<br>• Boomverzorging &amp; snoeien<br>• Tuinaanleg op maat<br>• Tuinopkuis &amp; bladruimen<br>• Onkruidbestrijding<br><br>Vraag een <strong>gratis offerte</strong> aan. Ik kom vrijblijvend langs.'},
     {id:'bereikbaarheid',chip:'📍 Bereikbaarheid & regio',
      keywords:['wanneer','bereikbaar','regio','gebied','stad','beschikbaar','open','uur','tijdstip',
                'omgeving','openingsuur','openingsuren','openingstijden','uren','tijden',
@@ -3560,13 +4047,13 @@
                'afspreken','langs','iemand sturen','tuinman sturen','kom langs','contact',
                'offerte','plaatsbezoek','vrijblijvend','gratis bezoek',
                'appointment','book','visit','schedule','send someone','quote'],
-     answer:'Een afspraak maken gaat het snelst telefonisch. Wij komen graag <strong>gratis en vrijblijvend</strong> bij u langs voor een offerte op maat — doorgaans al <strong>binnen de week</strong>.'},
+     answer:'Een afspraak maken gaat het snelst telefonisch. Ik kom graag <strong>gratis en vrijblijvend</strong> bij u langs voor een offerte op maat, doorgaans al <strong>binnen de week</strong>.'},
     {id:'over',chip:'🏡 Over Jan',
      keywords:['wie','jan','verdant','groenservice','ervaring','jaar','team','betrouwbaar',
                'gecertificeerd','over','garantie','klanten','info','vertrouw','verzekerd',
                'reviews','beoordelingen','erkend','gediplomeerd','vakman','vakmensen',
                'about','who are you','history','credentials','reliable'],
-     answer:'Jan is een vakkundige tuinman met meer dan <strong>15 jaar ervaring</strong> in Brugge en omgeving. Van gazononderhoud tot ontmossen en boomverzorging — alles met een <strong>vaste prijs</strong> en propere afwerking.'}
+     answer:'Ik ben een vakkundige tuinman met meer dan <strong>15 jaar ervaring</strong> in Brugge en omgeving. Van gazononderhoud tot ontmossen en boomverzorging, alles met een <strong>vaste prijs</strong> en propere afwerking.'}
   ];
 
   var INTENT_PATTERNS=[
@@ -3596,8 +4083,8 @@
     {id:'aanleg',label:'🏡 Tuinaanleg'},
     {id:'other',label:'❓ Anders'}
   ];
-  var PHONE='[TELEFOONNUMMER]';
-  var PHONE_DISPLAY='[TELEFOONNUMMER]';
+  var PHONE='+32491324509';
+  var PHONE_DISPLAY='0491 32 45 09';
 
   var RE_GREET=/^(hallo|dag|goedemorgen|goedemiddag|goedenavond|goede avond|goede morgen|goede middag|hi|hello|hey|hoi|salut|goeie|bonjour)\b[\s!.?]*$/i;
   var RE_THANKS=/(dankje|dank je wel|dank je|bedankt|dank u wel|dank u|merci|thanks|thank you|super bedankt|heel erg bedankt|fijn zo|top bedankt)/i;
@@ -3617,6 +4104,23 @@
   var conversationHistory=[];
   var aiPending=false;
 
+  // Robust body scroll-lock (iOS Safari ignores body{overflow:hidden}; position:fixed works)
+  var scrollLocked=false, savedScrollY=0;
+  function lockScroll(){
+    if(scrollLocked) return;
+    savedScrollY=window.scrollY||window.pageYOffset||0;
+    var b=document.body.style;
+    b.position='fixed'; b.top=(-savedScrollY)+'px'; b.left='0'; b.right='0'; b.width='100%'; b.overflow='hidden';
+    scrollLocked=true;
+  }
+  function unlockScroll(){
+    if(!scrollLocked) return;
+    var b=document.body.style;
+    b.position=''; b.top=''; b.left=''; b.right=''; b.width=''; b.overflow='';
+    scrollLocked=false;
+    window.scrollTo(0,savedScrollY);
+  }
+
   function togglePanel(){
     opened=!opened;
     panel.classList.toggle('open',opened);
@@ -3624,13 +4128,13 @@
     if(opened){
       if(dot) dot.style.display='none';
       if(window.innerWidth<=640){
-        document.body.style.overflow='hidden';
+        lockScroll();
         btn.style.display='none';
       }
       if(!msgs.hasChildNodes()) showWelcome();
       setTimeout(function(){inp.focus();},260);
     } else {
-      document.body.style.overflow='';
+      unlockScroll();
       btn.style.display='';
     }
   }
@@ -3708,7 +4212,7 @@
 
   function avatarEl(){
     var av=document.createElement('div');av.className='faq-avatar';
-    av.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 19c.93-1.32 2.29-3 4-3 2 0 3 1 5 1 3.5 0 5.5-2.5 5-6-2.5 1-5 1-4-3z"/></svg>';
+    av.innerHTML='<img src="assets/jan-closeup.png" alt="Jan" loading="lazy">';
     return av;
   }
 
@@ -3876,6 +4380,11 @@
   sendBtn.addEventListener('click',function(){sendMsg(inp.value);});
   inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();sendMsg(inp.value);}});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&opened) togglePanel();});
+
+  // Any element with [data-open-chat] opens the chatbot (pills CTA, FAQ section, …)
+  document.querySelectorAll('[data-open-chat]').forEach(function(el){
+    el.addEventListener('click',function(e){ e.preventDefault(); if(!opened) togglePanel(); });
+  });
 })();
 </script>
 
