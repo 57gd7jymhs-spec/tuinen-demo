@@ -10,17 +10,20 @@ Client-ready **DEMO** — finished and verified on desktop + mobile. **NOT yet p
 Several data points are invented and must be confirmed by the owner first (see *Real vs invented* + *Before-publish checklist*).
 
 ## What this project is
-Single-page Dutch marketing website for **Tuinen Decoster**, a one-man garden landscaping & maintenance
-business (owner: **Jan Decoster**) in Brugge / West-Vlaanderen, Belgium. Goal: drive phone enquiries.
-Positioning: duurzaam, vakkundig, ecologisch. The folder and Vercel project are still named
-`ad-groenservice-new` (legacy name — keep it; it is not user-visible).
+A **gardening-niche demo / sales preview** (not a specific client's live site). It shows a prospect "how a
+site in your niche could look" — part of the Buissensis "free mockup first" sales approach. It began as a build
+for a client (Arno), which is why the legacy "AD / ad-groenservice" names exist. Branded as the fictional
+**Tuinen Decoster** (owner **Jan Decoster**), a one-man garden landscaping & maintenance business in
+Brugge / West-Vlaanderen. Goal: a convincing example that drives the "I want this for my business" reaction.
+Naming: GitHub repo is now **`tuinen-demo`**; the local folder is still `ad-groenservice-new` (legacy, internal only).
 
 ## Stack
 - Vanilla HTML/CSS/JS in a single file `index.html` (~4200 lines, inline `<style>` + `<script>`). No build step. Node 24.x.
 - AI chatbot: `api/chat.js` serverless function (Groq, model `llama-3.3-70b-versatile`). `GROQ_API_KEY` is a Vercel env var — never commit it.
 - CDN libs: GSAP 3.12.5 + ScrollTrigger, Leaflet 1.9.4 (CARTO Positron tiles), Google Fonts.
-- Deploy: **Cloudflare Pages**, auto-deploys on push to the **`adgroen`** remote's `master` branch (`git push adgroen master`). `adgroen` = `github.com/57gd7jymhs-spec/AD-groenservice-template`.
-  - ⚠️ The default `origin` remote points at the ORIGINAL template `dropwork-plumber-template` — **never push there**. Always push to `adgroen`. (A legacy `.vercel/` config also exists; Cloudflare is the live host.)
+- Deploy: **Cloudflare Pages**, auto-deploys on push to `master` (`adgroen/master` is the upstream, so a plain `git push` works). `adgroen` = `github.com/57gd7jymhs-spec/tuinen-demo` (renamed from AD-groenservice-template on 2026-06-02; GitHub auto-redirects the old URL).
+  - Public preview URL prospects see: **`tuinen-demo.pages.dev`** (the Cloudflare project name, set up separately from the repo name).
+  - ⚠️ The default `origin` remote points at the ORIGINAL template `dropwork-plumber-template` — **never push there**. (A legacy `.vercel/` config also exists; Cloudflare is the live host.)
 
 ## Brand tokens (authoritative copy lives in `index.html` `:root`)
 - Palette: bg `#f5f5f0` · bg-2 `#ebebe7` · bg-3 `#e0e0dc` · ink/text `#111a0d` · lime `#66bb35` · lime-bright `#79cc47`
