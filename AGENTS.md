@@ -19,7 +19,8 @@ Positioning: duurzaam, vakkundig, ecologisch. The folder and Vercel project are 
 - Vanilla HTML/CSS/JS in a single file `index.html` (~4200 lines, inline `<style>` + `<script>`). No build step. Node 24.x.
 - AI chatbot: `api/chat.js` serverless function (Groq, model `llama-3.3-70b-versatile`). `GROQ_API_KEY` is a Vercel env var — never commit it.
 - CDN libs: GSAP 3.12.5 + ScrollTrigger, Leaflet 1.9.4 (CARTO Positron tiles), Google Fonts.
-- Deploy: `vercel --prod` (project `ad-groenservice-new`). Prod: https://ad-groenservice-new.vercel.app
+- Deploy: **Cloudflare Pages**, auto-deploys on push to the **`adgroen`** remote's `master` branch (`git push adgroen master`). `adgroen` = `github.com/57gd7jymhs-spec/AD-groenservice-template`.
+  - ⚠️ The default `origin` remote points at the ORIGINAL template `dropwork-plumber-template` — **never push there**. Always push to `adgroen`. (A legacy `.vercel/` config also exists; Cloudflare is the live host.)
 
 ## Brand tokens (authoritative copy lives in `index.html` `:root`)
 - Palette: bg `#f5f5f0` · bg-2 `#ebebe7` · bg-3 `#e0e0dc` · ink/text `#111a0d` · lime `#66bb35` · lime-bright `#79cc47`
