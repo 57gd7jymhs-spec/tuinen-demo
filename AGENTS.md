@@ -3,7 +3,7 @@
 > **Single source of truth for this project. Read this first.**
 > Read by BOTH Claude Code and ChatGPT Codex. Codex reads `AGENTS.md` by default; `CLAUDE.md` points here.
 > **Update the "Work log" at the bottom and the "Last verified" date at the end of every session, before switching tools.**
-> Last verified: 2026-06-01.
+> Last verified: 2026-06-02.
 
 ## Status
 Client-ready **DEMO** — finished and verified on desktop + mobile. **NOT yet published publicly.**
@@ -60,7 +60,22 @@ Naming: GitHub repo is now **`tuinen-demo`**; the local folder is still `ad-groe
 - Owner closeup (`jan-closeup.png`): `.about-face` + `.cta-face` heading avatars, chatbot header + bot message bubbles.
 - Topiary bush (`Detail shot.png`): hero video poster + FAQ section image.
 
+## Template-site asset direction
+- For generated assets across these trade/template sites, prioritize modern, premium, clean, professional residential photography. Favor bright natural light, clean architecture, polished interiors, tidy utility rooms, modern bathrooms/kitchens/carports/driveways, realistic local-business credibility, and crisp natural colors.
+- Reject assets that look cheap, outdated, cluttered, dark, dirty, random-stock, or obviously AI-generated. Avoid ugly brick exteriors, poor lighting, warped tools/pipes/faucets/tiles/vehicles/hands, plastic skin, strange eyes, fake uniforms/logos, unreadable text, fake signage, impossible reflections, excessive blur, overdramatic HDR, and overly perfect showroom scenes unless specifically needed.
+- Before/after assets must be slider-ready matched pairs: same exact location, framing, camera angle, camera height, lens perspective, object positioning, and lighting family; only the work result should meaningfully change. Generate as matched diptychs when helpful, then split/crop into separate before and after files.
+- Person images should feel like real local business photography: natural expression, normal skin texture, believable posture/hands, practical work clothing, professional but not model-like or overly staged, no fake branding.
+- Prompt every asset with explicit constraints for modern setting, clean realistic composition, natural daylight, professional photography, clear subject, no text/fake branding, and no AI artifacts. Prefer fewer stronger images over many weak fillers.
+
 ## Work log (newest first — append every session, date it)
+### 2026-06-02 — GitHub deployment push (Codex)
+- Prepared the current local Tuinen Decoster changes for GitHub deployment and pushed via the safe `adgroen/master` remote so Cloudflare Pages can redeploy `tuinen-demo.pages.dev`.
+
+### 2026-06-02 — Template asset direction + electrician v2 asset set (Codex)
+- Added reusable template-site visual direction: modern premium realistic photography, no cheap/dated/obvious-AI assets, person-image constraints, and strict matched before/after slider rules.
+- Rebuilt the electrician concept assets in `electrician-site-temp` with 21 active `v2-` referenced images, matching the original gardener site's 21 unique local image references.
+- Generated five matched before/after diptychs and split/cropped them into slider pairs for panel upgrade, socket/switch replacement, renovation wiring, kitchen lighting, and EV charger install. Verified active electrician page uses only `v2-` images and all local references exist.
+
 ### 2026-06-01 — Before/after: mobile knob-less reveal + responsive intro copy (Claude Code)
 - Mobile keeps the auto-reveal animation playing (the thin line glides so you still see before↔after), but hides only the draggable knob so nothing looks draggable: CSS hides `.ba-handle::before/::after/.pulse-ring`, the 3px line stays. The compare slider still ignores touch on mobile (so swipe owns the gesture); the animation runs on all viewports via `onEnter: startAuto`. Desktop unchanged (knob + drag-to-compare).
 - Intro paragraph is now responsive (two spans toggled by the media query): desktop keeps "slider beweegt automatisch … pijlen of stippen"; mobile shows "De beelden wisselen vanzelf tussen voor en na. Veeg opzij om door mijn realisaties te bladeren." Fixes the stale "arrows"/"drag" wording on mobile.

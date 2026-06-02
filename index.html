@@ -75,7 +75,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; cursor: none; overflow-x: hidden; }
+  html { scroll-behavior: smooth; cursor: none; overflow-x: hidden; background: #111a0d; -webkit-tap-highlight-color: transparent; }
   @media (max-width: 1024px) { html { cursor: auto; } }
 
   body {
@@ -116,7 +116,9 @@
     outline-color: var(--text-dark);
     box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.15);
   }
-  /* FAQ details - clear focus state */
+  /* FAQ details - keyboard focus only; no grey/black box on tap or mouse press */
+  .faq-item summary { outline: none; -webkit-tap-highlight-color: transparent; }
+  .faq-item summary:focus:not(:focus-visible) { outline: none; }
   .faq-item summary:focus-visible {
     outline: 2px solid var(--text-dark);
     outline-offset: 4px;
@@ -239,7 +241,41 @@
     transition: opacity 0.2s, transform 0.2s;
   }
   .fc-btn:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
-  @media (max-width: 768px) { .float-contact { display: none; } }
+
+  /* Contact dial — chat-style 3rd action + toggle (mobile speed-dial replaces the bottom bar) */
+  .fc-chat { display: none; background: var(--bg-2); color: var(--text); border: 1px solid var(--border-strong); }
+  .fc-toggle {
+    display: none; width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--lime); color: var(--bg); align-items: center; justify-content: center;
+    box-shadow: 0 10px 28px rgba(26,58,37,0.4); position: relative;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .fc-toggle .fc-ic-close { display: none; }
+  .float-contact.open .fc-toggle .fc-ic-open { display: none; }
+  .float-contact.open .fc-toggle .fc-ic-close { display: block; }
+  .fc-toggle::after {
+    content: ''; position: absolute; inset: 0; border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(102,187,53,0.5); animation: fcPulse 2.6s ease-out infinite;
+  }
+  .float-contact.open .fc-toggle::after { animation: none; }
+  @keyframes fcPulse {
+    0% { box-shadow: 0 0 0 0 rgba(102,187,53,0.5); }
+    70% { box-shadow: 0 0 0 18px rgba(102,187,53,0); }
+    100% { box-shadow: 0 0 0 0 rgba(102,187,53,0); }
+  }
+
+  @media (max-width: 768px) {
+    .float-contact { display: flex; flex-direction: column; align-items: flex-end; bottom: 22px; right: 18px; gap: 12px; z-index: 1200; }
+    .fc-chat { display: flex; }
+    .fc-toggle { display: flex; pointer-events: auto; }
+    .float-contact .fc-btn { width: 50px; height: 50px; }
+    .float-contact.visible .fc-btn { opacity: 0; transform: translateY(14px) scale(0.7); pointer-events: none; }
+    .float-contact.visible.open .fc-btn { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .float-contact .fc-btn::before { opacity: 0; }
+    .float-contact.open .fc-btn::before { opacity: 1; transform: translateY(-50%) translateX(0); background: rgba(10,16,8,0.92); }
+    .float-contact:not(.visible) .fc-toggle { opacity: 0; transform: scale(0.6); pointer-events: none; }
+    body.chat-open .float-contact { opacity: 0; pointer-events: none; }
+  }
 
   /* NAV */
   .nav { position: fixed; top: 0; left: 0; right: 0; padding: 30px 36px; display: flex; justify-content: space-between; align-items: center; z-index: 50; background: transparent; transition: all 0.4s; color: #fff; }
@@ -1038,6 +1074,10 @@
     overflow: hidden;
     padding: 6px 0;
   }
+  /* No accidental text-selection / blue highlight while dragging the review cards */
+  #reviewsViewport, .reviews-track, .review-card, .review-photo-card, .review-text, .review-name {
+    user-select: none; -webkit-user-select: none;
+  }
   /* Edge fade gradient */
   .reviews-marquee::before,
   .reviews-marquee::after {
@@ -1514,6 +1554,7 @@
   ============================================ */
   /* Clean light variant — no photo, soft lime glow on the page surface */
   .final-cta { background: var(--bg); color: var(--text); padding: 140px 5%; text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--border); }
+  .cta-face-lg { display: none; }
   .final-cta::before {
     content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background:
@@ -1604,18 +1645,21 @@
      RESPONSIVE - MOBILE (≤768px)
   ============================================ */
   @media (max-width: 768px) {
-    body { font-size: 14px; padding-bottom: 60px; }
+    body { font-size: 14px; }
     html { scroll-behavior: smooth; }
 
     /* Disable custom cursor on mobile */
     .cursor-dot, .cursor-blob { display: none !important; }
 
-    /* Sticky bottom call button visible */
-    .mobile-call-bar { display: flex; }
+    /* Standalone chat bubble folds into the contact dial on mobile (issue 2) */
+    #faq-btn { display: none !important; }
 
-    /* Nav */
-    .nav { padding: 14px 16px; }
-    .nav.scrolled { padding: 10px 16px; }
+    /* Bottom call bar retired on mobile — replaced by the floating contact dial */
+    .mobile-call-bar { display: none; }
+
+    /* Nav — text sits a touch higher on mobile */
+    .nav { padding: 9px 16px; }
+    .nav.scrolled { padding: 7px 16px; }
     .logo-mark { width: 32px; height: 32px; }
     .logo-text { font-size: 16px; }
     .logo-text span { font-size: 16px; }
@@ -1643,8 +1687,8 @@
     .cta-group .btn-secondary { display: none; }
     .btn { justify-content: center; padding: 14px 24px; font-size: 13px; }
 
-    /* Marquee slower on mobile */
-    .marquee { padding: 14px 0; }
+    /* Marquee slower on mobile + clear, neutral breathing room from the hero above (issue 3) */
+    .marquee { padding: 14px 0; margin-top: 26px; }
     .marquee-track { animation-duration: 25s; }
     .marquee-item { font-size: 16px; gap: 28px; }
     .marquee-item::after { width: 5px; height: 5px; }
@@ -1656,6 +1700,8 @@
 
     /* INTRO */
     .intro-image { aspect-ratio: 4/4; }
+    /* Issue 4: the large photo of Jan carries the section — drop the tiny inline avatar on mobile */
+    .about-face { display: none; }
     .intro-content p { font-size: 14px; }
     .intro-list li { font-size: 10px; padding: 14px 0; gap: 12px; }
     .intro-list li span:last-child { font-size: 12px; text-align: right; }
@@ -1666,7 +1712,7 @@
 
     /* BEFORE/AFTER — stack slider over info, cap to viewport height, swipe to navigate.
        Flex column so the whole card (image + info) fits on screen; image fills the leftover space. */
-    .ba-case { display: flex; flex-direction: column; height: clamp(440px, 80vh, 600px); }
+    .ba-case { display: flex; flex-direction: column; height: clamp(380px, 60vh, 500px); }
     .ba-viewport { touch-action: pan-y; }          /* horizontal swipe = ours, vertical = page scroll */
     .ba-slider-wrapper { aspect-ratio: auto; height: auto; flex: 1 1 auto; min-height: 180px; }
     /* On mobile hide only the draggable knob (button + pulse); the thin line still glides with the
@@ -1682,7 +1728,7 @@
     .ba-quote-btn { align-self: stretch; }
     .ba-hint { display: none; }
     .ba-arrow { display: none; }                   /* swipe replaces the prev/next buttons; dots stay */
-    .ba-controls { margin-top: 18px; }
+    .ba-controls { margin-top: 12px; }             /* keep the dots within the viewport (issue 5) */
     .ba-intro-desktop { display: none; }
     .ba-intro-mobile { display: inline; }
 
@@ -1741,9 +1787,17 @@
     .map-overlay-city { font-size: 14px; }
 
     /* FINAL CTA */
-    .final-cta { padding: 80px 5%; }
+    .final-cta { padding: 72px 5% 88px; }
     .final-cta h2 { font-size: clamp(36px, 10vw, 56px); margin-bottom: 18px; letter-spacing: -1.8px; }
-    .cta-face { border-width: 2px; box-shadow: 0 6px 18px rgba(26,58,37,0.25); }
+    /* Issue 11: show Jan as a large circle ABOVE the heading; drop the tiny inline avatar */
+    .cta-face { display: none; }
+    .cta-face-lg {
+      display: block; width: 104px; height: 104px; border-radius: 50%;
+      margin: 0 auto 22px; background-image: url('assets/jan-closeup.png');
+      background-repeat: no-repeat; background-size: cover; background-position: 50% 20%;
+      border: 4px solid var(--lime); box-shadow: 0 14px 36px rgba(26,58,37,0.32);
+    }
+    .final-cta h2 > span:first-child { white-space: normal !important; }
     .final-cta p { font-size: 14px; margin-bottom: 28px; }
     .btn-cta-final { padding: 18px 32px; font-size: 13px; }
     .cta-ring:nth-child(1), .cta-ring:nth-child(2), .cta-ring:nth-child(3), .cta-ring:nth-child(4) {
@@ -1850,6 +1904,14 @@
   .pill-cta-text { font-family: 'Space Grotesk', sans-serif; font-size: clamp(17px, 2vw, 22px); font-weight: 600; color: var(--text); letter-spacing: -0.3px; }
   .pill-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
   .pill-cta .btn { cursor: pointer; }
+  /* Issue 8: tapping a service tag nudges these contact buttons into view + pulses them */
+  @keyframes ctaPulse {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.07); box-shadow: 0 12px 32px rgba(102,187,53,0.55); }
+    60% { transform: scale(0.99); }
+    100% { transform: scale(1); }
+  }
+  .cta-pulse { animation: ctaPulse 0.7s ease-out 2; }
 
   /* ============================================
      LUVI AURORA BACKGROUND (FAQ)
@@ -2139,6 +2201,13 @@
   <a href="https://wa.me/32491324509?text=Hallo%20Tuinen%20Decoster%2C%20ik%20heb%20een%20vraag." class="fc-btn fc-wa" data-label="WhatsApp" data-cursor="hover" target="_blank" rel="noopener noreferrer" aria-label="Stuur WhatsApp bericht">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
+  <button type="button" class="fc-btn fc-chat" data-label="Stel een vraag" data-open-chat data-cursor="hover" aria-label="Stel een vraag via de chat">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+  <button type="button" class="fc-toggle" id="fcToggle" aria-expanded="false" aria-controls="float-contact" aria-label="Contactopties openen">
+    <svg class="fc-ic-open" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="10" r="1.3" fill="currentColor"/><circle cx="12" cy="10" r="1.3" fill="currentColor"/><circle cx="16" cy="10" r="1.3" fill="currentColor"/></svg>
+    <svg class="fc-ic-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
 </div>
 
 <main id="main-content">
@@ -3122,6 +3191,7 @@
     <div class="cta-ring"></div>
     <div class="cta-ring"></div>
   </div>
+  <div class="cta-face-lg" role="img" aria-label="Jan, uw tuinman"></div>
   <h2>
     <span style="display:block; white-space:nowrap;">Bel me, <span class="cta-face" role="img" aria-label="Jan, uw tuinman"></span></span>
     <span style="display:block;">ik regel het.</span>
@@ -3177,6 +3247,14 @@
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
+  // Issue 7: always show the header first on (re)load. Manual restoration stops the browser
+  // from jumping to a previous mid-page scroll position behind the intro overlay; the load-time
+  // force is a belt-and-suspenders for engines that restore the scroll anyway.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const forceTop = () => { try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); } };
+  forceTop();
+  window.addEventListener('load', () => requestAnimationFrame(forceTop));
+
   // ============================================
   // DEVICE DETECTION (eerst, vóór alle gebruik)
   // ============================================
@@ -3185,7 +3263,13 @@
 
   // Refresh ScrollTrigger after resize (incl. orientation change)
   let resizeTimer;
+  let lastInnerW = window.innerWidth;
   window.addEventListener('resize', () => {
+    // Issue 6: mobile browsers fire 'resize' on every address-bar show/hide (height-only),
+    // and refreshing ScrollTrigger on those made scrolling hitch/stop abruptly near the cards.
+    // Only refresh on a real WIDTH change (orientation / desktop resize).
+    if (window.innerWidth === lastInnerW) return;
+    lastInnerW = window.innerWidth;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       ScrollTrigger.refresh();
@@ -3229,9 +3313,49 @@
     if (window.scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
     const heroEl = document.querySelector('.hero');
     const heroH = heroEl ? heroEl.offsetHeight + 16 : window.innerHeight;
-    if (window.scrollY > heroH * 0.7) floatContact.classList.add('visible'); else floatContact.classList.remove('visible');
+    // Mobile: the contact dial appears as soon as you start scrolling (the hero has its own
+    // call CTA). Desktop: the widget slides in past the fold, as before.
+    const floatThreshold = isMobile ? 120 : heroH * 0.7;
+    if (window.scrollY > floatThreshold) floatContact.classList.add('visible'); else floatContact.classList.remove('visible');
     if (window.scrollY > heroH * 0.9) nav.classList.add('on-light'); else nav.classList.remove('on-light');
   });
+
+  // MOBILE CONTACT SPEED-DIAL (issues 1 + 2) — the dial replaces the always-on bottom bar.
+  (function initContactDial() {
+    const fc = document.getElementById('float-contact');
+    const toggle = document.getElementById('fcToggle');
+    if (!fc || !toggle) return;
+    const closeDial = () => { fc.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+    const openDial  = () => { fc.classList.add('open');    toggle.setAttribute('aria-expanded', 'true');  };
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (fc.classList.contains('open')) closeDial(); else openDial();
+    });
+    fc.querySelectorAll('.fc-btn').forEach(b => b.addEventListener('click', () => setTimeout(closeDial, 80)));
+    document.addEventListener('click', (e) => { if (!fc.contains(e.target)) closeDial(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDial(); });
+  })();
+
+  // TAG → CONTACT (issue 8) — on mobile, tapping a service tag scrolls to the contact
+  // buttons and pulses them, making the interaction feel intentional and conversion-focused.
+  (function initTagConversion() {
+    const pills = document.querySelectorAll('.pc-pill');
+    if (!pills.length) return;
+    function pulseContact() {
+      const btns = document.querySelectorAll('.pill-cta .btn');
+      btns.forEach(b => { b.classList.remove('cta-pulse'); void b.offsetWidth; b.classList.add('cta-pulse'); });
+      setTimeout(() => btns.forEach(b => b.classList.remove('cta-pulse')), 1500);
+    }
+    pills.forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        if (!window.matchMedia('(max-width: 768px)').matches) return; // desktop keeps the #diensten jump
+        e.preventDefault();
+        const cta = document.querySelector('.pill-cta');
+        if (cta) cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(pulseContact, 420);
+      });
+    });
+  })();
 
   // HERO ENTRY — paused, triggered by intro sequence
   gsap.set('.nav', { opacity: 0, y: -16 });
@@ -3296,6 +3420,26 @@
   gsap.set(introName, { opacity: 0, letterSpacing: isMobile ? '0.08em' : '0.2em', y: 10 });
   gsap.set(introTag,  { opacity: 0, y: 8 });
 
+  // Issue 7: the full intro plays once per browser session, and never with reduced motion.
+  // On reload we jump straight to the hero (no replay, no mid-page jump).
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const skipIntro = prefersReducedMotion || sessionStorage.getItem('tdIntroSeen') === '1';
+  try { sessionStorage.setItem('tdIntroSeen', '1'); } catch (e) {}
+  function handoffHeroVideo() {
+    if (heroVideo && heroVideoContainer && heroVideo.parentNode !== heroVideoContainer) {
+      try {
+        gsap.set(heroVideo, { clearProps: 'transform,scale' });
+        heroVideoContainer.appendChild(heroVideo); // last child → paints over the poster
+        heroVideo.play().catch(() => {});
+      } catch (e) {}
+    }
+  }
+  function revealHeroInstant() {
+    handoffHeroVideo();
+    if (siteIntro) siteIntro.style.display = 'none';
+    heroTl.play();
+  }
+
   // Position the expanding video window EXACTLY over where the hero will sit,
   // so the hand-off to the real hero video is pixel-perfect (no jump / re-scale).
   function placeIntroWindow() {
@@ -3313,6 +3457,9 @@
   }
   placeIntroWindow();
 
+  if (skipIntro) {
+    revealHeroInstant();
+  } else {
   const introTl = gsap.timeline();
   introTl
     // — Phase 1: Brand identity —
@@ -3348,17 +3495,10 @@
   introTl
     // Hand-off: physically move the SAME clip element into the hero, then drop the overlay.
     // Same element = same buffer = keeps playing on the exact frame, with zero extra download.
-    .call(() => {
-      if (heroVideo && heroVideoContainer && heroVideo.parentNode !== heroVideoContainer) {
-        try {
-          gsap.set(heroVideo, { clearProps: 'transform,scale' });
-          heroVideoContainer.appendChild(heroVideo); // last child → paints over the poster
-          heroVideo.play().catch(() => {});
-        } catch (e) {}
-      }
-    })
+    .call(handoffHeroVideo)
     .set(siteIntro, { display: 'none' })
     .call(() => heroTl.play());
+  } // end: intro plays only on first visit of the session
 
   // ⚡ HERO LIGHTNING FLASH at random intervals - alleen desktop
   const heroFlash = document.getElementById('heroFlash');
@@ -4124,6 +4264,7 @@
   function togglePanel(){
     opened=!opened;
     panel.classList.toggle('open',opened);
+    document.body.classList.toggle('chat-open',opened);
     btn.setAttribute('aria-expanded',String(opened));
     if(opened){
       if(dot) dot.style.display='none';
