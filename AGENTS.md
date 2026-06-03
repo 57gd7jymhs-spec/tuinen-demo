@@ -68,6 +68,17 @@ Naming: GitHub repo is now **`tuinen-demo`**; the local folder is still `ad-groe
 - Prompt every asset with explicit constraints for modern setting, clean realistic composition, natural daylight, professional photography, clear subject, no text/fake branding, and no AI artifacts. Prefer fewer stronger images over many weak fillers.
 
 ## Work log (newest first — append every session, date it)
+### 2026-06-03 — Mobile polish (12 fixes) + header refinements (Claude Code)
+- Council-reviewed 12 mobile issues, implemented, then two-pass verified (desktop 1440 + mobile 390):
+  (1) loader/video overlap → removed the always-on bottom call bar on mobile; (2) contact UX → mobile **speed-dial FAB** (Bel / WhatsApp / Stel een vraag), gently pulsing, replaces the bar; the standalone chat bubble folds into it; (3) header→marquee spacing widened; (4) tiny inline avatar hidden on mobile (kept on desktop); (5) before/after **dots now sit within the viewport** (card height → 60vh); (6) `ScrollTrigger.refresh` only on width change → kills the iOS address-bar scroll hitch (no `pin:` anywhere, so safe); (7) reload always lands at top + **intro plays once per session** (sessionStorage + `prefers-reduced-motion` skip); (8) tapping a service tag smooth-scrolls to the contact buttons + pulses them; (9) review cards no longer text-select on drag; (10) FAQ tap-highlight / press outline removed (keyboard focus kept); (11) final-CTA shows Jan as a **large avatar above the heading** (buttons stay in the fold); (12) white line at the page bottom fixed (`body` padding removed + dark `html` bg).
+- Header refinements: mobile header shows the **logo mark only** (wordmark stays in the loader, footer, and desktop); mobile content side padding 5% → 6.5%.
+- Desktop verified unchanged. Screenshots in `.screenshots/mobile-fixes/`. Skill hygiene: `find-skills` installed globally; removed the deprecated per-project `.agents/` + `.claude/skills/` + `skills-lock.json`. Also gitignored `painter-site-temp/`.
+
+### 2026-06-02 — Painter temp site + asset set (Codex)
+- Created `painter-site-temp` as a Kleurvast Schilderwerken painter concept based on the electrician/gardener structure, with painter-specific Dutch copy, placeholder business details, warm painter palette, inline brush mark, and local image references.
+- Generated 21 active `v2-` painter assets: hero, owner full/closeup, six service images, two review/project images, and five matched before/after pairs created from diptychs and split into slider-ready files.
+- Added painter docs: `docs/painter-assets-manifest.md`, `docs/painter-content-map.md`, `docs/painter-image-prompts.md`, and `REVIEW-NOTES.md`. Verified 21 unique image references, no missing assets, and captured desktop/mobile Playwright screenshots plus an asset contact sheet.
+
 ### 2026-06-02 — GitHub deployment push (Codex)
 - Prepared the current local Tuinen Decoster changes for GitHub deployment and pushed via the safe `adgroen/master` remote so Cloudflare Pages can redeploy `tuinen-demo.pages.dev`.
 
