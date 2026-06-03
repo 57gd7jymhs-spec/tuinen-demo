@@ -1605,6 +1605,41 @@
   .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--lime); margin-bottom: 20px; }
   .footer-col p, .footer-col a { color: rgba(245,245,240,0.55); text-decoration: none; font-size: 13px; display: block; margin-bottom: 8px; transition: color 0.2s; line-height: 1.6; }
   .footer-col a:hover { color: var(--lime); }
+
+  /* Footer legal links */
+  .footer-legal { display: flex; flex-wrap: wrap; gap: 6px 10px; justify-content: center; align-items: center; max-width: 1300px; margin: 56px auto 0; }
+  .footer-legal-link { background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 12px; color: rgba(245,245,240,0.55); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+  .footer-legal-link:hover { color: var(--lime); }
+  .footer-legal-link:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: 3px; }
+  .footer-legal span { color: rgba(245,245,240,0.28); font-size: 11px; }
+  .footer-legal + .copyright { margin-top: 18px; }
+
+  /* Chatbot data-transfer disclosure */
+  .faq-privacy-note { margin: 9px 2px 0; font-size: 10.5px; line-height: 1.45; color: var(--text-dim); }
+  .faq-privacy-link { background: none; border: none; padding: 0; font: inherit; font-size: 10.5px; color: var(--lime); text-decoration: underline; cursor: pointer; }
+
+  /* Legal / compliance modals */
+  .legal-dialog { width: min(680px, 92vw); max-height: 86vh; padding: 0; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); color: var(--text); box-shadow: 0 30px 80px rgba(0,0,0,0.35); overflow: hidden; }
+  .legal-dialog::backdrop { background: rgba(5,12,6,0.55); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+  .legal-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+  .legal-dialog-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.4px; margin: 0; color: var(--text); }
+  .legal-close { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-2); color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
+  .legal-close:hover { background: var(--bg-3); border-color: var(--lime); }
+  .legal-close:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+  .legal-dialog-body { padding: 22px 24px 28px; overflow-y: auto; max-height: calc(86vh - 74px); font-size: 14px; line-height: 1.65; color: var(--text-dim); }
+  .legal-dialog-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin: 20px 0 6px; letter-spacing: -0.2px; }
+  .legal-dialog-body p { margin: 0 0 12px; }
+  .legal-dialog-body ul { margin: 0 0 12px; padding-left: 18px; }
+  .legal-dialog-body li { margin-bottom: 7px; }
+  .legal-dialog-body strong { color: var(--text); }
+  .legal-dialog-body a { color: var(--lime); }
+  .legal-updated, .legal-note-demo { font-size: 12px; opacity: 0.75; }
+  @media (max-width: 768px) {
+    .legal-dialog { width: 94vw; max-height: 88vh; }
+    .legal-dialog-head { padding: 16px 18px; }
+    .legal-dialog-head h2 { font-size: 17px; }
+    .legal-dialog-body { padding: 18px; max-height: calc(88vh - 62px); }
+  }
   .footer-brand p { color: rgba(245,245,240,0.55); }
   .copyright { max-width: 1300px; margin: 64px auto 0; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 10px; text-align: center; font-family: 'JetBrains Mono', monospace; letter-spacing: 2px; }
 
@@ -3244,8 +3279,106 @@
       <p>BA verzekerd</p>
     </div>
   </div>
+  <nav class="footer-legal" aria-label="Juridisch">
+    <button type="button" class="footer-legal-link" data-legal="privacy">Privacy- &amp; cookiebeleid</button>
+    <span aria-hidden="true">·</span>
+    <button type="button" class="footer-legal-link" data-legal="voorwaarden">Algemene voorwaarden</button>
+    <span aria-hidden="true">·</span>
+    <button type="button" class="footer-legal-link" data-legal="juridisch">Juridische informatie</button>
+  </nav>
   <div class="copyright">© 2026 Tuinen Decoster · Alle rechten voorbehouden</div>
 </footer>
+
+<!-- LEGAL / COMPLIANCE MODALS. Content uses the demo business data; confirm the real legal data
+     (legal form, KBO number, address, insurance/certifications) with the owner before public launch. -->
+<dialog id="legal-privacy" class="legal-dialog" aria-labelledby="legal-privacy-title">
+  <div class="legal-dialog-head">
+    <h2 id="legal-privacy-title">Privacy- en cookiebeleid</h2>
+    <button type="button" class="legal-close" aria-label="Sluiten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="legal-dialog-body">
+    <p><strong>Verwerkingsverantwoordelijke.</strong> Tuinen Decoster, Gistelse Steenweg 142, 8200 Sint-Andries (Brugge). BTW BE 0782.531.146. E-mail: info@tuinendecoster.be. Telefoon: 0491 32 45 09.</p>
+    <p>Wij gaan zorgvuldig om met uw gegevens en verwerken ze volgens de Algemene Verordening Gegevensbescherming (AVG/GDPR).</p>
+    <h3>Welke gegevens en waarom</h3>
+    <ul>
+      <li><strong>Gegevens die u zelf doorgeeft</strong> via telefoon, WhatsApp of e-mail: om uw vraag of offerteaanvraag te beantwoorden. Grondslag: uitvoering van uw aanvraag.</li>
+      <li><strong>Chatbot.</strong> Wat u in de chat typt, wordt verzonden naar onze AI-dienstverlener Groq Inc. (Verenigde Staten) om een antwoord te genereren. Geef hier geen gevoelige of vertrouwelijke gegevens in. Grondslag: uw toestemming door de chat te gebruiken.</li>
+      <li><strong>Technische en beveiligingslogs</strong> waaronder uw IP-adres, bijgehouden door onze host Cloudflare, voor de veiligheid en goede werking van de site. Grondslag: gerechtvaardigd belang.</li>
+      <li><strong>Functionele opslag</strong> (sessionStorage): onthoudt enkel of de openingsanimatie al speelde. Dit is geen tracking.</li>
+    </ul>
+    <h3>Externe diensten</h3>
+    <p>Bij het laden van de site kunnen deze diensten uw IP-adres ontvangen: Google Fonts (lettertypes, VS), CARTO en OpenStreetMap (de kaart), en cdnjs/Cloudflare (technische scripts). Zij verwerken dit voor de levering van hun dienst.</p>
+    <h3>Doorgifte buiten de EU</h3>
+    <p>Sommige diensten, waaronder Groq en Google, verwerken gegevens in de Verenigde Staten met passende waarborgen zoals de standaardcontractbepalingen van de Europese Commissie.</p>
+    <h3>Bewaartermijn</h3>
+    <p>Wij bewaren uw gegevens niet langer dan nodig. Logs worden beperkt bewaard. Chatberichten worden door ons niet opgeslagen na uw gesprek.</p>
+    <h3>Uw rechten</h3>
+    <p>U hebt recht op inzage, verbetering, verwijdering, beperking, bezwaar en overdraagbaarheid van uw gegevens. Stuur hiervoor een e-mail naar info@tuinendecoster.be.</p>
+    <h3>Cookies</h3>
+    <p>Deze site gebruikt geen tracking- of marketingcookies, enkel functionele opslag (zie hierboven). U kunt opslag en cookies altijd beheren of wissen via uw browserinstellingen.</p>
+    <h3>Klacht</h3>
+    <p>U kunt een klacht indienen bij de Gegevensbeschermingsautoriteit, Drukpersstraat 35, 1000 Brussel. E-mail: contact@apd-gba.be. Web: www.gegevensbeschermingsautoriteit.be.</p>
+    <p class="legal-updated">Laatst bijgewerkt: juni 2026.</p>
+  </div>
+</dialog>
+
+<dialog id="legal-voorwaarden" class="legal-dialog" aria-labelledby="legal-voorwaarden-title">
+  <div class="legal-dialog-head">
+    <h2 id="legal-voorwaarden-title">Algemene voorwaarden</h2>
+    <button type="button" class="legal-close" aria-label="Sluiten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="legal-dialog-body">
+    <p>Deze algemene voorwaarden gelden voor alle offertes en opdrachten van Tuinen Decoster, tenzij schriftelijk anders overeengekomen.</p>
+    <h3>Offertes en prijzen</h3>
+    <p>Offertes zijn vrijblijvend en geldig gedurende 30 dagen. De prijzen op deze site zijn richtprijzen. De definitieve prijs volgt na een plaatsbezoek en wordt schriftelijk bevestigd.</p>
+    <h3>Uitvoering</h3>
+    <p>Afspraken worden in onderling overleg ingepland. Werk dat afhangt van het weer of het seizoen kan in overleg verschoven worden.</p>
+    <h3>Betaling</h3>
+    <p>Facturen zijn betaalbaar binnen 14 dagen na factuurdatum, tenzij anders afgesproken.</p>
+    <h3>Aansprakelijkheid</h3>
+    <p>Advies en groeiresultaat worden naar best vermogen gegeven, maar de natuur blijft onvoorspelbaar. Onze aansprakelijkheid is beperkt tot het bedrag van de betrokken opdracht.</p>
+    <h3>Toepasselijk recht</h3>
+    <p>Op onze overeenkomsten is het Belgisch recht van toepassing. Geschillen behoren tot de bevoegdheid van de rechtbanken van het arrondissement West-Vlaanderen, afdeling Brugge.</p>
+  </div>
+</dialog>
+
+<dialog id="legal-juridisch" class="legal-dialog" aria-labelledby="legal-juridisch-title">
+  <div class="legal-dialog-head">
+    <h2 id="legal-juridisch-title">Juridische informatie</h2>
+    <button type="button" class="legal-close" aria-label="Sluiten"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="legal-dialog-body">
+    <p><strong>Tuinen Decoster</strong>, eenmanszaak. Zaakvoerder: Jan Decoster.</p>
+    <ul class="legal-id">
+      <li><strong>Adres:</strong> Gistelse Steenweg 142, 8200 Sint-Andries (Brugge)</li>
+      <li><strong>Ondernemingsnummer (KBO):</strong> 0782.531.146</li>
+      <li><strong>BTW:</strong> BE 0782.531.146</li>
+      <li><strong>E-mail:</strong> info@tuinendecoster.be</li>
+      <li><strong>Telefoon:</strong> 0491 32 45 09</li>
+    </ul>
+    <p>Voor vragen over uw persoonsgegevens, zie het privacybeleid. Toezichthouder: Gegevensbeschermingsautoriteit, Brussel.</p>
+    <p class="legal-note-demo">Erkenningen en verzekeringen (BA uitbating, BIO-certificering) worden vermeld onder voorbehoud van bevestiging.</p>
+  </div>
+</dialog>
+
+<script>
+  // Open/close the legal modals (native <dialog>: ESC + focus handling built in).
+  (function () {
+    document.querySelectorAll('[data-legal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var d = document.getElementById('legal-' + btn.getAttribute('data-legal'));
+        if (!d) return;
+        if (typeof d.showModal === 'function') d.showModal();
+        else d.setAttribute('open', '');
+      });
+    });
+    document.querySelectorAll('.legal-dialog').forEach(function (d) {
+      var close = d.querySelector('.legal-close');
+      if (close) close.addEventListener('click', function () { d.close(); });
+      d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); // backdrop click
+    });
+  })();
+</script>
 
 <script>
   gsap.registerPlugin(ScrollTrigger);
@@ -4162,6 +4295,7 @@
       </svg>
     </button>
   </div>
+  <p class="faq-privacy-note">Uw bericht wordt verwerkt door Groq (VS) om te antwoorden. Geef geen gevoelige gegevens in. Zie het <button type="button" class="faq-privacy-link" data-legal="privacy">privacybeleid</button>.</p>
 </div>
 
 <script>
