@@ -1,11 +1,9 @@
 .screenshots/
 .claude/
+.vscode/
+.vercel/
 node_modules/
 *.log
-.vercel
-.vscode/
 video/
 old templates/
-skill-install.log
-electrician-site-temp/
-painter-site-temp/
+ad-groenservice-assets/
