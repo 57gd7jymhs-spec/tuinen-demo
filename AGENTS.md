@@ -3,7 +3,7 @@
 > **Single source of truth for this project. Read this first.**
 > Read by BOTH Claude Code and ChatGPT Codex. Codex reads `AGENTS.md` by default; `CLAUDE.md` points here.
 > **Update the "Work log" at the bottom and the "Last verified" date at the end of every session, before switching tools.**
-> Last verified: 2026-06-02.
+> Last verified: 2026-06-03.
 
 ## Status
 Client-ready **DEMO** — finished and verified on desktop + mobile. **NOT yet published publicly.**
@@ -68,6 +68,21 @@ Naming: GitHub repo is now **`tuinen-demo`**; the local folder is still `ad-groe
 - Prompt every asset with explicit constraints for modern setting, clean realistic composition, natural daylight, professional photography, clear subject, no text/fake branding, and no AI artifacts. Prefer fewer stronger images over many weak fillers.
 
 ## Work log (newest first — append every session, date it)
+### 2026-06-04 — Template system cleanup (Claude Code)
+- Full inventory and council-reviewed architecture plan for the Buissensis template factory.
+- **ad-groenservice-new cleanup:** Deleted `styles.css`, `main.js`, `components/`, `images/`, `.vercel/` (55 files, 1732 deletions) — pre-flight grep confirmed zero references in `index.html`. Pushed to `adgroen/master` (commits `6786b0c`, `30e3613`).
+- **Asset library:** Moved `handyman-assets/`, `locksmith-assets/`, `moving-company-assets/`, `window-cleaner-assets/` (≈170MB) to `C:\Users\Apollo\Desktop\Buissensis\websites\shared-assets\`. Zero git changes (all gitignored).
+- **Temp demos:** Ported electrician and painter image-prompt docs to `buissensis-template/content-packs/elektricien.md` and `schilder.md`. Deleted `electrician-site-temp/` and `painter-site-temp/` folders.
+- **gitignore:** Simplified to remove stale entries; `ad-groenservice-assets/` now properly ignored.
+- **buissensis-template sync (Phase 5):** Ported mobile polish delta from this `index.html` into `buissensis-template/template/index.html` — mobile speed-dial FAB CSS + HTML + JS, legal modals CSS + HTML + JS, mobile logo-only header, BA top-align + footer pin, service pill scroll behavior. Template retains existing `[TODO]` scaffold (no overwrite).
+- **REBRAND.md:** Added section −1 covering GitHub repo setup, Cloudflare Pages connection, shared-assets copy step, and remote verification.
+- **Architecture decisions (council-reviewed):** Per-site repos (no monorepo); shared-assets local-only (not committed); template IS the canonical base — gardening site cherry-picks improvements to the template, not vice versa.
+
+### 2026-06-03 — Index-only legal footer deploy (Codex)
+- Deployed only root `index.html` to `adgroen/master` in commit `9506a71` (`feat: add legal footer dialogs`), adding footer legal links, modal legal/privacy content, and chatbot data-transfer disclosure.
+- Left the generated industry asset folders (`window-cleaner-assets`, `handyman-assets`, `locksmith-assets`, `moving-company-assets`) untracked/local and did not include them in the deployment.
+- Verified `https://tuinen-demo.pages.dev/` returns 200 and contains the new legal footer/dialog markup.
+
 ### 2026-06-03 — Mobile polish (12 fixes) + header refinements (Claude Code)
 - Council-reviewed 12 mobile issues, implemented, then two-pass verified (desktop 1440 + mobile 390):
   (1) loader/video overlap → removed the always-on bottom call bar on mobile; (2) contact UX → mobile **speed-dial FAB** (Bel / WhatsApp / Stel een vraag), gently pulsing, replaces the bar; the standalone chat bubble folds into it; (3) header→marquee spacing widened; (4) tiny inline avatar hidden on mobile (kept on desktop); (5) before/after **dots now sit within the viewport** (card height → 60vh); (6) `ScrollTrigger.refresh` only on width change → kills the iOS address-bar scroll hitch (no `pin:` anywhere, so safe); (7) reload always lands at top + **intro plays once per session** (sessionStorage + `prefers-reduced-motion` skip); (8) tapping a service tag smooth-scrolls to the contact buttons + pulses them; (9) review cards no longer text-select on drag; (10) FAQ tap-highlight / press outline removed (keyboard focus kept); (11) final-CTA shows Jan as a **large avatar above the heading** (buttons stay in the fold); (12) white line at the page bottom fixed (`body` padding removed + dark `html` bg).
