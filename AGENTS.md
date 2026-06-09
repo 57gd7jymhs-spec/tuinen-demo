@@ -68,6 +68,13 @@ Naming: GitHub repo is now **`tuinen-demo`**; the local folder is still `ad-groe
 - Prompt every asset with explicit constraints for modern setting, clean realistic composition, natural daylight, professional photography, clear subject, no text/fake branding, and no AI artifacts. Prefer fewer stronger images over many weak fillers.
 
 ## Work log (newest first — append every session, date it)
+### 2026-06-09 — Professional copy pass: "tuinman" → "tuinspecialist" (Claude Code)
+- Pre-client copy polish on root `index.html`. Owner title elevated from casual "uw (vaste) tuinman" to **"uw vaste tuinspecialist"** across all 14 visible/meta/structured instances (meta description, OG, JSON-LD, hero meta, hero sub, about heading, "Even voorstellen" section, footer brand line, chatbot header + greeting + "Over Jan" answer, image alt/aria labels). Service-card line "Vaste prijs, vaste tuinman" → "Vaste prijs, vast aanspreekpunt".
+- Full owner name **Jan Decoster** now used in hero meta, hero sub, about heading, footer, and alt text (was bare "Jan"). Hero sub tightened: "ik hou … netjes" → "ik houd … het hele jaar verzorgd" + "dezelfde vertrouwde persoon aan de lijn".
+- Left the two chatbot keyword *matchers* (`tuinman sturen`) untouched — they match what a user might type, not displayed copy. No em dashes exist in visible copy (only in CSS/JS comments).
+- Two-pass verified (1440 + 390): about heading wraps cleanly ("Ik ben Jan Decoster," / "uw tuinspecialist."), hero + mobile no regressions. Shots in `.screenshots/copy-pass/`. Not yet committed/pushed.
+- **Mobile before/after CTA clip fix:** the `.ba-case` mobile rule had a fixed `height: clamp(380px,60vh,500px)` under `overflow:hidden`, which clipped the CTA's bottom padding when the green info panel ran taller than the cap. That cap was originally added to clear the sticky bottom call bar — but that bar was removed in the 2026-06-03 mobile pass, so the constraint was stale. Removed the fixed height (card sizes to content) and moved the flex-grow to the image (`.ba-slider-wrapper` min-height `clamp(220px,40vh,320px)`) so all carousel cards still match the tallest. Verified: all 5 cards 624px, consistent 20px button bottom gap, no clip. Desktop grid layout untouched (mobile-only media query). Shots in `.screenshots/ba-mobile-fix/`.
+
 ### 2026-06-04 — Template system cleanup (Claude Code)
 - Full inventory and council-reviewed architecture plan for the Buissensis template factory.
 - **ad-groenservice-new cleanup:** Deleted `styles.css`, `main.js`, `components/`, `images/`, `.vercel/` (55 files, 1732 deletions) — pre-flight grep confirmed zero references in `index.html`. Pushed to `adgroen/master` (commits `6786b0c`, `30e3613`).

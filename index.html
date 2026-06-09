@@ -6,12 +6,12 @@
 <meta name="theme-color" content="#000000">
 
 <title>Tuinen Decoster. Tuinaanleg & onderhoud in Brugge.</title>
-<meta name="description" content="Tuinen Decoster: tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Jan, uw vaste tuinman. Duurzaam, vakkundig, ecologisch. Bel 0491 32 45 09.">
+<meta name="description" content="Tuinen Decoster: tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Jan Decoster, uw vaste tuinspecialist. Duurzaam, vakkundig en ecologisch. Bel 0491 32 45 09.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2366bb35'/%3E%3Cpath d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z' fill='%23ffffff'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tuinen Decoster. Tuinaanleg & onderhoud in Brugge.">
-<meta property="og:description" content="Jan, uw vaste tuinman in Brugge en West-Vlaanderen. Vaste prijs vooraf, persoonlijke service. Bel 0491 32 45 09.">
+<meta property="og:description" content="Jan Decoster, uw vaste tuinspecialist in Brugge en West-Vlaanderen. Vaste prijs vooraf, persoonlijke service. Bel 0491 32 45 09.">
 <meta property="og:image" content="assets/jan-owner.png">
 <meta property="og:locale" content="nl_BE">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
   "@type": "LocalBusiness",
   "name": "Tuinen Decoster",
   "image": "assets/jan-owner.png",
-  "description": "Tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Jan Decoster, uw vaste tuinman.",
+  "description": "Tuinaanleg en onderhoud in Brugge en West-Vlaanderen. Jan Decoster, uw vaste tuinspecialist.",
   "@id": "",
   "telephone": "+32491324509",
   "email": "info@tuinendecoster.be",
@@ -1750,9 +1750,12 @@
 
     /* BEFORE/AFTER — stack slider over info, cap to viewport height, swipe to navigate.
        Flex column so the whole card (image + info) fits on screen; image fills the leftover space. */
-    .ba-case { display: flex; flex-direction: column; height: clamp(380px, 60vh, 500px); }
+    /* No fixed card height on mobile (the old cap clipped the CTA's bottom padding under
+       overflow:hidden). Card sizes to content; the image flexes to absorb any extra height
+       so all cards in the carousel still match the tallest one. */
+    .ba-case { display: flex; flex-direction: column; }
     .ba-viewport { touch-action: pan-y; }          /* horizontal swipe = ours, vertical = page scroll */
-    .ba-slider-wrapper { aspect-ratio: auto; height: auto; flex: 1 1 auto; min-height: 180px; }
+    .ba-slider-wrapper { aspect-ratio: auto; height: auto; flex: 1 1 auto; min-height: clamp(220px, 40vh, 320px); }
     /* On mobile hide only the draggable knob (button + pulse); the thin line still glides with the
        auto-reveal so the before/after keeps playing, but nothing looks draggable. Swipe navigates. */
     .ba-handle::before, .ba-handle::after, .ba-handle .pulse-ring { display: none; }
@@ -2270,7 +2273,7 @@
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-meta">
-        <span>Jan · uw vaste tuinman in Brugge</span>
+        <span>Jan Decoster · uw vaste tuinspecialist in Brugge</span>
       </div>
 
       <h1>
@@ -2279,7 +2282,7 @@
       </h1>
 
       <p class="hero-sub">
-        Ik ben Jan. Van gras maaien en hagen scheren tot ontmossen en onkruid wieden, ik hou uw tuin <strong>het hele jaar netjes</strong>. <strong>Vaste prijs vooraf</strong>, en u heeft altijd dezelfde persoon aan de lijn.
+        Ik ben Jan Decoster. Van gras maaien en hagen scheren tot ontmossen en onkruid wieden: ik houd uw tuin <strong>het hele jaar verzorgd</strong>. <strong>Vaste prijs vooraf</strong>, en u heeft altijd dezelfde vertrouwde persoon aan de lijn.
       </p>
 
       <div class="cta-group">
@@ -2381,15 +2384,15 @@
   <div class="container">
     <div class="intro-grid">
       <div class="intro-image" style="position: relative;">
-        <img src="assets/jan-owner.png" alt="Jan Decoster, uw vaste tuinman, in een door hem aangelegde tuin" style="object-position: 60% 30%;">
+        <img src="assets/jan-owner.png" alt="Jan Decoster, uw vaste tuinspecialist, in een door hem aangelegde tuin" style="object-position: 60% 30%;">
         <div class="mask"></div>
         <div class="badge">Beschikbaar</div>
       </div>
       <div class="intro-content">
         <span class="section-tag section-tag-light">Even voorstellen</span>
         <h2 class="section-title">
-          <span class="line"><span>Ik ben Jan, <span class="about-face" role="img" aria-label="Jan, uw tuinman"></span></span></span>
-          <span class="line"><span>uw <span class="lime">tuinman.</span></span></span>
+          <span class="line"><span>Ik ben Jan Decoster, <span class="about-face" role="img" aria-label="Jan Decoster, uw tuinspecialist"></span></span></span>
+          <span class="line"><span>uw <span class="lime">tuinspecialist.</span></span></span>
         </h2>
         <p>Al <strong>meer dan 15 jaar</strong> doe ik één ding met volle overgave: tuinen netjes, gezond en verzorgd houden. <strong>Geen ploeg en geen onderaannemers</strong>. Gewoon ik, met oog voor detail.</p>
         <p>U belt, <strong>ik kom zelf langs</strong>. Zo weet u meteen wie het werk uitvoert en blijft alles persoonlijk, duidelijk en <strong>afspraak is afspraak</strong>.</p>
@@ -2510,7 +2513,7 @@
             <div class="service-arrow">↗</div>
           </div>
           <h3>Seizoenscontract</h3>
-          <p>Uw tuin <strong>het hele jaar in topconditie</strong>, zonder eraan te denken. <strong>Vaste prijs, vaste tuinman</strong>, geen zorgen.</p>
+          <p>Uw tuin <strong>het hele jaar in topconditie</strong>, zonder eraan te denken. <strong>Vaste prijs, vast aanspreekpunt</strong>, geen zorgen.</p>
           <span class="service-price">Prijs op maat</span>
         </div>
       </article>
@@ -2742,7 +2745,7 @@
       <div class="process-step" data-step="1">
         <div class="step-number">01</div>
         <div class="step-image">
-          <img src="assets/jan-owner.png" alt="Kennismaking met Jan, uw vaste tuinman" loading="lazy" style="object-position: 60% 30%;">
+          <img src="assets/jan-owner.png" alt="Kennismaking met Jan Decoster, uw vaste tuinspecialist" loading="lazy" style="object-position: 60% 30%;">
           <div class="step-image-overlay"></div>
         </div>
         <div class="step-title">Kennismaking</div>
@@ -3258,7 +3261,7 @@
         </div>
         <div class="logo-text">Tuinen <span class="logo-lime">Decoster</span></div>
       </a>
-      <p>Ik ben Jan, uw <strong>vaste tuinman</strong> in Brugge en omstreken. <strong>Persoonlijke service</strong>, eerlijke prijzen en altijd verzorgd werk.</p>
+      <p>Ik ben Jan Decoster, uw <strong>vaste tuinspecialist</strong> in Brugge en omstreken. <strong>Persoonlijke service</strong>, eerlijke prijzen en altijd verzorgd werk.</p>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
@@ -4273,10 +4276,10 @@
 <div id="faq-panel" role="dialog" aria-label="Chatbot" aria-modal="true">
   <div class="faq-header">
     <div class="faq-header-logo">
-      <img src="assets/jan-closeup.png" alt="Jan Decoster, uw tuinman">
+      <img src="assets/jan-closeup.png" alt="Jan Decoster, uw tuinspecialist">
     </div>
     <div class="faq-header-title">
-      <strong>Jan · Tuinman</strong>
+      <strong>Jan · Tuinspecialist</strong>
       <span><span class="faq-online-dot" aria-hidden="true"></span>Online · Stel een vraag</span>
     </div>
     <button class="faq-close" aria-label="Sluiten">
@@ -4330,7 +4333,7 @@
                'gecertificeerd','over','garantie','klanten','info','vertrouw','verzekerd',
                'reviews','beoordelingen','erkend','gediplomeerd','vakman','vakmensen',
                'about','who are you','history','credentials','reliable'],
-     answer:'Ik ben een vakkundige tuinman met meer dan <strong>15 jaar ervaring</strong> in Brugge en omgeving. Van gazononderhoud tot ontmossen en boomverzorging, alles met een <strong>vaste prijs</strong> en propere afwerking.'}
+     answer:'Ik ben een vakkundige tuinspecialist met meer dan <strong>15 jaar ervaring</strong> in Brugge en omgeving. Van gazononderhoud tot ontmossen en boomverzorging, alles met een <strong>vaste prijs</strong> en propere afwerking.'}
   ];
 
   var INTENT_PATTERNS=[
@@ -4430,7 +4433,7 @@
   }
 
   function showWelcome(){
-    addBotMsg('Hallo! Ik ben Jan, uw tuinman. Waarmee kan ik u helpen?',false);
+    addBotMsg('Hallo! Ik ben Jan, uw tuinspecialist. Waarmee kan ik u helpen?',false);
     buildShortcuts();
   }
 
