@@ -75,6 +75,13 @@ Naming: GitHub repo is now **`tuinen-demo`**; the local folder is still `ad-groe
 - Two-pass verified (1440 + 390): about heading wraps cleanly ("Ik ben Jan Decoster," / "uw tuinspecialist."), hero + mobile no regressions. Shots in `.screenshots/copy-pass/`. Not yet committed/pushed.
 - **Mobile before/after CTA clip fix:** the `.ba-case` mobile rule had a fixed `height: clamp(380px,60vh,500px)` under `overflow:hidden`, which clipped the CTA's bottom padding when the green info panel ran taller than the cap. That cap was originally added to clear the sticky bottom call bar — but that bar was removed in the 2026-06-03 mobile pass, so the constraint was stale. Removed the fixed height (card sizes to content) and moved the flex-grow to the image (`.ba-slider-wrapper` min-height `clamp(220px,40vh,320px)`) so all carousel cards still match the tallest. Verified: all 5 cards 624px, consistent 20px button bottom gap, no clip. Desktop grid layout untouched (mobile-only media query). Shots in `.screenshots/ba-mobile-fix/`.
 
+### 2026-06-09 — Image performance optimization (Claude Code)
+- **Root cause of slow load:** `assets/` was ~68MB of uncompressed PNGs (most 2–4MB each, dimensions ~1500px). Converted all 21 referenced images to WebP (longest edge capped 1600px, quality 80, via `sharp` — installed then removed, not a runtime dep). **59.1MB → 5.44MB of imagery, 91% smaller**, no visible quality loss (two-pass verified hero + services + before/after at 1440).
+- Swapped all 56 `.png` refs in `index.html` to `.webp` (`Detail shot.png` → clean `detail-shot.webp`). `og:image` + JSON-LD `image` now point to a dedicated `jan-owner-og.jpg` (1200px, 132KB) since some social scrapers still choke on WebP.
+- Added `loading="lazy"` to 23 below-fold images (services "Wat Jan doet", before/after carousel, review avatars, chatbot); hero poster + main owner photo kept eager for fast first paint.
+- **Repo slimming:** removed all 25 source PNGs from git (21 converted + 4 dead/unreferenced: `Correct picture jan owner.png`, `closup picture jan correct owner…png`, `jan-portrait.png`, `before-moss.png`). `assets/` now 5.7MB total (was 68MB). Masters remain in git history if ever needed.
+- Network verified: all 21 WebP load 200, zero 404s. Shots in `.screenshots/perf-webp/`.
+
 ### 2026-06-04 — Template system cleanup (Claude Code)
 - Full inventory and council-reviewed architecture plan for the Buissensis template factory.
 - **ad-groenservice-new cleanup:** Deleted `styles.css`, `main.js`, `components/`, `images/`, `.vercel/` (55 files, 1732 deletions) — pre-flight grep confirmed zero references in `index.html`. Pushed to `adgroen/master` (commits `6786b0c`, `30e3613`).
